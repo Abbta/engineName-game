@@ -43,10 +43,5 @@ namespace EngineName
 		{
 			return static_cast<double>(*this) < static_cast<double>(vector);
 		}
-
-		Vector::operator D2D1_POINT_2F() const
-		{
-			return D2D1::Point2F(static_cast<FLOAT>(x), static_cast<FLOAT>(y));
-		}
 	}
 }

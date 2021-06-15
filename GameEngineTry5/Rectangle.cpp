@@ -12,7 +12,7 @@ namespace EngineName
 
 			if (borderWidth > 0)
 			{
-				renderTarget->DrawRectangle(*this, brushes.getBrush(renderTarget, color), static_cast<FLOAT>(borderWidth));
+				renderTarget->DrawRectangle(*this, brushes.getBrush(renderTarget, color), mptr_world->width.toOutputWidth(borderWidth));
 			}
 		}
 

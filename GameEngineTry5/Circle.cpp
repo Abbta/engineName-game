@@ -32,7 +32,8 @@ namespace EngineName
 		//typecast to winapi D2D1 ellipse
 		Circle::operator D2D1_ELLIPSE() const
 		{
-			return D2D1_ELLIPSE{ boxCenter, mptr_world->width.toOutputWidth(radius), mptr_world->width.toOutputWidth(radius) };
+			return D2D1_ELLIPSE{D2D1::Point2F(mptr_world->width.toOutputWidth(boxCenter.x), mptr_world->height.toOutputHeight(boxCenter.y)),
+				mptr_world->width.toOutputWidth(radius), mptr_world->width.toOutputWidth(radius) };
 		}
 
 		//performs the drawing if inside a drawing context

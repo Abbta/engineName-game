@@ -32,8 +32,6 @@ namespace EngineName
 			Vector& operator+=(const Vector& vector);
 			//get the magnitude of the vector
 			operator double() const;
-			//cast to winapi point
-			operator D2D1_POINT_2F() const;
 
 			//boolean operators
 			//compare two positions
