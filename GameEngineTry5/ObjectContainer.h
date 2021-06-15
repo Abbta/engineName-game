@@ -9,6 +9,7 @@
 #include "TextRectangleConstructor.h"
 #include "Color.h"
 #include "Painter.h"
+#include "WidthAndHeight.h"
 #pragma once
 namespace EngineName
 {
@@ -46,28 +47,6 @@ namespace EngineName
 				BackgroundColor(Drawing::Painter& painterRef);
 
 				BackgroundColor& operator=(const Object::Color& color);
-			};
-			class Width
-			{
-			private:
-				unsigned int mp_width;
-				MainWindow& mp_mainWinRef;
-			public:
-				Width(MainWindow& mainWindow);
-
-				operator const unsigned int() const { return mp_width; }
-				Width& operator=(const unsigned int newWidth);
-			};
-			class Height
-			{
-			private:
-				unsigned int mp_height;
-				MainWindow& mp_mainWinRef;
-			public:
-				Height(MainWindow& mainWindow);
-
-				operator const unsigned int() const { return mp_height; }
-				Height& operator=(const unsigned int newHeight);
 			};
 		public:
 			ObjectContainer();

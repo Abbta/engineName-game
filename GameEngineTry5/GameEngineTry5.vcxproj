@@ -180,6 +180,7 @@
     <ClInclude Include="TextRectangleConstructor.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Visible.h" />
+    <ClInclude Include="WidthAndHeight.h" />
     <ClInclude Include="WindowAccess.h" />
     <ClInclude Include="WindowBaseClass.h" />
     <ClInclude Include="_BaseIncludeLibraries.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="TextRectangleConstructor.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Visible.cpp" />
+    <ClCompile Include="WidthAndHeight.cpp" />
     <ClCompile Include="WindowAccess.cpp" />
     <ClCompile Include="WindowBaseClass.cpp" />
   </ItemGroup>

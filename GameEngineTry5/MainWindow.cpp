@@ -27,6 +27,9 @@ namespace EngineName
 				mpptr_painter->mf_createGraphicsResources();
 				mpptr_painter->mf_clearWindow();
 				return 0;
+			case WM_SIZE:
+				//resize
+				return 0;
 			case WM_DESTROY:
 				PostQuitMessage(0);
 				return 0;
