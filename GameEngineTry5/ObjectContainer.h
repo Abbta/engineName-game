@@ -47,6 +47,17 @@ namespace EngineName
 
 				BackgroundColor& operator=(const Object::Color& color);
 			};
+			class Width
+			{
+			private:
+				unsigned int mp_width;
+				MainWindow& mp_mainWinRef;
+			public:
+				Width(MainWindow& mainWindow);
+
+				operator const unsigned int() const { return mp_width; }
+				Width& operator=(const unsigned int newWidth);
+			};
 		public:
 			ObjectContainer();
 			int size(); //returns the amount of user added objects
@@ -71,6 +82,7 @@ namespace EngineName
 			//access classes
 			WindowAccess window;					//is fairly simple
 			BackgroundColor backgroundColor;
+			Width width;
 
 			//winapi functions that can access private world objects
 			friend int WINAPI::wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow);

@@ -16,9 +16,24 @@ namespace EngineName
 			return *this;
 		}
 
+		ObjectContainer::Width::Width(MainWindow& mainWindow) :
+			mp_mainWinRef(mainWindow)
+		{
+			RECT temp;
+			GetWindowRect(mp_mainWinRef.Window(), &temp);
+			mp_width = temp.right - temp.left;
+		}
+
+		ObjectContainer::Width& ObjectContainer::Width::operator=(const unsigned int newWidth)
+		{
+			mp_width = newWidth;
+			//recalculate
+		}
+
 		ObjectContainer::ObjectContainer() 
 			:mpptr_window{ std::make_unique<MainWindow>(*this) }, window(&mpptr_window),
-			rectangle(this), circle(this), textRectangle(this), mtemporary_origin(0,0), mpc_theQueue(), backgroundColor(*mpptr_window->mpptr_painter)
+			rectangle(this), circle(this), textRectangle(this), mtemporary_origin(0,0), mpc_theQueue(),
+			backgroundColor(*mpptr_window->mpptr_painter), width(*mpptr_window)
 		{
 		}
 
