@@ -30,10 +30,24 @@ namespace EngineName
 			//recalculate
 		}
 
+		ObjectContainer::Height::Height(MainWindow& mainWindow)
+			:mp_mainWinRef(mainWindow)
+		{
+			RECT temp;
+			GetWindowRect(mp_mainWinRef.Window(), &temp);
+			mp_height = temp.bottom - temp.top;
+		}
+
+		ObjectContainer::Height& ObjectContainer::Height::operator=(const unsigned int newHeight)
+		{
+			mp_height = newHeight;
+			//recalculate
+		}
+
 		ObjectContainer::ObjectContainer() 
 			:mpptr_window{ std::make_unique<MainWindow>(*this) }, window(&mpptr_window),
 			rectangle(this), circle(this), textRectangle(this), mtemporary_origin(0,0), mpc_theQueue(),
-			backgroundColor(*mpptr_window->mpptr_painter), width(*mpptr_window)
+			backgroundColor(*mpptr_window->mpptr_painter), width(*mpptr_window), height(*mpptr_window)
 		{
 		}
 
