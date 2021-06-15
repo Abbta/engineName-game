@@ -6,7 +6,7 @@ namespace EngineName
 		Width::Width(MainWindow& mainWindow) :
 			mp_mainWinRef(mainWindow)
 		{
-			mp_width = CW_USEDEFAULT; här fixa så att den blir bra i början
+			mp_width = c_windowCreationDefaultWidth;
 		}
 
 		Width& Width::operator=(const unsigned int newWidth)
@@ -40,7 +40,7 @@ namespace EngineName
 		Height::Height(MainWindow& mainWindow)
 			:mp_mainWinRef(mainWindow)
 		{
-			mp_height = CW_USEDEFAULT;
+			mp_height = c_windowCreationDefaultHeight;
 		}
 
 		Height& Height::operator=(const unsigned int newHeight)

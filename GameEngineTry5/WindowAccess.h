@@ -77,7 +77,8 @@ namespace EngineName
 
 			std::unique_ptr<MainWindow>* mpptr_mainWindowRef;
 		public:
-			WindowAccess(std::unique_ptr<MainWindow, std::default_delete<MainWindow>>* mainWindowRef): mpptr_mainWindowRef(mainWindowRef), flags(*this), title(*this) {}
+			WindowAccess(std::unique_ptr<MainWindow, std::default_delete<MainWindow>>* mainWindowRef):
+				mpptr_mainWindowRef(mainWindowRef), flags(*this), title(*this), creationHeight(*this), creationWidth(*this) {}
 			//container classes
 			Flags flags;
 			Title title;
