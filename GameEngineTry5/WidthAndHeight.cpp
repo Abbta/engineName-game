@@ -6,9 +6,7 @@ namespace EngineName
 		Width::Width(MainWindow& mainWindow) :
 			mp_mainWinRef(mainWindow)
 		{
-			RECT temp;
-			GetWindowRect(mp_mainWinRef.Window(), &temp);
-			mp_width = temp.right - temp.left;
+			mp_width = CW_USEDEFAULT; här fixa så att den blir bra i början
 		}
 
 		Width& Width::operator=(const unsigned int newWidth)
@@ -42,9 +40,7 @@ namespace EngineName
 		Height::Height(MainWindow& mainWindow)
 			:mp_mainWinRef(mainWindow)
 		{
-			RECT temp;
-			GetWindowRect(mp_mainWinRef.Window(), &temp);
-			mp_height = temp.bottom - temp.top;
+			mp_height = CW_USEDEFAULT;
 		}
 
 		Height& Height::operator=(const unsigned int newHeight)

@@ -22,7 +22,7 @@ namespace EngineName
 			* small container class holding what flags to use in window creation
 			* when the variable is changed it will also change the corresponding variable in mainwindow
 			*/
-			class WindowFlagsClass
+			class Flags
 			{
 			private:
 				//OPTIONAL TODO:
@@ -30,7 +30,7 @@ namespace EngineName
 				unsigned int mp_windowFlags;
 				WindowAccess& mpref_windowAccessRef; //instead of holding ref to mainwindow it holds ref to windowacces wiich in turn has a ref to mainwindow
 			public:
-				WindowFlagsClass(WindowAccess &windowAccessRef) : 
+				Flags(WindowAccess &windowAccessRef) : 
 					mp_windowFlags(c_mainWindowStandardFlags), mpref_windowAccessRef(windowAccessRef) {}
 				unsigned int& operator=(const unsigned int newFlags);
 				//OPTIONAL TODO:
@@ -42,23 +42,47 @@ namespace EngineName
 			* small container class holding the title of the window
 			* when the variable is changed it will also change the corresponding variable in mainwindow
 			*/
-			class WindowTitleClass
+			class Title
 			{
 			private:
 				std::wstring mp_windowTitle;
 				WindowAccess& mpref_windowAccessRef; //instead of holding ref to mainwindow it holds ref to windowacces wiich in turn has a ref to mainwindow
 			public:
-				WindowTitleClass(WindowAccess& windowAccessRef) : 
+				Title(WindowAccess& windowAccessRef) : 
 					mp_windowTitle(c_mainWindowStandardTitle), mpref_windowAccessRef(windowAccessRef) {}
 				std::wstring& operator=(std::wstring newTitle);
+			};
+
+			class CreationWidth
+			{
+			private:
+				int mp_width;
+				WindowAccess& mp_windowAccesRef;
+			public:
+				CreationWidth(WindowAccess& windowAccessRef)
+					: mp_width(c_windowCreationDefaultWidth), mp_windowAccesRef(windowAccessRef) {}
+				const int operator=(const int newWidth);
+			};
+
+			class CreationHeight
+			{
+			private:
+				int mp_height;
+				WindowAccess& mp_windowAccesRef;
+			public:
+				CreationHeight(WindowAccess& windowAccessRef)
+					: mp_height(c_windowCreationDefaultWidth), mp_windowAccesRef(windowAccessRef) {}
+				const int operator=(const int newHeight);
 			};
 
 			std::unique_ptr<MainWindow>* mpptr_mainWindowRef;
 		public:
 			WindowAccess(std::unique_ptr<MainWindow, std::default_delete<MainWindow>>* mainWindowRef): mpptr_mainWindowRef(mainWindowRef), flags(*this), title(*this) {}
 			//container classes
-			WindowFlagsClass flags;
-			WindowTitleClass title;
+			Flags flags;
+			Title title;
+			CreationHeight creationHeight;
+			CreationWidth creationWidth;
 		};
 	}
 }

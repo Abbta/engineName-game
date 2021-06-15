@@ -24,11 +24,15 @@ namespace EngineName
 		private:
 			int mp_windowFlags; //only used in creation of window
 			std::wstring mp_windowTitle; //only used in creation of window
+			int mp_creationWidth;
+			int mp_creationHeight;
 			std::unique_ptr<Drawing::Painter> mpptr_painter;
 			ObjectContainer& mp_world;
 		public:
 
-			MainWindow(ObjectContainer& world): mp_world(world), mp_windowFlags(c_mainWindowStandardFlags), mp_windowTitle(c_mainWindowStandardTitle),
+			MainWindow(ObjectContainer& world): mp_world(world),
+				mp_windowFlags(c_mainWindowStandardFlags), mp_windowTitle(c_mainWindowStandardTitle),
+				mp_creationHeight(c_windowCreationDefaultHeight), mp_creationWidth(c_windowCreationDefaultWidth),
 				mpptr_painter(std::make_unique<Drawing::Painter>(world))
 			{ }
 			//functions necessary for creation

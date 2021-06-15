@@ -41,7 +41,15 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 			EngineName::Base::MainWindow *ptrMainWindow{ &*objectContainer->mpptr_window };
 			
 			//creates the main window of app
-			if (!ptrMainWindow->Create(ptrMainWindow->mp_windowTitle.c_str(), ptrMainWindow->mp_windowFlags))
+			if (!ptrMainWindow->Create(
+				ptrMainWindow->mp_windowTitle.c_str(),
+				ptrMainWindow->mp_windowFlags,
+				NULL,
+				CW_USEDEFAULT,
+				CW_USEDEFAULT,
+				ptrMainWindow->mp_creationWidth,
+				ptrMainWindow->mp_creationHeight
+				))
 				throw EngineName::Exceptions::BasicException("failed to create main window");
 
 			//displays the window

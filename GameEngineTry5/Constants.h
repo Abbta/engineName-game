@@ -9,6 +9,8 @@ namespace EngineName
 	{
 		constexpr int c_mainWindowStandardFlags(WS_OVERLAPPEDWINDOW); //default: WS_OVERLAPPEDWINDOW, flags used when creating main window if dev supplies none
 		const std::wstring c_mainWindowStandardTitle(L"EngineName Main Window"); //default: L"EngineName Main Window", name of app if dev supplies none
+		constexpr int c_windowCreationDefaultWidth(1000);
+		constexpr int c_windowCreationDefaultHeight(600);
 	}
 
 	namespace Object
