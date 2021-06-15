@@ -15,26 +15,27 @@ namespace EngineName
 		{
 			mp_width = newWidth;
 			//recalculate
+			return *this;
 		}
 
 		const FLOAT Width::toOutputWidth(const unsigned int width) const
 		{
 			RECT temp;
 			GetWindowRect(mp_mainWinRef.Window(), &temp);
-			return (width / static_cast<double>(mp_width)) * (temp.right - temp.left);
+			return static_cast<FLOAT>(width / static_cast<double>(mp_width)) * (temp.right - temp.left);
 		}
 
 		const FLOAT Width::toOutputWidth(const signed int width) const
 		{
 			RECT temp;
 			GetWindowRect(mp_mainWinRef.Window(), &temp);
-			return (width / static_cast<double>(mp_width)) * (temp.right - temp.left);
+			return static_cast<FLOAT>(width / static_cast<double>(mp_width)) * (temp.right - temp.left);
 		}
 		const FLOAT Width::toOutputWidth(const double width) const
 		{
 			RECT temp;
 			GetWindowRect(mp_mainWinRef.Window(), &temp);
-			return (width / mp_width) * (temp.right - temp.left);
+			return static_cast<FLOAT>(width / mp_width) * (temp.right - temp.left);
 		}
 
 
@@ -50,20 +51,21 @@ namespace EngineName
 		{
 			mp_height = newHeight;
 			//recalculate
+			return *this;
 		}
 
 		const FLOAT Height::toOutputHeight(const unsigned int height) const
 		{
 			RECT temp;
 			GetWindowRect(mp_mainWinRef.Window(), &temp);
-			return (height / static_cast<double>(mp_height)) * (temp.bottom - temp.top);
+			return static_cast<FLOAT>(height / static_cast<double>(mp_height)) * (temp.bottom - temp.top);
 		}
 
 		const FLOAT Height::toOutputHeight(const signed int height) const
 		{
 			RECT temp;
 			GetWindowRect(mp_mainWinRef.Window(), &temp);
-			return (height / static_cast<double>(mp_height)) * (temp.bottom - temp.top);
+			return static_cast<FLOAT>(height / static_cast<double>(mp_height)) * (temp.bottom - temp.top);
 		}
 	}
 }
