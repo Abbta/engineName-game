@@ -6,9 +6,19 @@ namespace EngineName
 	using namespace Time;
 	namespace Base
 	{
+		ObjectContainer::BackgroundColor::BackgroundColor(Drawing::Painter& painter):
+			mp_painterref(painter), mp_color(Object::c_defaultBackgroundColor) {}
+
+		ObjectContainer::BackgroundColor& ObjectContainer::BackgroundColor::operator=(const Object::Color& color)
+		{
+			mp_painterref.mf_changeBackgroundColor(color);
+			mp_color = color;
+			return *this;
+		}
+
 		ObjectContainer::ObjectContainer() 
 			:mpptr_window{ std::make_unique<MainWindow>(*this) }, window(&mpptr_window),
-			rectangle(this), circle(this), textRectangle(this), mtemporary_origin(0,0), mpc_theQueue()
+			rectangle(this), circle(this), textRectangle(this), mtemporary_origin(0,0), mpc_theQueue(), backgroundColor(*mpptr_window->mpptr_painter)
 		{
 		}
 

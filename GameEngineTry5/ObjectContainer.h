@@ -7,6 +7,8 @@
 #include "MainWindow.h"
 #include "ObjectTasks.h"
 #include "TextRectangleConstructor.h"
+#include "Color.h"
+#include "Painter.h"
 #pragma once
 namespace EngineName
 {
@@ -35,6 +37,16 @@ namespace EngineName
 			std::vector<Object::Visible*> mparr_allVisibles;
 
 			Time::Queue mpc_theQueue;
+			class BackgroundColor
+			{
+			private:
+				Object::Color mp_color;
+				Drawing::Painter& mp_painterref;
+			public:
+				BackgroundColor(Drawing::Painter& painterRef);
+
+				BackgroundColor& operator=(const Object::Color& color);
+			};
 		public:
 			ObjectContainer();
 			int size(); //returns the amount of user added objects
@@ -58,6 +70,7 @@ namespace EngineName
 
 			//access classes
 			WindowAccess window;					//is fairly simple
+			BackgroundColor backgroundColor;
 
 			//winapi functions that can access private world objects
 			friend int WINAPI::wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow);

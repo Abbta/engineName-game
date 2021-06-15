@@ -27,7 +27,7 @@ namespace EngineName
 					throw Exceptions::BasicException("Failed to create render target");
 
 				//add default color to backgroundBrush
-				if (FAILED(mpptr_renderTarget->CreateSolidColorBrush(Object::c_defaultBackgroundColor, &mpptr_backgroundBrush)))
+				if (FAILED(mpptr_renderTarget->CreateSolidColorBrush(mp_backgroundColor, &mpptr_backgroundBrush)))
 					throw Exceptions::BasicException("Failed to create background brush");
 
 				if(FAILED(DWriteCreateFactory(
@@ -226,7 +226,7 @@ namespace EngineName
 				throw Exceptions::BasicException("Rendertarget is null");
 
 			mpptr_renderTarget->BeginDraw();
-			mpptr_renderTarget->Clear(Object::c_defaultBackgroundColor);
+			mpptr_renderTarget->Clear(mp_backgroundColor);
 			mpptr_renderTarget->EndDraw();
 		}
 
@@ -242,6 +242,17 @@ namespace EngineName
 			//add visible to drawn objects
 			//as a deep copy
 			mparr_paintedObjects[visible.layerID] = std::make_unique<Object::Visible>(visible);
+		}
+
+		void Painter::mf_changeBackgroundColor(const Object::Color& color)
+		{
+			if (mpptr_renderTarget != nullptr)
+			{
+				mpptr_renderTarget->CreateSolidColorBrush(color, &mpptr_backgroundBrush);
+				mf_clearWindow();
+				mf_drawAll();
+			}
+			mp_backgroundColor = color;
 		}
 	}
 }

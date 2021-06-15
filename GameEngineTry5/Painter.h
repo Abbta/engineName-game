@@ -2,7 +2,9 @@
 #include "BaseIncludeLibraries.h"
 #include "BrushContainer.h"
 #include "TextFormatContainer.h"
+#include "Color.h"
 #include "Visible.h"
+#include "Constants.h"
 #pragma once
 namespace EngineName
 {
@@ -46,6 +48,8 @@ namespace EngineName
 			std::unique_ptr<TextFormatContainer> mpptr_fonts;
 			void mpf_createGraphicsResources(); //allocates graphic resources
 
+			Object::Color mp_backgroundColor;
+
 			std::vector<std::unique_ptr<Object::Visible>> mparr_paintedObjects; //All visibles as they were when last painted
 			std::vector<std::unique_ptr<Object::Visible>> mparr_objectsThatHasCalledDraw; //Visibles that wants to be drawn as they were
 			std::vector<Object::Visible*> mpf_getAffectedObjects(
@@ -60,7 +64,9 @@ namespace EngineName
 			Painter(Base::ObjectContainer& world) :
 				mp_world(world), mpptr_renderTarget(nullptr), mpptr_factory(nullptr), mpptr_backgroundBrush(nullptr),
 				mpptr_brushes(std::make_unique<BrushContainer>(BrushContainer())),
-				mpptr_writeFactory(nullptr), mpptr_fonts(std::make_unique<TextFormatContainer>(TextFormatContainer())){}
+				mpptr_writeFactory(nullptr), mpptr_fonts(std::make_unique<TextFormatContainer>(TextFormatContainer())),
+				mp_backgroundColor(Object::c_defaultBackgroundColor)
+			{}
 			/*
 			Painter(Painter& p): 
 				mp_world(p.mp_world), mpptr_renderTarget(p.mpptr_renderTarget), mpptr_factory(p.mpptr_factory),
@@ -75,6 +81,7 @@ namespace EngineName
 			void mf_drawAll(); //Makes all visibles request painting (used first time window is opened for example)
 			void mf_addToObjectsThatHasCalledDraw(const Object::Visible& visible); //used for requesting paint
 			void mf_clearWindow(); //clears all visibles
+			void mf_changeBackgroundColor(const Object::Color& color);
 
 			friend class Object::TextRectangle;
 		};
