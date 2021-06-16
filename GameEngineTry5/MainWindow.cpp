@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "Painter.h"
 #include "ObjectContainer.h"
+#include <Windowsx.h>
 /*
 * Contains all member functions of mainwindow
 * TODO WHEN NEEDED:
@@ -29,6 +30,12 @@ namespace EngineName
 				return 0;
 			case WM_SIZE:
 				//resize
+				return 0;
+			case WM_MBUTTONDBLCLK:
+				//tell engine a click has happened and where in engine coordinates
+				mp_world.mp_actionListener.click(
+					mp_world.width.fromInputWidth(GET_X_LPARAM(lParam)),
+					mp_world.width.fromInputWidth(GET_Y_LPARAM(lParam)));
 				return 0;
 			case WM_DESTROY:
 				PostQuitMessage(0);

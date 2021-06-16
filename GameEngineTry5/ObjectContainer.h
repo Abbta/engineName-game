@@ -11,6 +11,7 @@
 #include "Painter.h"
 #include "WidthAndHeight.h"
 #include "OnActionBase.h"
+#include "ActionListener.h"
 #pragma once
 namespace EngineName
 {
@@ -39,6 +40,7 @@ namespace EngineName
 			std::vector<Object::Visible*> mparr_allVisibles;
 
 			Time::Queue mpc_theQueue;
+			Action::ActionListener mp_actionListener;
 			class BackgroundColor
 			{
 			private:

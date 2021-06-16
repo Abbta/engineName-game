@@ -36,6 +36,13 @@ namespace EngineName
 			return static_cast<FLOAT>(width / mp_width) * (temp.right - temp.left);
 		}
 
+		const unsigned int Width::fromInputWidth(const short inputWidth) const
+		{
+			RECT temp;
+			GetWindowRect(mp_mainWinRef.Window(), &temp);
+			return (inputWidth / static_cast<double>(temp.right - temp.left)) * mp_width;
+		}
+
 
 		Height::Height(MainWindow& mainWindow)
 			:mp_mainWinRef(mainWindow)
@@ -62,6 +69,13 @@ namespace EngineName
 			RECT temp;
 			GetWindowRect(mp_mainWinRef.Window(), &temp);
 			return static_cast<FLOAT>(height / static_cast<double>(mp_height)) * (temp.bottom - temp.top);
+		}
+
+		const unsigned int Height::fromInputHeight(const short inputHeight) const
+		{
+			RECT temp;
+			GetWindowRect(mp_mainWinRef.Window(), &temp);
+			return (inputHeight / static_cast<double>(temp.right - temp.left)) * mp_height;
 		}
 	}
 }

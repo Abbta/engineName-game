@@ -7,6 +7,7 @@ namespace EngineName
 		class Width
 		{
 		private:
+			//TODO: windows doesent allow widths above short, change int to short
 			unsigned int mp_width;
 			MainWindow& mp_mainWinRef;
 		public:
@@ -17,6 +18,7 @@ namespace EngineName
 			const FLOAT toOutputWidth(const unsigned int width) const;
 			const FLOAT toOutputWidth(const signed int width) const;
 			const FLOAT toOutputWidth(const double width) const;
+			const unsigned int fromInputWidth(const short inputWidth) const;
 		};
 
 		class Height
@@ -31,6 +33,7 @@ namespace EngineName
 			Height& operator=(const unsigned int newHeight);
 			const FLOAT toOutputHeight(const unsigned int height) const;
 			const FLOAT toOutputHeight(const signed int height) const;
+			const unsigned int fromInputHeight(const short inputHeight) const;
 		};
 	}
 }
