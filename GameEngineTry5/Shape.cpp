@@ -94,7 +94,7 @@ namespace EngineName
             //calculates an aproximate box to to bezier
             void Bezier::mpf_initBox(std::vector<Vector>& points, Vector &position, unsigned int &height, unsigned int& width)
             {
-                position = Vector(static_cast<unsigned int>(-1), static_cast<unsigned int>(-1));
+                position = Vector(0xFFFFFFF, 0xFFFFFFF);
                 int highestY = 0;
                 int highestX = 0;
                 for (int i(0); i < points.size(); i++)

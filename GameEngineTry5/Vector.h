@@ -15,7 +15,10 @@ namespace EngineName
 		{
 		public:
 			Vector() : x(0), y(0) {}
-			Vector(int x, int y) : x(x), y(y) {}
+			Vector(const int x, const int y) : x(x), y(y) {}
+			Vector(const double x, const double y) : x(static_cast<int>(x)), y(static_cast<int>(y)) {}
+			Vector(const double x, const int y) : x(static_cast<int>(x)), y(y) {}
+			Vector(const int x, const double y) : x(x), y(static_cast<int>(y)) {}
 			Vector(Vector& v) : x(v.x), y(v.y) {}
 			Vector(Vector* v) : x(v->x), y(v->y) {}
 			Vector(const Vector& v) : x(v.x), y(v.y) {}

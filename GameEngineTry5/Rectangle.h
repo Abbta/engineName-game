@@ -23,6 +23,10 @@ namespace EngineName
                 const Vector& position = Vector(0, 0), const int width = 0, const int height = 0, const Color& color = Color("000000"),
                 const unsigned int borderWidth = 0, const Color& borderColor = Color("00000000"))
                 :Visible(world, position, width, height, color), borderWidth(borderWidth), borderColor(borderColor) {}
+            Rectangle(Base::ObjectContainer& world,
+                const Vector& position = Vector(0, 0), const double width = 0.0, const double height = 0.0, const Color& color = Color("000000"),
+                const unsigned int borderWidth = 0, const Color& borderColor = Color("00000000"))
+                :Visible(world, position, static_cast<int>(width), static_cast<int>(height), color), borderWidth(borderWidth), borderColor(borderColor) {}
 
             void draw() const override;
 
