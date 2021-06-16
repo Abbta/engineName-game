@@ -68,6 +68,7 @@ namespace EngineName
 			}
 
 			//*-----------------------------------------------------------------*
+			friend class Action::OnActionBase;
 		};
 
 	}

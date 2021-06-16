@@ -10,6 +10,7 @@
 #include "Color.h"
 #include "Painter.h"
 #include "WidthAndHeight.h"
+#include "OnActionBase.h"
 #pragma once
 namespace EngineName
 {
@@ -85,6 +86,7 @@ namespace EngineName
 			friend class MainWindow;
 			friend class Time::Task;
 			friend class Object::TextRectangle; //unsymmetric due to textdrawing not being accesible in mp_drawSelf()
+			friend class Action::OnActionBase;
 			//TEMPORARY:
 			Object::Vector mtemporary_origin;
 		};

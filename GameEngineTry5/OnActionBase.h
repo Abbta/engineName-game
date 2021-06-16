@@ -1,15 +1,21 @@
 #pragma once
+#include "Task.h"
 namespace EngineName
 {
+	namespace Base
+	{
+		class ObjectContainer;
+	}
 	namespace Action
 	{
-		template<class TaskType>
 		class OnActionBase
 		{
-		private:
-			TaskType mp_task;
+		protected:
+			Time::Task& mp_taskRef;
+			Base::ObjectContainer& mp_worldRef;
 		public:
-			OnActionBase(TaskType& task): mp_task(task) {}
+			template<class TaskType>
+			OnActionBase(Base::ObjectContainer& world, const TaskType& task);
 		};
 	}
 }

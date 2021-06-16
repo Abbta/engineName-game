@@ -30,6 +30,7 @@ namespace EngineName
 
 			friend class Base::MainWindow;
 			friend class Base::ObjectContainer;
+			friend class Action::OnActionBase;
 		};
 	}
 }
