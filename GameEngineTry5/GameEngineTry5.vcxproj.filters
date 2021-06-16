@@ -126,6 +126,15 @@
     <ClInclude Include="WidthAndHeight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ActionListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OnActionBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OnClick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineTry5.cpp">
@@ -216,6 +225,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WidthAndHeight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OnActionBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OnClick.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

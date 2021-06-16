@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ActionListener.h" />
     <ClInclude Include="BaseIncludeLibraries.h" />
     <ClInclude Include="BasicException.h" />
     <ClInclude Include="BasicVariableException.h" />
@@ -166,6 +167,8 @@
     <ClInclude Include="ObjectConstructor.h" />
     <ClInclude Include="ObjectContainer.h" />
     <ClInclude Include="ObjectTasks.h" />
+    <ClInclude Include="OnActionBase.h" />
+    <ClInclude Include="OnClick.h" />
     <ClInclude Include="Painter.h" />
     <ClInclude Include="PaintingOrder.h" />
     <ClInclude Include="Queue.h" />
@@ -186,6 +189,7 @@
     <ClInclude Include="_BaseIncludeLibraries.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ActionListener.cpp" />
     <ClCompile Include="BasicException.cpp" />
     <ClCompile Include="BasicVariableException.cpp" />
     <ClCompile Include="BrushContainer.cpp" />
@@ -201,6 +205,8 @@
     <ClCompile Include="ObjectConstructor.cpp" />
     <ClCompile Include="ObjectContainer.cpp" />
     <ClCompile Include="ObjectTasks.cpp" />
+    <ClCompile Include="OnActionBase.cpp" />
+    <ClCompile Include="OnClick.cpp" />
     <ClCompile Include="Painter.cpp" />
     <ClCompile Include="PaintingOrder.cpp" />
     <ClCompile Include="Queue.cpp" />
