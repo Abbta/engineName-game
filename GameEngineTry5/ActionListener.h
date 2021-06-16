@@ -1,5 +1,6 @@
 #pragma once
 #include "OnClick.h"
+#include "BaseIncludeLibraries.h"
 namespace EngineName
 {
 	namespace Action
@@ -12,7 +13,10 @@ namespace EngineName
 		*/
 		class ActionListener
 		{
-
+		private:
+			std::list<std::unique_ptr<OnClick>> mparr_clickListeners;
+		public:
+			void click(const unsigned int x, const unsigned int y);
 		};
 	}
 }
