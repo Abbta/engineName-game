@@ -40,7 +40,7 @@ namespace EngineName
 		{
 			RECT temp;
 			GetWindowRect(mp_mainWinRef.Window(), &temp);
-			return (inputWidth / static_cast<double>(temp.right - temp.left)) * mp_width;
+			return static_cast<unsigned int>((inputWidth / (static_cast<double>(temp.right) - static_cast<double>(temp.left))) * mp_width);
 		}
 
 
@@ -75,7 +75,7 @@ namespace EngineName
 		{
 			RECT temp;
 			GetWindowRect(mp_mainWinRef.Window(), &temp);
-			return (inputHeight / static_cast<double>(temp.right - temp.left)) * mp_height;
+			return static_cast<unsigned int>((inputHeight / (static_cast<double>(temp.right) - static_cast<double>(temp.left))) * mp_height);
 		}
 	}
 }

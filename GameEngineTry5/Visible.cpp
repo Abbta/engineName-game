@@ -45,7 +45,7 @@ namespace EngineName
 		bool Visible::boxContains(const Vector& point) const
 		{
 			return point.x > boxPosition.x && point.y > boxPosition.y
-				&& point.x < boxPosition.x + boxWidth && point.y < boxPosition.y + boxHeight;
+				&& point.x < static_cast<unsigned int>(boxPosition.x + boxWidth) && point.y < static_cast<unsigned int>(boxPosition.y + boxHeight);
 		}
 
 		void Visible::translate(const Vector& translateVector)
