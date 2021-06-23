@@ -5,6 +5,10 @@
 #pragma once
 namespace EngineName
 {
+	namespace Action
+	{
+		class OnActionBase;
+	}
 	namespace Base
 	{
 		class WindowAccess; //forward declaration for friend statement

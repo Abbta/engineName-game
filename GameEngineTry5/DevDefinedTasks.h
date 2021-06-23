@@ -3,6 +3,10 @@
 #pragma once
 namespace EngineName
 {
+	namespace Action
+	{
+		class OnActionBase;
+	}
 	namespace Base
 	{
 		class ObjectContainer;
