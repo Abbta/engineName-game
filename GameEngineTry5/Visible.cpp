@@ -42,6 +42,12 @@ namespace EngineName
 					&& boxPosition.y + boxHeight < visible.boxPosition.y + visible.boxHeight));
 		}
 
+		bool Visible::boxContains(const Vector& point) const
+		{
+			return point.x > boxPosition.x && point.y > boxPosition.y
+				&& point.x < boxPosition.x + boxWidth && point.y < boxPosition.y + boxHeight;
+		}
+
 		void Visible::translate(const Vector& translateVector)
 		{
 			boxPosition += translateVector;

@@ -22,6 +22,7 @@ namespace EngineName
 			Vector(Vector& v) : x(v.x), y(v.y) {}
 			Vector(Vector* v) : x(v->x), y(v->y) {}
 			Vector(const Vector& v) : x(v.x), y(v.y) {}
+			Vector(const unsigned int x, const unsigned int y) : x(static_cast<int>(x)), y(static_cast<int>(y)) {}
 			//these variables does not follow naming convention due to easier access
 			int x;
 			int y;

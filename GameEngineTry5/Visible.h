@@ -42,6 +42,7 @@ namespace EngineName
             unsigned int boxHeight;
             Vector boxCenter;
             bool boxOverlaps(const Visible& visible) const; //returns if two visibles' boxes overlap
+            bool boxContains(const Vector& point) const;
             
             virtual void translate(const Vector& translateVector); //changes position of visible
 
