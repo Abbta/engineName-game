@@ -17,6 +17,8 @@ namespace EngineName
 			std::list<std::unique_ptr<OnClick>> mparr_clickListeners;
 		public:
 			void click(const unsigned int x, const unsigned int y);
+
+			OnClick& addClickListener(const OnClick& listener);
 		};
 	}
 }

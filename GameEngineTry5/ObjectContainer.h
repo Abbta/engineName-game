@@ -18,6 +18,7 @@ namespace EngineName
 	namespace Object
 	{
 		class Visible;
+		class Button;
 	}
 	namespace Time
 	{
@@ -89,6 +90,7 @@ namespace EngineName
 			friend class Time::Task;
 			friend class Object::TextRectangle; //unsymmetric due to textdrawing not being accesible in mp_drawSelf()
 			friend class Action::OnActionBase;
+			friend class Object::Button; //needs to access actionlistener
 			//TEMPORARY:
 			Object::Vector mtemporary_origin;
 		};
