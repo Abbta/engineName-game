@@ -12,6 +12,7 @@
 #include "WidthAndHeight.h"
 #include "OnActionBase.h"
 #include "ActionListener.h"
+#include "ButtonConstructor.h"
 #pragma once
 namespace EngineName
 {
@@ -72,6 +73,7 @@ namespace EngineName
 			Object::RectangleConstructor		rectangle;     //is fairly simple and is not currently considered to need dynamic allocation
 			Object::CircleConstructor			circle;		   //--||--
 			Object::TextRectangleConstructor	textRectangle; //--||--
+			Object::ButtonConstructor			button;
 
 			//access classes
 			WindowAccess window;					//is fairly simple

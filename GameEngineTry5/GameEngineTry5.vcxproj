@@ -153,6 +153,7 @@
     <ClInclude Include="BasicVariableException.h" />
     <ClInclude Include="BrushContainer.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="ButtonConstructor.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleConstructor.h" />
     <ClInclude Include="Color.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="BasicVariableException.cpp" />
     <ClCompile Include="BrushContainer.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ButtonConstructor.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleConstructor.cpp" />
     <ClCompile Include="Color.cpp" />
