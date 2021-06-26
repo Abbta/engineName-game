@@ -40,6 +40,8 @@ namespace EngineName
 				}
 				it++;
 			}
+			mparr_clickListeners.push_back(std::make_unique<OnClick>(listener));
+			return *mparr_clickListeners.back();
 		}
 	}
 }
