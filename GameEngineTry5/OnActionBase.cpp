@@ -4,11 +4,9 @@ namespace EngineName
 {
 	namespace Action
 	{
-		template<class TaskType>
-		OnActionBase::OnActionBase(Base::ObjectContainer& world, const TaskType& task)
-			:mp_worldRef(world)
+		Time::TaskContainer& OnActionBase::msp_getTaskContainer(Base::ObjectContainer& world)
 		{
-			mp_taskRef = mp_worldRef.mpc_theQueue.mpc_taskContainer.mpf_add<TaskType>(task);
+			return world.mpc_theQueue.mpc_taskContainer;
 		}
 
 		void OnActionBase::mpf_schedule(Base::ObjectContainer& world, Time::Task& task)
