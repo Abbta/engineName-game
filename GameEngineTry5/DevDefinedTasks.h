@@ -35,7 +35,8 @@ namespace EngineName
 																					//
 			virtual void Destroy() override											//
 			{																		//
-				mptr_storageRef->erase(mpit_storageItRef);							//
+				if(mp_isDestructable)												//
+					mptr_storageRef->erase(mpit_storageItRef);						//
 			}																		//
 																					//
 			friend class TaskContainer;												//

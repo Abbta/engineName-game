@@ -18,7 +18,8 @@ namespace EngineName
 
 		void Move::Destroy()
 		{
-			mptr_storageRef->erase(mpit_storageItRef);
+			if(mp_isDestructable)
+				mptr_storageRef->erase(mpit_storageItRef);
 		}
 	}
 }

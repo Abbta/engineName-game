@@ -1,11 +1,3 @@
-/*
-* Abbreviations:
-*	eng: Engine, this program, the connection to winapi without anything added to world
-*	dev: developer, the person using eng to develop their own windows application
-* 	world: EngineName::Base::ObjectContainer world, an c++ object containing all things added by dev
-*	app: application, the complete application containing winapi, eng and prog. The actual program that runs when you execute it
-*   prog: program, the part of app created by dev
-*/
 
 #include "framework.h"
 #include "GameEngineTry5.h"
@@ -22,8 +14,7 @@ int engineNameMain(EngineName::Base::ObjectContainer& world);
 * creates world
 * calls the main function of the engine with world as parameter
 * creates the main window and shows it
-* contains the winapi message loop although the actual loop happens in MainWindow.cpp
-* should not have to be visible to dev
+* contains the winapi message loop although the actual loop is in MainWindow.cpp
 * is outside of EngineName namespace so that the winapi can call it
 */
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow)
@@ -32,10 +23,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 	{
 		int a{ 5 + 3 };
 		std::unique_ptr<EngineName::Base::ObjectContainer> objectContainer{ std::make_unique<EngineName::Base::ObjectContainer>() };
-		//creates world as dynamically allocated memory, this is because world will contain all things in prog and will therefore be extremely memory demanding 
+		//creates world dynamically
 		if (engineNameMain(*objectContainer) > 0)
 			//here is where the dev creates all objects in world
-			//returns the size of world as to only do stuff if the dev does something
+			//returns the size of world as to only keep executing if objects are added
 		{
 			//stores the mainwindow in a variable
 			EngineName::Base::MainWindow *ptrMainWindow{ &*objectContainer->mpptr_window };
@@ -56,7 +47,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 			ShowWindow(ptrMainWindow->Window(), nCmdShow);
 
 
-			//draw all visibles
+			//draws all visibles
 			objectContainer->mpptr_window->mpptr_painter->mf_drawAll();
 
 		//---------------
