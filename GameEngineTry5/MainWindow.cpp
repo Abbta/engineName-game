@@ -31,7 +31,7 @@ namespace EngineName
 			case WM_SIZE:
 				//resize
 				return 0;
-			case WM_MBUTTONDBLCLK:
+			case WM_LBUTTONDOWN:
 				//tell engine a click has happened and where in engine coordinates
 				mp_world.mp_actionListener.click(
 					mp_world.width.fromInputWidth(GET_X_LPARAM(lParam)),

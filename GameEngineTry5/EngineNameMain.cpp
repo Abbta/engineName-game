@@ -32,8 +32,8 @@ int engineNameMain(EngineName::Base::ObjectContainer &world)
 	EngineName::Object::Visible tempRef(buttonRectangle);
 	const EngineName::Time::Move buttonAction(tempRef, Vector(50, 0));
 	EngineName::Object::Button tempButton(buttonRectangle, buttonAction);
-	auto button = world.button.build(tempButton);
-	button.changeOnClickTask(EngineName::Time::Move(button, Vector(50, 0)));
+	auto button = &world.button.build(tempButton);
+	button->changeOnClickTask(EngineName::Time::Move(*button, Vector(50, 0)));
 
 	return world.size();
 }

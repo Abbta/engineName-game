@@ -8,5 +8,10 @@ namespace EngineName
 		{
 			return worldPtr->mp_actionListener;
 		}
+
+		void Button::mpf_changeOnClickArea(Visible& newArea)
+		{
+			mp_actionRef.mpf_changeArea(newArea);
+		}
 	}
 }

@@ -13,6 +13,10 @@ namespace EngineName
 	{
 		class ObjectContainer;
 	}
+	namespace Action
+	{
+		class OnActionBase;
+	}
 	namespace Time
 	{
 		class Queue;
@@ -35,6 +39,7 @@ namespace EngineName
 			std::chrono::system_clock::duration timeLeft() const { return mp_msLeftInQueue; }
 
 			friend class Queue;
+			friend class EngineName::Action::OnActionBase;
 		};
 	}
 }

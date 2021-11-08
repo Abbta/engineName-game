@@ -32,7 +32,7 @@ namespace EngineName
 			while (it != mparr_clickListeners.end())
 			{
 				//if listener is visually in front of next element
-				if (listener.mp_areaRef > (*(*it)).mp_areaRef)
+				if (listener.mpptr_area > (*(*it)).mpptr_area)
 				{
 					//it should be inserted before that in the array
 					return **mparr_clickListeners.insert(it, std::make_unique<OnClick>(listener));
