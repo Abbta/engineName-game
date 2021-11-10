@@ -12,7 +12,7 @@ namespace EngineName
         class ButtonConstructor;
 
         class Button :
-            public Rectangle
+            virtual public Rectangle
         {
         private:
             Action::OnClick &mp_actionRef;

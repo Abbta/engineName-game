@@ -7,6 +7,7 @@
 #include "MainWindow.h"
 #include "ObjectTasks.h"
 #include "TextRectangleConstructor.h"
+#include "TextButtonConstructor.h"
 #include "Color.h"
 #include "Painter.h"
 #include "WidthAndHeight.h"
@@ -74,6 +75,7 @@ namespace EngineName
 			Object::CircleConstructor			circle;		   //--||--
 			Object::TextRectangleConstructor	textRectangle; //--||--
 			Object::ButtonConstructor			button;
+			Object::TextButtonConstructor		textButton;
 
 			//access classes
 			WindowAccess window;					//is fairly simple

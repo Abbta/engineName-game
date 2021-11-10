@@ -6,7 +6,7 @@ namespace EngineName
     namespace Object
     {
         class TextRectangle :
-            public Rectangle
+            virtual public Rectangle
         {
         private:
             std::wstring     mp_text;
