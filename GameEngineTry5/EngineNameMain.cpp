@@ -26,13 +26,13 @@ int engineNameMain(EngineName::Base::ObjectContainer &world)
 	const EngineName::Object::Rectangle buttonRectangle(
 		world,
 		Vector(world.width * (7 / 16.0), world.height * (3 / 12.0)),
-		world.width * (5 / 16.0),
-		world.height * (1 / 10.0),
+		world.width * (2 / 16.0),
+		world.height * (1 / 16.0),
 		Color("AA5678"));
 	const EngineName::Time::Move buttonAction(*menuRect, Vector(0, 0)); //temporary null action
 	EngineName::Object::Button tempButton(buttonRectangle, buttonAction);
-	const EngineName::Drawing::Font buttonFont(L"Arial", 38U);
-	EngineName::Object::TextButton tempTextButton(tempButton, L" Button", buttonFont);
+	const EngineName::Drawing::Font buttonFont(L"Open Sans", 22U);
+	EngineName::Object::TextButton tempTextButton(tempButton, L" New Game", buttonFont);
 	auto button = &world.textButton.build(tempTextButton);
 
 	return world.size();
