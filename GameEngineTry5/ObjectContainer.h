@@ -14,6 +14,7 @@
 #include "OnActionBase.h"
 #include "ActionListener.h"
 #include "ButtonConstructor.h"
+#include "ObjectGroupConstructor.h"
 #pragma once
 namespace EngineName
 {
@@ -76,6 +77,7 @@ namespace EngineName
 			Object::TextRectangleConstructor	textRectangle; //--||--
 			Object::ButtonConstructor			button;
 			Object::TextButtonConstructor		textButton;
+			Object::ObjectGroupConstructor		objectGroup;
 
 			//access classes
 			WindowAccess window;					//is fairly simple
