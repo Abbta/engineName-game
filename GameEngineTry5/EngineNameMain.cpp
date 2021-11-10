@@ -31,7 +31,9 @@ int engineNameMain(EngineName::Base::ObjectContainer &world)
 		Color("AA5678"));
 	const EngineName::Time::Move buttonAction(*menuRect, Vector(0, 0)); //temporary null action
 	EngineName::Object::Button tempButton(buttonRectangle, buttonAction);
-	auto button = &world.button.build(tempButton);
+	const EngineName::Drawing::Font buttonFont(L"Arial", 38U);
+	EngineName::Object::TextButton tempTextButton(tempButton, L" Button", buttonFont);
+	auto button = &world.textButton.build(tempTextButton);
 
 	return world.size();
 }
