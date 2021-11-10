@@ -168,6 +168,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectConstructor.h" />
     <ClInclude Include="ObjectContainer.h" />
+    <ClInclude Include="ObjectGroup.h" />
     <ClInclude Include="ObjectTasks.h" />
     <ClInclude Include="OnActionBase.h" />
     <ClInclude Include="OnClick.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectConstructor.cpp" />
     <ClCompile Include="ObjectContainer.cpp" />
+    <ClCompile Include="ObjectGroup.cpp" />
     <ClCompile Include="ObjectTasks.cpp" />
     <ClCompile Include="OnActionBase.cpp" />
     <ClCompile Include="OnClick.cpp" />
