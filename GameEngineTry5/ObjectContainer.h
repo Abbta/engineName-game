@@ -15,6 +15,7 @@
 #include "ActionListener.h"
 #include "ButtonConstructor.h"
 #include "ObjectGroupConstructor.h"
+#include "SceneConstructor.h"
 #pragma once
 namespace EngineName
 {
@@ -78,6 +79,7 @@ namespace EngineName
 			Object::ButtonConstructor			button;
 			Object::TextButtonConstructor		textButton;
 			Object::ObjectGroupConstructor		objectGroup;
+			Object::SceneConstructor			scene;
 
 			//access classes
 			WindowAccess window;					//is fairly simple
