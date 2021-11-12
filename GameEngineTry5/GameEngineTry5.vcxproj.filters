@@ -159,6 +159,9 @@
     <ClInclude Include="SceneConstructor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VisibleGroup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineTry5.cpp">
@@ -282,6 +285,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SceneConstructor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VisibleGroup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
