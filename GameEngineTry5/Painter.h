@@ -82,6 +82,7 @@ namespace EngineName
 			void mf_addToObjectsThatHasCalledDraw(const Object::Visible& visible); //used for requesting paint
 			void mf_clearWindow(); //clears all visibles
 			void mf_changeBackgroundColor(const Object::Color& color);
+			void mf_changeActiveScene
 
 			friend class Object::TextRectangle;
 		};

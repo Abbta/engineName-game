@@ -18,7 +18,7 @@ namespace EngineName
 
 		ObjectContainer::ObjectContainer() 
 			:mpptr_window{ std::make_unique<MainWindow>(*this) }, window(&mpptr_window),
-			rectangle(this), circle(this), textRectangle(this), button(this), textButton(this), objectGroup(this),
+			rectangle(this), circle(this), textRectangle(this), button(this), textButton(this), objectGroup(this), scene(this),
 			mtemporary_origin(0,0), mpc_theQueue(),
 			backgroundColor(*mpptr_window->mpptr_painter), width(*mpptr_window), height(*mpptr_window)
 		{
@@ -49,6 +49,11 @@ namespace EngineName
 			//add a ref to it in the queue
 			mpc_theQueue.mpf_addToQueue(temp);
 			
+		}
+
+		Drawing::Painter& ObjectContainer::mpf_getPainter()
+		{
+			return *mpptr_window->mpptr_painter;
 		}
 	}
 }

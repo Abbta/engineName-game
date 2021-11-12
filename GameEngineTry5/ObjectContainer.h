@@ -41,6 +41,7 @@ namespace EngineName
 		private:
 			//these should only be interacted with by winapi or other world objects or access classes
 			std::unique_ptr<MainWindow> mpptr_window; //will probably be large and is therefore dynamically allocated
+			Drawing::Painter& mpf_getPainter();
 
 			std::vector<Object::Visible*> mparr_allVisibles;
 
@@ -99,6 +100,7 @@ namespace EngineName
 			friend class Object::TextRectangle; //unsymmetric due to textdrawing not being accesible in mp_drawSelf()
 			friend class Action::OnActionBase;
 			friend class Object::Button; //needs to access actionlistener
+			friend class Time::ChangeActiveScene;
 			//TEMPORARY:
 			Object::Vector mtemporary_origin;
 		};

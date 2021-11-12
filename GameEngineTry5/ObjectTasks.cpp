@@ -1,11 +1,12 @@
 #include "ObjectTasks.h"
 #include "Rectangle.h"
 #include "Circle.h"
+#include "ObjectContainer.h"
 namespace EngineName
 {
 	namespace Time
 	{
-
+		//Move
 		Move::Move(Object::Visible& visible, const Object::Vector& direction) : mpc_visible(visible), mpv_direction(direction), mptr_storageRef(nullptr)
 		{
 		}
@@ -19,6 +20,25 @@ namespace EngineName
 		void Move::Destroy()
 		{
 			if(mp_isDestructable)
+				mptr_storageRef->erase(mpit_storageItRef);
+		}
+
+		//ChangeActiveScene
+		ChangeActiveScene::ChangeActiveScene(Object::Scene& newScene)
+			:mpc_newScene(newScene)
+		{
+
+		}
+
+		void ChangeActiveScene::mpf_perform(Base::ObjectContainer& world)
+		{
+			Drawing::Painter& painterRef = world.mpf_getPainter();
+			painterRef.
+		}
+
+		void ChangeActiveScene::Destroy()
+		{
+			if (mp_isDestructable)
 				mptr_storageRef->erase(mpit_storageItRef);
 		}
 	}
