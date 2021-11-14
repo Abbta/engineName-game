@@ -17,7 +17,7 @@ namespace EngineName
             Visible& getFromID(const PaintingOrder& id) { int a = 0; return getFromID(id, a); }
             Visible& getFromID(const PaintingOrder& id, int& lastIndex);
             Visible* operator[](const int index) { return mparr_visiblePointers.at(index); }
-            int size() const { return mparr_visiblePointers.size(); }
+            size_t size() const { return mparr_visiblePointers.size(); }
         };
     }
 }

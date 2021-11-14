@@ -25,7 +25,7 @@ namespace EngineName
 
 		//ChangeActiveScene
 		ChangeActiveScene::ChangeActiveScene(Object::Scene& newScene)
-			:mpc_newScene(newScene)
+			:mpc_newScene(newScene), mptr_storageRef(nullptr)
 		{
 
 		}
