@@ -55,5 +55,12 @@ namespace EngineName
 		{
 			return *mpptr_window->mpptr_painter;
 		}
+
+		void ObjectContainer::setActiveScene(Object::Scene& scene)
+		{
+			Drawing::Painter& painterRef = mpf_getPainter();
+			painterRef.mf_changeActiveScene(scene.mf_getVisibles());
+			painterRef.mf_drawAll();
+		}
 	}
 }

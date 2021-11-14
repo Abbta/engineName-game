@@ -72,6 +72,7 @@ namespace EngineName
 			//template<class T>
 			void schedule(const Time::Move& task, int ms = 0);
 			//void schedule(Time::Task* task, int ms = 0) { schedule(*task, ms); }
+			void setActiveScene(Object::Scene& scene);
 
 			//constructor classes
 			Object::RectangleConstructor		rectangle;     //is fairly simple and is not currently considered to need dynamic allocation
@@ -100,7 +101,6 @@ namespace EngineName
 			friend class Object::TextRectangle; //unsymmetric due to textdrawing not being accesible in mp_drawSelf()
 			friend class Action::OnActionBase;
 			friend class Object::Button; //needs to access actionlistener
-			friend class Time::ChangeActiveScene;
 			//TEMPORARY:
 			Object::Vector mtemporary_origin;
 		};

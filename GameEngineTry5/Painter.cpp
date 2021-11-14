@@ -175,11 +175,21 @@ namespace EngineName
 				}
 				
 				//redraw all affected objects as they are now
-				for (int i(0); i < affectedObjects.size(); i++)
+				for (int i, latestIndexOfMatchingVisible(0); i < affectedObjects.size(); i++)
 				{
-					mp_world.mparr_allVisibles.at(affectedObjects[i]->layerID)->mpf_drawSelf(mpptr_renderTarget, *mpptr_brushes);
-					//save a copy of the newly drawn visible in allVisibles
-					mpf_addToDrawnObjects(*mp_world.mparr_allVisibles.at(affectedObjects[i]->layerID));
+					if (mptr_activeObjects == nullptr)
+					{
+						//if no visibleGroup has been specified, all visibles are active and should be painted
+						mp_world.mparr_allVisibles.at(affectedObjects[i]->layerID)->mpf_drawSelf(mpptr_renderTarget, *mpptr_brushes);
+						//save a copy of the newly drawn visible in allVisibles
+						mpf_addToDrawnObjects(*mp_world.mparr_allVisibles.at(affectedObjects[i]->layerID));
+					}
+					else
+					{
+						//only active visibles are affected
+						mptr_activeObjects->getFromID(affectedObjects[i]->layerID, latestIndexOfMatchingVisible).mpf_drawSelf(mpptr_renderTarget, *mpptr_brushes);
+						mpf_addToDrawnObjects(*mptr_activeObjects->operator[](latestIndexOfMatchingVisible));
+					}
 				}
 				//---------------------------------------------------------
 				if (FAILED(mpptr_renderTarget->EndDraw()))
@@ -192,15 +202,28 @@ namespace EngineName
 
 		void Painter::mf_drawAll()
 		{
-			
-			for (auto& element : mp_world.mparr_allVisibles)
+			if (mptr_activeObjects == nullptr)
 			{
-				if (element->boxCenter)
-					//if element is on the screen
+				for (auto& element : mp_world.mparr_allVisibles)
 				{
-					element->draw();
+					if (element->boxCenter)
+						//if element is on the screen
+					{
+						element->draw();
+					}
 				}
-			}		
+			}
+			else
+			{
+				for (int i(0); i < mptr_activeObjects->size(); i++)
+				{
+					if (mptr_activeObjects->operator[](i)->boxCenter)
+						//if element is on the screen
+					{
+						mptr_activeObjects->operator[](i)->draw();
+					}
+				}
+			}
 		}
 
 		void Painter::mf_addToObjectsThatHasCalledDraw(const Object::Visible& visible)
@@ -253,6 +276,11 @@ namespace EngineName
 				mf_drawAll();
 			}
 			mp_backgroundColor = color;
+		}
+
+		void Painter::mf_changeActiveScene(const Object::VisibleGroup& visibleGroup)
+		{
+
 		}
 	}
 }

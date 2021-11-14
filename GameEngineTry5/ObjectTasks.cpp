@@ -32,9 +32,7 @@ namespace EngineName
 
 		void ChangeActiveScene::mpf_perform(Base::ObjectContainer& world)
 		{
-			Drawing::Painter& painterRef = world.mpf_getPainter();
-			painterRef.mf_changeActiveScene(mpc_newScene.mf_getVisibles());
-			painterRef.mf_drawAll();
+			world.setActiveScene(mpc_newScene);
 		}
 
 		void ChangeActiveScene::Destroy()
