@@ -175,7 +175,7 @@ namespace EngineName
 				}
 				
 				//redraw all affected objects as they are now
-				for (int i, latestIndexOfMatchingVisible(0); i < affectedObjects.size(); i++)
+				for (int i(0), latestIndexOfMatchingVisible(0); i < affectedObjects.size(); i++)
 				{
 					if (mptr_activeObjects == nullptr)
 					{

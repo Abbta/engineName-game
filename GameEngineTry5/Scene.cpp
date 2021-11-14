@@ -15,7 +15,7 @@ namespace EngineName
 
         Visible& Scene::add(Visible& visible)
         {
-            mptr_visibleGroup->add(visible);
+            return mptr_visibleGroup->add(visible);
             //ObjectGroup::add(visible); //may not be needed
         }
     }
