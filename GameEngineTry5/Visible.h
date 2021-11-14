@@ -31,6 +31,7 @@ namespace EngineName
         protected:
             virtual void mpf_drawSelf(CComPtr<ID2D1HwndRenderTarget>& renderTarget, Drawing::BrushContainer& brushes) const { throw; /*error cant draw pure visible*/ }
             void mpf_clear(CComPtr<ID2D1HwndRenderTarget>& renderTarget, CComPtr<ID2D1SolidColorBrush>& backgroundBrush) const;
+            virtual bool mpf_isVisible() const override final { return true; }
         public:
             //has public and shortnamed members for easier dev access
             Visible(const Visible &v);

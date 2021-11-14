@@ -4,6 +4,7 @@
 #include "TextFormatContainer.h"
 #include "Color.h"
 #include "Visible.h"
+#include "VisibleGroup.h"
 #include "Constants.h"
 #pragma once
 namespace EngineName
@@ -82,7 +83,7 @@ namespace EngineName
 			void mf_addToObjectsThatHasCalledDraw(const Object::Visible& visible); //used for requesting paint
 			void mf_clearWindow(); //clears all visibles
 			void mf_changeBackgroundColor(const Object::Color& color);
-			void mf_changeActiveScene
+			void mf_changeActiveScene(const Object::VisibleGroup& visibleGroup);
 
 			friend class Object::TextRectangle;
 		};
