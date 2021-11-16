@@ -12,6 +12,7 @@ namespace EngineName
             std::unique_ptr<VisibleGroup> mptr_visibleGroup;
         public:
             Scene(Base::ObjectContainer& world);
+            Scene(const Scene& scene);
 
             Visible& add(Visible& visible);
             VisibleGroup& mf_getVisibles();

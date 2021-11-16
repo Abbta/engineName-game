@@ -202,25 +202,28 @@ namespace EngineName
 
 		void Painter::mf_drawAll()
 		{
-			if (mptr_activeObjects == nullptr)
+			if (mpptr_renderTarget)
 			{
-				for (auto& element : mp_world.mparr_allVisibles)
+				if (mptr_activeObjects == nullptr)
 				{
-					if (element->boxCenter)
-						//if element is on the screen
+					for (auto& element : mp_world.mparr_allVisibles)
 					{
-						element->draw();
+						if (element->boxCenter)
+							//if element is on the screen
+						{
+							element->draw();
+						}
 					}
 				}
-			}
-			else
-			{
-				for (int i(0); i < mptr_activeObjects->size(); i++)
+				else
 				{
-					if (mptr_activeObjects->operator[](i)->boxCenter)
-						//if element is on the screen
+					for (int i(0); i < mptr_activeObjects->size(); i++)
 					{
-						mptr_activeObjects->operator[](i)->draw();
+						if (mptr_activeObjects->operator[](i)->boxCenter)
+							//if element is on the screen
+						{
+							mptr_activeObjects->operator[](i)->draw();
+						}
 					}
 				}
 			}
@@ -278,9 +281,9 @@ namespace EngineName
 			mp_backgroundColor = color;
 		}
 
-		void Painter::mf_changeActiveScene(const Object::VisibleGroup& visibleGroup)
+		void Painter::mf_changeActiveScene(Object::VisibleGroup& visibleGroup)
 		{
-
+			mptr_activeObjects = &visibleGroup;
 		}
 	}
 }

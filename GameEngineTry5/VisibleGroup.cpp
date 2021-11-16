@@ -14,7 +14,7 @@ namespace EngineName
 			//as the vector is sorted but with gaps, lastIndex parameter is used as optimization when iterating this function over several IDs
 			for (int i(lastIndex); i < mparr_visiblePointers.size(); i++)
 			{
-				if (mparr_visiblePointers.at(i)->layerID = id)
+				if (mparr_visiblePointers.at(i)->layerID == id)
 				{
 					lastIndex = i;
 					return *mparr_visiblePointers.at(i);
@@ -25,7 +25,7 @@ namespace EngineName
 			//try checking from start instead
 			for (int i(0); i < mparr_visiblePointers.size(); i++)
 			{
-				if (mparr_visiblePointers.at(i)->layerID = id)
+				if (mparr_visiblePointers.at(i)->layerID == id)
 				{
 					lastIndex = i;
 					return *mparr_visiblePointers.at(i);

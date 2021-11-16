@@ -8,6 +8,11 @@ namespace EngineName
 
         }
 
+        Scene::Scene(const Scene& scene) : ObjectGroup(*scene.mptr_world), mptr_visibleGroup(std::make_unique<VisibleGroup>(*scene.mptr_world))
+        {
+
+        }
+
         VisibleGroup& Scene::mf_getVisibles()
         {
             return *mptr_visibleGroup;
