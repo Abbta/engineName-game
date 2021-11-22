@@ -12,6 +12,7 @@
 #include "WidthAndHeight.h"
 #include "OnActionBase.h"
 #include "ActionListener.h"
+#include "NullVisible.h"
 #pragma once
 namespace EngineName
 {
@@ -77,6 +78,9 @@ namespace EngineName
 			BackgroundColor backgroundColor;
 			Width width;
 			Height height;
+
+			//static members
+			Object::NullVisible nullVisible;
 
 			//winapi functions that can access private world objects
 			friend int WINAPI::wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow);

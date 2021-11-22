@@ -163,6 +163,7 @@
     <ClInclude Include="GraphicsIncludeLibraries.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="NullVisible.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectConstructor.h" />
     <ClInclude Include="ObjectContainer.h" />
@@ -201,6 +202,7 @@
     <ClCompile Include="GameEngineTry5.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="NullVisible.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectConstructor.cpp" />
     <ClCompile Include="ObjectContainer.cpp" />
