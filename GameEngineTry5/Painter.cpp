@@ -233,6 +233,9 @@ namespace EngineName
 		{
 			//find visible as it is in drawnobjects
 			//deep copy into that has called draw
+			/*
+			* Old solution: Did not assume paintedObjects was sorted
+			* Did not work when an early ID was not painted
 			const Object::Visible* visibleAsItWas = &visible;
 			for (int i(0); i < mparr_paintedObjects.size(); i++)
 			{
@@ -241,6 +244,14 @@ namespace EngineName
 					visibleAsItWas = &*mparr_paintedObjects[i];
 				}
 			}
+			*/
+
+			//New solution: Assumes paintedObjects is sorted
+			//also works when early ID was not painted
+			const Object::Visible* visibleAsItWas = &visible;
+			if(mparr_paintedObjects.size() > visible.layerID)
+				if(mparr_paintedObjects[visible.layerID])
+					visibleAsItWas = &*mparr_paintedObjects[visible.layerID];
 
 			//TODO: Fix so it works when ID has been changed
 			mparr_objectsThatHasCalledDraw.push_back(std::make_unique<Object::Visible>(*visibleAsItWas)); /*deep copies visible as it was*/

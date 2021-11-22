@@ -60,6 +60,17 @@ namespace EngineName
 				return mparr_move.back();
 			}
 
+			std::list<ChangeActiveScene> mparr_changeActiveScene;
+			ChangeActiveScene& mpf_add(const ChangeActiveScene& task)
+			{
+				mparr_changeActiveScene.push_back(task);
+				mparr_changeActiveScene.back().mptr_storageRef = &mparr_changeActiveScene;
+				std::list<ChangeActiveScene>::iterator it = mparr_changeActiveScene.end();
+				it--;
+				mparr_changeActiveScene.back().mpit_storageItRef = it;
+				return mparr_changeActiveScene.back();
+			}
+
 			//add storages and overloads of add function to your tasks:
 			//*-----------------------------------------------------------------*
 
