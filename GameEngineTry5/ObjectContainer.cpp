@@ -18,9 +18,13 @@ namespace EngineName
 
 		ObjectContainer::ObjectContainer() 
 			:mpptr_window{ std::make_unique<MainWindow>(*this) }, window(&mpptr_window),
-			rectangle(this), circle(this), textRectangle(this), mtemporary_origin(0,0), mpc_theQueue(),
+			rectangle(this), circle(this), textRectangle(this), mtemporary_origin(0,0), mpc_theQueue(), nullVisible(this),
 			backgroundColor(*mpptr_window->mpptr_painter), width(*mpptr_window), height(*mpptr_window)
 		{
+			//reinitialise nullvisible and add it to allvisibles to give it a correct layerID
+			mparr_allVisibles.push_back(nullptr);
+			nullVisible = Object::NullVisible(this);
+			mparr_allVisibles.back() = &nullVisible;
 		}
 
 		//returns the amount of user added objects
