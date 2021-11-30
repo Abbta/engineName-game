@@ -213,6 +213,7 @@ namespace EngineName
 				if (visible == *mparr_paintedObjects[i])
 				{
 					visibleAsItWas = &*mparr_paintedObjects[i];
+					break;
 				}
 			}
 
@@ -236,7 +237,7 @@ namespace EngineName
 			for (int i(0); i < elementsToBeAdded; i++)
 			{
 				//add empty spot in list
-				mparr_paintedObjects.push_back(nullptr);
+				mparr_paintedObjects.push_back(std::make_unique<Object::Visible>(mp_world.nullVisible));
 			}
 
 			//add visible to drawn objects
