@@ -59,6 +59,7 @@ namespace EngineName
             bool operator<=(const Visible& visible) const { return !(*this > visible); }
             bool operator>=(const Visible& visible) const { return !(*this < visible); }
             operator D2D1_RECT_F() const;
+            virtual operator bool() const { return true; }
 
             friend class Drawing::Painter;
         }; 
