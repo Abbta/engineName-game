@@ -16,6 +16,8 @@ namespace EngineName
         public:
             NullVisible(Base::ObjectContainer* world): Visible(*world) {}
             virtual void draw() const override;
+
+            virtual operator bool() const override { return false; }
         };
     }
 }
