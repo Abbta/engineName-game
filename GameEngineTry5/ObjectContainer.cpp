@@ -63,6 +63,7 @@ namespace EngineName
 		void ObjectContainer::setActiveScene(Object::Scene& scene)
 		{
 			Drawing::Painter& painterRef = mpf_getPainter();
+			painterRef.mf_clearWindow();
 			painterRef.mf_changeActiveScene(scene.mf_getVisibles());
 			painterRef.mf_drawAll();
 		}

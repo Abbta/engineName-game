@@ -251,7 +251,7 @@ namespace EngineName
 			//also works when early ID was not painted
 			const Object::Visible* visibleAsItWas = &visible;
 			if(mparr_paintedObjects.size() > visible.layerID)
-				if(mparr_paintedObjects[visible.layerID])
+				if(mparr_paintedObjects[visible.layerID]->layerID != 0) //0 is nullvisible
 					visibleAsItWas = &*mparr_paintedObjects[visible.layerID];
 
 			//TODO: Fix so it works when ID has been changed
@@ -261,7 +261,7 @@ namespace EngineName
 		void Painter::mf_clearWindow()
 		{
 			if (mpptr_renderTarget == nullptr)
-				throw Exceptions::BasicException("Rendertarget is null");
+				return;
 
 			mpptr_renderTarget->BeginDraw();
 			mpptr_renderTarget->Clear(mp_backgroundColor);
