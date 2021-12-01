@@ -169,6 +169,8 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectConstructor.h" />
     <ClInclude Include="ObjectContainer.h" />
+    <ClInclude Include="ObjectGroup.h" />
+    <ClInclude Include="ObjectGroupConstructor.h" />
     <ClInclude Include="ObjectTasks.h" />
     <ClInclude Include="OnActionBase.h" />
     <ClInclude Include="OnClick.h" />
@@ -178,6 +180,8 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RectangleConstructor.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneConstructor.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Task.h" />
@@ -188,6 +192,7 @@
     <ClInclude Include="TextRectangleConstructor.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Visible.h" />
+    <ClInclude Include="VisibleGroup.h" />
     <ClInclude Include="WidthAndHeight.h" />
     <ClInclude Include="WindowAccess.h" />
     <ClInclude Include="WindowBaseClass.h" />
@@ -212,6 +217,8 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectConstructor.cpp" />
     <ClCompile Include="ObjectContainer.cpp" />
+    <ClCompile Include="ObjectGroup.cpp" />
+    <ClCompile Include="ObjectGroupConstructor.cpp" />
     <ClCompile Include="ObjectTasks.cpp" />
     <ClCompile Include="OnActionBase.cpp" />
     <ClCompile Include="OnClick.cpp" />
@@ -220,6 +227,8 @@
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="RectangleConstructor.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneConstructor.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="TextButton.cpp" />
@@ -229,6 +238,7 @@
     <ClCompile Include="TextRectangleConstructor.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Visible.cpp" />
+    <ClCompile Include="VisibleGroup.cpp" />
     <ClCompile Include="WidthAndHeight.cpp" />
     <ClCompile Include="WindowAccess.cpp" />
     <ClCompile Include="WindowBaseClass.cpp" />

@@ -10,6 +10,7 @@ namespace EngineName
     namespace Object
     {
         class ButtonConstructor;
+        class TextButtonConstructor;
 
         class Button :
             virtual public Rectangle
@@ -37,6 +38,7 @@ namespace EngineName
             }
 
             friend class ButtonConstructor;
+            friend class TextButtonConstructor;
         };
     }
 }

@@ -15,6 +15,8 @@
 #include "ActionListener.h"
 #include "NullVisible.h"
 #include "ButtonConstructor.h"
+#include "ObjectGroupConstructor.h"
+#include "SceneConstructor.h"
 #pragma once
 namespace EngineName
 {
@@ -40,6 +42,7 @@ namespace EngineName
 		private:
 			//these should only be interacted with by winapi or other world objects or access classes
 			std::unique_ptr<MainWindow> mpptr_window; //will probably be large and is therefore dynamically allocated
+			Drawing::Painter& mpf_getPainter();
 
 			std::vector<Object::Visible*> mparr_allVisibles;
 
@@ -70,6 +73,7 @@ namespace EngineName
 			//template<class T>
 			void schedule(const Time::Move& task, int ms = 0);
 			//void schedule(Time::Task* task, int ms = 0) { schedule(*task, ms); }
+			void setActiveScene(Object::Scene& scene);
 
 			//constructor classes
 			Object::RectangleConstructor		rectangle;     //is fairly simple and is not currently considered to need dynamic allocation
@@ -77,6 +81,8 @@ namespace EngineName
 			Object::TextRectangleConstructor	textRectangle; //--||--
 			Object::ButtonConstructor			button;
 			Object::TextButtonConstructor		textButton;
+			Object::ObjectGroupConstructor		objectGroup;
+			Object::SceneConstructor			scene;
 
 			//access classes
 			WindowAccess window;					//is fairly simple

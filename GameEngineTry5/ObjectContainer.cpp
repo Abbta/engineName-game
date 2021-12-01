@@ -19,7 +19,7 @@ namespace EngineName
 		ObjectContainer::ObjectContainer() 
 			:mpptr_window{ std::make_unique<MainWindow>(*this) }, window(&mpptr_window),
 			mtemporary_origin(0,0), mpc_theQueue(), nullVisible(this),
-			rectangle(this), circle(this), textRectangle(this), button(this), textButton(this),
+			rectangle(this), circle(this), textRectangle(this), button(this), textButton(this), objectGroup(this), scene(this),
 			backgroundColor(*mpptr_window->mpptr_painter), width(*mpptr_window), height(*mpptr_window)
 		{
 			//reinitialise nullvisible and add it to allvisibles to give it a correct layerID
@@ -53,6 +53,19 @@ namespace EngineName
 			//add a ref to it in the queue
 			mpc_theQueue.mpf_addToQueue(temp);
 			
+		}
+
+		Drawing::Painter& ObjectContainer::mpf_getPainter()
+		{
+			return *mpptr_window->mpptr_painter;
+		}
+
+		void ObjectContainer::setActiveScene(Object::Scene& scene)
+		{
+			Drawing::Painter& painterRef = mpf_getPainter();
+			painterRef.mf_clearWindow();
+			painterRef.mf_changeActiveScene(scene.mf_getVisibles());
+			painterRef.mf_drawAll();
 		}
 	}
 }

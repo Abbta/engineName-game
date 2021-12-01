@@ -8,6 +8,7 @@ namespace EngineName
 	}
 	namespace Object
 	{
+		class ObjectGroup;
 		/*
 		* object class
 		* template for all objects that can be added to world
@@ -18,9 +19,12 @@ namespace EngineName
 		protected:
 			//ref to world object
 			Base::ObjectContainer* mptr_world;
+			virtual bool mpf_isVisible() const { return false; }
 		protected:
 			//is only to be constructed by children
 			Object(Base::ObjectContainer& world) : mptr_world(&world) {}
+			friend class ObjectGroup;
+			friend class Scene;
 		};
 	}
 }

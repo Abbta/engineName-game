@@ -4,6 +4,7 @@
 #include "TextFormatContainer.h"
 #include "Color.h"
 #include "Visible.h"
+#include "VisibleGroup.h"
 #include "Constants.h"
 #pragma once
 namespace EngineName
@@ -59,13 +60,14 @@ namespace EngineName
 			void mpf_addToDrawnObjects(const Object::Visible& visible); //add an object to paintedObjects
 			bool mpf_modifyOverlaps(Object::Visible& object, std::vector<Object::Visible*>& returnVector, std::vector<Object::Visible>& allVector) const; //used for determining which visibles to draw
 
+			Object::VisibleGroup* mptr_activeObjects; //ptr to visibleGroup that is to be shown on screen, null means all visibles are active
 			Base::ObjectContainer& mp_world; //ref to world
 		public:
 			Painter(Base::ObjectContainer& world) :
 				mp_world(world), mpptr_renderTarget(nullptr), mpptr_factory(nullptr), mpptr_backgroundBrush(nullptr),
 				mpptr_brushes(std::make_unique<BrushContainer>(BrushContainer())),
 				mpptr_writeFactory(nullptr), mpptr_fonts(std::make_unique<TextFormatContainer>(TextFormatContainer())),
-				mp_backgroundColor(Object::c_defaultBackgroundColor)
+				mp_backgroundColor(Object::c_defaultBackgroundColor), mptr_activeObjects(nullptr)
 			{}
 			/*
 			Painter(Painter& p): 
@@ -82,6 +84,7 @@ namespace EngineName
 			void mf_addToObjectsThatHasCalledDraw(const Object::Visible& visible); //used for requesting paint
 			void mf_clearWindow(); //clears all visibles
 			void mf_changeBackgroundColor(const Object::Color& color);
+			void mf_changeActiveScene(Object::VisibleGroup& visibleGroup);
 
 			friend class Object::TextRectangle;
 		};

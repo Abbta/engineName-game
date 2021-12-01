@@ -175,11 +175,21 @@ namespace EngineName
 				}
 				
 				//redraw all affected objects as they are now
-				for (int i(0); i < affectedObjects.size(); i++)
+				for (int i(0), latestIndexOfMatchingVisible(0); i < affectedObjects.size(); i++)
 				{
-					mp_world.mparr_allVisibles.at(affectedObjects[i]->layerID)->mpf_drawSelf(mpptr_renderTarget, *mpptr_brushes);
-					//save a copy of the newly drawn visible in allVisibles
-					mpf_addToDrawnObjects(*mp_world.mparr_allVisibles.at(affectedObjects[i]->layerID));
+					if (mptr_activeObjects == nullptr)
+					{
+						//if no visibleGroup has been specified, all visibles are active and should be painted
+						mp_world.mparr_allVisibles.at(affectedObjects[i]->layerID)->mpf_drawSelf(mpptr_renderTarget, *mpptr_brushes);
+						//save a copy of the newly drawn visible in allVisibles
+						mpf_addToDrawnObjects(*mp_world.mparr_allVisibles.at(affectedObjects[i]->layerID));
+					}
+					else
+					{
+						//only active visibles are affected
+						mptr_activeObjects->getFromID(affectedObjects[i]->layerID, latestIndexOfMatchingVisible).mpf_drawSelf(mpptr_renderTarget, *mpptr_brushes);
+						mpf_addToDrawnObjects(*mptr_activeObjects->operator[](latestIndexOfMatchingVisible));
+					}
 				}
 				//---------------------------------------------------------
 				if (FAILED(mpptr_renderTarget->EndDraw()))
@@ -192,21 +202,40 @@ namespace EngineName
 
 		void Painter::mf_drawAll()
 		{
-			
-			for (auto& element : mp_world.mparr_allVisibles)
+			if (mpptr_renderTarget)
 			{
-				if (element->boxCenter)
-					//if element is on the screen
+				if (mptr_activeObjects == nullptr)
 				{
-					element->draw();
+					for (auto& element : mp_world.mparr_allVisibles)
+					{
+						if (element->boxCenter)
+							//if element is on the screen
+						{
+							element->draw();
+						}
+					}
 				}
-			}		
+				else
+				{
+					for (int i(0); i < mptr_activeObjects->size(); i++)
+					{
+						if (mptr_activeObjects->operator[](i)->boxCenter)
+							//if element is on the screen
+						{
+							mptr_activeObjects->operator[](i)->draw();
+						}
+					}
+				}
+			}
 		}
 
 		void Painter::mf_addToObjectsThatHasCalledDraw(const Object::Visible& visible)
 		{
 			//find visible as it is in drawnobjects
 			//deep copy into that has called draw
+			/*
+			* Old solution: Did not assume paintedObjects was sorted
+			* Did not work when an early ID was not painted
 			const Object::Visible* visibleAsItWas = &visible;
 			for (int i(0); i < mparr_paintedObjects.size(); i++)
 			{
@@ -216,6 +245,14 @@ namespace EngineName
 					break;
 				}
 			}
+			*/
+
+			//New solution: Assumes paintedObjects is sorted
+			//also works when early ID was not painted
+			const Object::Visible* visibleAsItWas = &visible;
+			if(mparr_paintedObjects.size() > visible.layerID)
+				if(mparr_paintedObjects[visible.layerID]->layerID != 0) //0 is nullvisible
+					visibleAsItWas = &*mparr_paintedObjects[visible.layerID];
 
 			//TODO: Fix so it works when ID has been changed
 			mparr_objectsThatHasCalledDraw.push_back(std::make_unique<Object::Visible>(*visibleAsItWas)); /*deep copies visible as it was*/
@@ -224,7 +261,7 @@ namespace EngineName
 		void Painter::mf_clearWindow()
 		{
 			if (mpptr_renderTarget == nullptr)
-				throw Exceptions::BasicException("Rendertarget is null");
+				return;
 
 			mpptr_renderTarget->BeginDraw();
 			mpptr_renderTarget->Clear(mp_backgroundColor);
@@ -254,6 +291,11 @@ namespace EngineName
 				mf_drawAll();
 			}
 			mp_backgroundColor = color;
+		}
+
+		void Painter::mf_changeActiveScene(Object::VisibleGroup& visibleGroup)
+		{
+			mptr_activeObjects = &visibleGroup;
 		}
 	}
 }
