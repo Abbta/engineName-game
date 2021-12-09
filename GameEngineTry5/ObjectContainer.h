@@ -24,6 +24,7 @@ namespace EngineName
 	{
 		class Visible;
 		class Button;
+		template<class t_CountType, class t_TaskType> class Counter;
 	}
 	namespace Time
 	{
@@ -105,6 +106,7 @@ namespace EngineName
 			friend class Object::TextRectangle; //unsymmetric due to textdrawing not being accesible in mp_drawSelf()
 			friend class Action::OnActionBase;
 			friend class Object::Button; //needs to access actionlistener
+			template<class t_CountType, class t_TaskType> friend class Object::Counter;
 			//TEMPORARY:
 			Object::Vector mtemporary_origin;
 		};

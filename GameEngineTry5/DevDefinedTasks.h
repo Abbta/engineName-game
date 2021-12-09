@@ -11,6 +11,11 @@ namespace EngineName
 	{
 		class ObjectContainer;
 	}
+	namespace Object
+	{
+		template <class t_CountType, class t_TaskType>
+		class Counter;
+	}
 	namespace Time
 	{
 
@@ -85,6 +90,8 @@ namespace EngineName
 
 			//*-----------------------------------------------------------------*
 			friend class Action::OnActionBase;
+			template <class t_CountType, class t_TaskType> 
+				friend class Object::Counter;
 		};
 
 	}

@@ -158,6 +158,7 @@
     <ClInclude Include="CircleConstructor.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Counter.h" />
     <ClInclude Include="DevDefinedTasks.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="framework.h" />
@@ -208,6 +209,7 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleConstructor.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Counter.cpp" />
     <ClCompile Include="DevDefinedTasks.cpp" />
     <ClCompile Include="EngineNameMain.cpp" />
     <ClCompile Include="GameEngineTry5.cpp" />

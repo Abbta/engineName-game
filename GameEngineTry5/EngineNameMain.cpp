@@ -9,6 +9,7 @@
 #include "OnClick.h"
 #include "Button.h"
 #include "Scene.h"
+#include "Counter.h"
 using namespace EngineName::Object;
 using namespace EngineName::Time;
 
@@ -24,12 +25,16 @@ int engineNameMain(EngineName::Base::ObjectContainer &world)
 
 	world.backgroundColor = Color("AAAAFF");
 
+
 	Scene* gameScene = &world.scene.build(world);
 	gameScene->add(world.rectangle.build(world, Vector(56, 6), 100, 100, Color("FF0000")));
 	
 	Scene* mainMenuScene = &world.scene.build(world);
 	auto menuRect = &world.rectangle.build(world, Vector((world.width * (3 / 8.0)), (world.height * (1/6.0))), world.width * (2/8.0), world.height * (4/7.0), Color("333355"));
 	mainMenuScene->add(*menuRect);
+	Move testMove(*menuRect, Vector(100, 5));
+	EngineName::Object::Counter<int, Move> testCounter(world, 5, &testMove);
+	testCounter += 3;
 	const EngineName::Object::Rectangle buttonRectangle(
 		world,
 		Vector(world.width * (7 / 16.0), world.height * (3 / 12.0)),
