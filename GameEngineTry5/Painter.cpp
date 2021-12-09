@@ -161,7 +161,7 @@ namespace EngineName
 		void Painter::mf_refresh()
 		{
 			//mparr_objects... contains all visibles that has called their own draw() function since last draw iteration
-			if (mparr_objectsThatHasCalledDraw.size() > 0)
+			if (mparr_objectsThatHasCalledDraw.size() > 0 && mpptr_renderTarget)
 			{
 				std::vector<Object::Visible*> affectedObjects = mpf_getAffectedObjects(mparr_objectsThatHasCalledDraw, mparr_paintedObjects);
 
