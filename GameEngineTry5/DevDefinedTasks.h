@@ -75,6 +75,17 @@ namespace EngineName
 				mparr_changeActiveScene.back().mpit_storageItRef = it;
 				return mparr_changeActiveScene.back();
 			}
+			
+			std::list<UpdateDisplay<int>> mparr_updateDisplayInt;
+			UpdateDisplay<int>& mpf_add(const UpdateDisplay<int>& task)
+			{
+				mparr_updateDisplayInt.push_back(task);
+				mparr_updateDisplayInt.back().mptr_storageRef = &mparr_updateDisplayInt;
+				std::list<UpdateDisplay<int>>::iterator it = mparr_updateDisplayInt.end();
+				it--;
+				mparr_updateDisplayInt.back().mpit_storageItRef = it;
+				return mparr_updateDisplayInt.back();
+			}
 
 			//add storages and overloads of add function to your tasks:
 			//*-----------------------------------------------------------------*

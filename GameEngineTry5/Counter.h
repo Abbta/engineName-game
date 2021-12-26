@@ -29,6 +29,11 @@ namespace EngineName
                 }
             }
 
+            const operator t_CountType() const
+            {
+                return mp_count;
+            }
+
             const t_CountType set(const t_CountType& newCount = 0)
             {
                 mp_count = newCount;
