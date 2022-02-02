@@ -14,6 +14,7 @@
 #include "OnActionBase.h"
 #include "ActionListener.h"
 #include "NullVisible.h"
+#include "ObjectContainerAccess.h"
 #include "ButtonConstructor.h"
 #include "ObjectGroupConstructor.h"
 #include "SceneConstructor.h"
@@ -96,15 +97,16 @@ namespace EngineName
 			//winapi functions that can access private world objects
 			friend int WINAPI::wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow);
 
-			//other classes that can acces private world objects
+			//other classes that can access private world objects
+			//friends regularly accessing visibles from world
 			friend class EngineName::Drawing::Painter;
 			friend class Object::ObjectConstructor;
 			friend class Object::PaintingOrder;
+			//friends working closely together with world
 			friend class MainWindow;
-			friend class Time::Task;
-			friend class Object::TextRectangle; //unsymmetric due to textdrawing not being accesible in mp_drawSelf()
-			friend class Action::OnActionBase;
-			friend class Object::Button; //needs to access actionlistener
+			//friends who are accessor classes
+			friend class ObjectContainerAccess;
+
 			//TEMPORARY:
 			Object::Vector mtemporary_origin;
 		};

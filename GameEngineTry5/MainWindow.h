@@ -13,6 +13,7 @@ namespace EngineName
 	{
 		class WindowAccess; //forward declaration for friend statement
 		class ObjectContainer;
+		class ObjectContainerAccess;
 
 		/*
 		* mainwindow class
@@ -45,10 +46,9 @@ namespace EngineName
 
 			//private functions are only to be accesed by eng
 			friend class WindowAccess;
+			friend class ObjectContainerAccess;
 			friend class ObjectContainer;
-			friend class Object::TextRectangle; //used for accessing painter to draw text
 			friend int WINAPI::wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow);
-			friend class Action::OnActionBase;
 		};
 	}
 }

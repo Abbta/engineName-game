@@ -1,5 +1,7 @@
 #include "OnActionBase.h"
-#include "ObjectContainer.h"
+#include "Queue.h"
+#include "ObjectContainerAccess.h"
+#define queue Base::ObjectContainerAccess::getQueue(world)
 namespace EngineName
 {
 	namespace Action
@@ -11,7 +13,7 @@ namespace EngineName
 
 		void OnActionBase::mpf_schedule(Base::ObjectContainer& world, Time::Task& task)
 		{
-			world.mpc_theQueue.mpf_addToQueue(task);
+			queue.mpf_addToQueue(task);
 		}
 	}
 }

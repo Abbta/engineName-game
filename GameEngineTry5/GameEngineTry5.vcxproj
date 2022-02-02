@@ -169,6 +169,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectConstructor.h" />
     <ClInclude Include="ObjectContainer.h" />
+    <ClInclude Include="ObjectContainerAccess.h" />
     <ClInclude Include="ObjectGroup.h" />
     <ClInclude Include="ObjectGroupConstructor.h" />
     <ClInclude Include="ObjectTasks.h" />
@@ -217,6 +218,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectConstructor.cpp" />
     <ClCompile Include="ObjectContainer.cpp" />
+    <ClCompile Include="ObjectContainerAccess.cpp" />
     <ClCompile Include="ObjectGroup.cpp" />
     <ClCompile Include="ObjectGroupConstructor.cpp" />
     <ClCompile Include="ObjectTasks.cpp" />
@@ -241,7 +243,6 @@
     <ClCompile Include="VisibleGroup.cpp" />
     <ClCompile Include="WidthAndHeight.cpp" />
     <ClCompile Include="WindowAccess.cpp" />
-    <ClCompile Include="WindowBaseClass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameEngineTry5.rc" />
