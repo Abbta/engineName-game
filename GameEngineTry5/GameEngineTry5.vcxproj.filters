@@ -138,6 +138,9 @@
     <ClInclude Include="NullVisible.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectContainerAccess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineTry5.cpp">
@@ -191,9 +194,6 @@
     <ClCompile Include="WindowAccess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WindowBaseClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Visible.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -240,6 +240,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="NullVisible.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectContainerAccess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -167,6 +167,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectConstructor.h" />
     <ClInclude Include="ObjectContainer.h" />
+    <ClInclude Include="ObjectContainerAccess.h" />
     <ClInclude Include="ObjectTasks.h" />
     <ClInclude Include="OnActionBase.h" />
     <ClInclude Include="OnClick.h" />
@@ -206,6 +207,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectConstructor.cpp" />
     <ClCompile Include="ObjectContainer.cpp" />
+    <ClCompile Include="ObjectContainerAccess.cpp" />
     <ClCompile Include="ObjectTasks.cpp" />
     <ClCompile Include="OnActionBase.cpp" />
     <ClCompile Include="OnClick.cpp" />
@@ -223,7 +225,6 @@
     <ClCompile Include="Visible.cpp" />
     <ClCompile Include="WidthAndHeight.cpp" />
     <ClCompile Include="WindowAccess.cpp" />
-    <ClCompile Include="WindowBaseClass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameEngineTry5.rc" />

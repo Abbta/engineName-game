@@ -1,7 +1,8 @@
 #include "TextRectangle.h"
 #include "BrushContainer.h"
-#include "ObjectContainer.h"
-#define painter mptr_world->mpptr_window->mpptr_painter
+#include "ObjectContainerAccess.h"
+#include "Painter.h"
+#define painter Base::ObjectContainerAccess::getPainter(*mptr_world)
 namespace EngineName
 {
 	namespace Object
@@ -18,7 +19,7 @@ namespace EngineName
 			renderTarget->DrawTextW(
 				mp_text.c_str(),
 				static_cast<UINT32>(mp_text.length()),
-				painter->mpptr_fonts->getFont(painter->mpptr_writeFactory, mp_font),
+				painter.mpptr_fonts->getFont(painter.mpptr_writeFactory, mp_font),
 				*this,
 				brushes.getBrush(renderTarget, mp_textColor));
 		}
