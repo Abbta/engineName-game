@@ -10,6 +10,7 @@ namespace EngineName
 	namespace Base
 	{
 		class ObjectContainer;
+		class ObjectContainerAccess;
 		class MainWindow;
 	}
 	namespace Time
@@ -34,6 +35,7 @@ namespace EngineName
 
 			friend class Base::MainWindow;
 			friend class Base::ObjectContainer;
+			friend class Base::ObjectContainerAccess;
 			friend class Action::OnActionBase;
 		};
 	}
