@@ -1,10 +1,11 @@
 #pragma once
-#include "OnClick.h"
+//#include "OnClick.h"
 #include "BaseIncludeLibraries.h"
 namespace EngineName
 {
 	namespace Action
 	{
+		class OnClick;
 		/*
 		* ActionListener class
 		* Keeps track of actions we're listening for, clicks and presses

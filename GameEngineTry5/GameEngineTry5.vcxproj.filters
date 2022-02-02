@@ -328,4 +328,15 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Counter.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Display.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="UpdateDisplay.inl">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

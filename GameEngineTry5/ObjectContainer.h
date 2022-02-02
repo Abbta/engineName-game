@@ -1,3 +1,4 @@
+#pragma once
 #include "MainWindow.h"
 #include "WindowAccess.h"
 #include "RectangleConstructor.h"
@@ -18,19 +19,10 @@
 #include "ObjectGroupConstructor.h"
 #include "SceneConstructor.h"
 #include "CounterConstructor.h"
-#pragma once
+#include "DevDefinedTasks.h"
+#include "ActionListener.h"
 namespace EngineName
 {
-	namespace Object
-	{
-		class Visible;
-		class Button;
-		template<class t_CountType, class t_TaskType> class Counter;
-	}
-	namespace Time
-	{
-		//class Move;
-	}
 	namespace Base
 	{
 		/*
@@ -45,6 +37,7 @@ namespace EngineName
 			//these should only be interacted with by winapi or other world objects or access classes
 			std::unique_ptr<MainWindow> mpptr_window; //will probably be large and is therefore dynamically allocated
 			Drawing::Painter& mpf_getPainter();
+			Time::TaskContainer& mpf_getTaskContainer();
 
 			std::vector<Object::Visible*> mparr_allVisibles;
 
@@ -98,6 +91,10 @@ namespace EngineName
 
 			//winapi functions that can access private world objects
 			friend int WINAPI::wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow);
+
+			//outside access functions
+			//TaskContainer& f_getTaskContainer(Base::ObjectContainer& world);
+			friend Time::TaskContainer& Time::f_getTaskContainer(Base::ObjectContainer& world);
 
 			//other classes that can acces private world objects
 			friend class EngineName::Drawing::Painter;

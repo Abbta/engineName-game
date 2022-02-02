@@ -1,0 +1,6 @@
+namespace EngineName
+{
+	namespace Object
+	{
+	}
+}

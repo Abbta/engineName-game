@@ -1,11 +1,13 @@
+#pragma once
 #include "BaseIncludeLibraries.h"
 #include "DevDefinedTasks.h"
-#pragma once
 namespace EngineName
 {
 	namespace Action
 	{
 		class OnActionBase;
+		//temp:
+		class ActionListener;
 	}
 	namespace Base
 	{
@@ -19,7 +21,6 @@ namespace EngineName
 	namespace Time
 	{
 		class Task;
-
 		/*
 		* Queue class
 		* stores a ref to all task objects that has scheduled execution

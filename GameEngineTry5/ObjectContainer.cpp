@@ -1,11 +1,24 @@
 #include "ObjectContainer.h"
 #include "Visible.h" //TEMPORARY
-//#include "ObjectTasks.h"
+#include "ObjectTasks.h"
 namespace EngineName
 {
 	using namespace Time;
+	namespace Time
+	{
+		//used when file can't #include objectcontainer but needs access to taskcontainer
+		TaskContainer& f_getTaskContainer(Base::ObjectContainer& world)
+		{
+			return world.mpf_getTaskContainer();
+		}
+	}
 	namespace Base
 	{
+		TaskContainer& ObjectContainer::mpf_getTaskContainer()
+		{
+			return this->mpc_theQueue.mpc_taskContainer;
+		}
+
 		ObjectContainer::BackgroundColor::BackgroundColor(Drawing::Painter& painter):
 			mp_painterref(painter), mp_color(Object::c_defaultBackgroundColor) {}
 

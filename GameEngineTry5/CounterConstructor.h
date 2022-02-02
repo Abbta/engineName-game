@@ -10,6 +10,7 @@ namespace EngineName
         {
         private:
             std::list<std::unique_ptr<Counter<int, void>>> mparr_intVoidCounters;
+            std::list<std::unique_ptr<Counter<int, Time::UpdateDisplay<int>>>> mparr_intDisplayCounters;
         public:
             CounterConstructor(Base::ObjectContainer& world) : ObjectConstructor(world) {}
             CounterConstructor(Base::ObjectContainer* world) : ObjectConstructor(world) {}
@@ -18,6 +19,12 @@ namespace EngineName
             {
                 mparr_intVoidCounters.push_back(std::make_unique<Counter<int, void>>(counter));
                 return *mparr_intVoidCounters.back();
+            }
+
+            Counter<int, Time::UpdateDisplay<int>>& build(const Counter<int, Time::UpdateDisplay<int>>& counter)
+            {
+                mparr_intDisplayCounters.push_back(std::make_unique<Counter<int, Time::UpdateDisplay<int>>>(counter));
+                return *mparr_intDisplayCounters.back();
             }
         };
     }

@@ -32,8 +32,8 @@ int engineNameMain(EngineName::Base::ObjectContainer &world)
 	Scene* mainMenuScene = &world.scene.build(world);
 	auto menuRect = &world.rectangle.build(world, Vector((world.width * (3 / 8.0)), (world.height * (1/6.0))), world.width * (2/8.0), world.height * (4/7.0), Color("333355"));
 	mainMenuScene->add(*menuRect);
-	Move testMove(*menuRect, Vector(100, 5));
-	EngineName::Object::Counter<int, Move> testCounter(world, 5, &testMove);
+	EngineName::Time::Move testMove(*menuRect, Vector(100, 5));
+	EngineName::Object::Counter<int, EngineName::Time::Move> testCounter(world, 5, &testMove);
 	testCounter += 3;
 	const EngineName::Object::Rectangle buttonRectangle(
 		world,

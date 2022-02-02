@@ -1,11 +1,15 @@
 #pragma once
 #include "Rectangle.h"
-#include "OnClick.h"
 namespace EngineName
 {
     namespace Time
     {
         class Move;
+    }
+    namespace Action
+    {
+        class ActionListener;
+        class OnClick;
     }
     namespace Object
     {
@@ -21,21 +25,11 @@ namespace EngineName
             void mpf_changeOnClickArea(Visible& newArea);
         public:
             template<class T>
-            Button(const Rectangle& rect, const T& onClickTask)
-                :Rectangle(rect), mp_actionRef(msp_getActionListener(mptr_world).addClickListener(Action::OnClick(mptr_world, onClickTask, this)))
-            {
-                //as button reuses task, it should not be destroyed
-                mp_actionRef.mpptr_task->makeIndestructable();
-            }
+            Button(const Rectangle& rect, const T& onClickTask);
 
-            //T should be same as original T
+            //T should be same as T used when constructing
             template<class T>
-            void changeOnClickTask(const T& newTask)
-            {
-                mp_actionRef.mpf_changeTask(newTask);
-                //as button reuses task, it should not be destroyed
-                mp_actionRef.mpptr_task->makeIndestructable();
-            }
+            void changeOnClickTask(const T& newTask);
 
             friend class ButtonConstructor;
             friend class TextButtonConstructor;
