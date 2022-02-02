@@ -1,6 +1,4 @@
 #include "Button.h"
-#include "ObjectContainer.h"
-#include "OnClick.h"
 namespace EngineName
 {
 	namespace Object

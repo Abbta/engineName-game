@@ -1,5 +1,9 @@
 #include "Visible.h"
-#include "ObjectContainer.h"
+#include "ObjectContainerAccess.h"
+#include "WidthAndHeight.h"
+
+#define world_width Base::ObjectContainerAccess::getWidth(*mptr_world)
+#define world_height Base::ObjectContainerAccess::getHeight(*mptr_world)
 namespace EngineName
 {
 	namespace Object
@@ -66,8 +70,8 @@ namespace EngineName
 
 		Visible::operator D2D1_RECT_F() const
 		{
-			return D2D1::RectF(mptr_world->width.toOutputWidth(boxPosition.x), mptr_world->height.toOutputHeight(boxPosition.y),
-				mptr_world->width.toOutputWidth(boxPosition.x + boxWidth), mptr_world->height.toOutputHeight(boxPosition.y + boxHeight));
+			return D2D1::RectF(world_width.toOutputWidth(boxPosition.x), world_height.toOutputHeight(boxPosition.y),
+				world_width.toOutputWidth(boxPosition.x + boxWidth), world_height.toOutputHeight(boxPosition.y + boxHeight));
 		}
 
 		void Visible::mpf_clear(CComPtr<ID2D1HwndRenderTarget>& renderTarget, CComPtr<ID2D1SolidColorBrush>& backgroundBrush) const

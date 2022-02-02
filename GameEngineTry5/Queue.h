@@ -12,6 +12,7 @@ namespace EngineName
 	namespace Base
 	{
 		class ObjectContainer;
+		class ObjectContainerAccess;
 		class MainWindow;
 	}
 	namespace Object
@@ -39,6 +40,7 @@ namespace EngineName
 
 			friend class Base::MainWindow;
 			friend class Base::ObjectContainer;
+			friend class Base::ObjectContainerAccess;
 			friend class Action::OnActionBase;
 			template<class t_CountType, class t_TaskType> friend class Object::Counter;
 		};
