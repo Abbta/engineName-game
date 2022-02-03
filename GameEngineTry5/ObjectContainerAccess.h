@@ -36,7 +36,7 @@ namespace EngineName
 			Issues related to this most often occur with the use of template classes.
 		* Also reduces the amount of needed friends for ObjectContainer 
 		*/
-		static struct ObjectContainerAccess
+		struct ObjectContainerAccess
 		{
 			//world is allowed to be store here as a ref or ptr but
 				//for this version it was decided that functions 
