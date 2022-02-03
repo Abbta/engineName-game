@@ -38,5 +38,15 @@ namespace EngineName
 		{
 			return world.height;
 		}
+
+		Object::CounterConstructor& ObjectContainerAccess::getCounter(ObjectContainer& world)
+		{
+			return world.counter;
+		}
+
+		void ObjectContainerAccess::drawVisible(ObjectContainer& world, const Object::Visible& visible)
+		{
+			world.drawVisible(visible);
+		}
 	}
 }

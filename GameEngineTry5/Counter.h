@@ -1,4 +1,5 @@
 #include "Object.h"
+#include "ObjectContainerAccess.h"
 #pragma once
 namespace EngineName
 {
@@ -11,10 +12,11 @@ namespace EngineName
         class Task;
         class TaskContainer;
         template<typename t_CountType> class UpdateDisplay;
-        TaskContainer& f_getTaskContainer(Base::ObjectContainer& world);
     }
     namespace Object
     {
+        template<class t_CountType> class Display;
+
         template<class t_CountType, class t_TaskType>
         class Counter :
             public Object
@@ -28,19 +30,33 @@ namespace EngineName
             {
                 if (onCountChange)
                 {
-                    mptr_onCountChange = &Time::f_getTaskContainer(world).mpf_add(*onCountChange);
+                    mptr_onCountChange = &Base::ObjectContainerAccess::getTaskContainer(world).mpf_add(*onCountChange);
                     mptr_onCountChange->makeIndestructable();
                 }
             }
+
+            template<class t_CountType> friend class Display;
 
             /*const operator t_CountType() const
             {
                 return mp_count;
             }*/
 
-            const t_CountType set(const t_CountType& newCount = 0);
+            const t_CountType increment(const t_CountType& amount)
+            {
+                mp_count += amount;
+                if (mptr_onCountChange)
+                    Base::ObjectContainerAccess::getQueue(*mptr_world).mpf_addToQueue(*mptr_onCountChange);
+                return mp_count;
+            }
 
-            const t_CountType increment(const t_CountType& amount = 1);
+            const t_CountType set(const t_CountType& newCount)
+            {
+                mp_count = newCount;
+                if (mptr_onCountChange)
+                   Base::ObjectContainerAccess::getQueue(*mptr_world).mpf_addToQueue(*mptr_onCountChange);
+                return mp_count;
+            }
 
             Counter& operator=(const t_CountType& newCount)
             {

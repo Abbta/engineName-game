@@ -4,21 +4,8 @@
 namespace EngineName
 {
 	using namespace Time;
-	namespace Time
-	{
-		//used when file can't #include objectcontainer but needs access to taskcontainer
-		TaskContainer& f_getTaskContainer(Base::ObjectContainer& world)
-		{
-			return world.mpf_getTaskContainer();
-		}
-	}
 	namespace Base
 	{
-		TaskContainer& ObjectContainer::mpf_getTaskContainer()
-		{
-			return this->mpc_theQueue.mpc_taskContainer;
-		}
-
 		ObjectContainer::BackgroundColor::BackgroundColor(Drawing::Painter& painter):
 			mp_painterref(painter), mp_color(Object::c_defaultBackgroundColor) {}
 
@@ -32,7 +19,8 @@ namespace EngineName
 		ObjectContainer::ObjectContainer() 
 			:mpptr_window{ std::make_unique<MainWindow>(*this) }, window(&mpptr_window),
 			mtemporary_origin(0,0), mpc_theQueue(), nullVisible(this),
-			rectangle(this), circle(this), textRectangle(this), button(this), textButton(this), objectGroup(this), scene(this),
+			rectangle(this), circle(this), textRectangle(this), button(this), textButton(this), counter(this),
+			objectGroup(this), scene(this),
 			backgroundColor(*mpptr_window->mpptr_painter), width(*mpptr_window), height(*mpptr_window)
 		{
 			//reinitialise nullvisible and add it to allvisibles to give it a correct layerID
@@ -68,14 +56,9 @@ namespace EngineName
 			
 		}
 
-		Drawing::Painter& ObjectContainer::mpf_getPainter()
-		{
-			return *mpptr_window->mpptr_painter;
-		}
-
 		void ObjectContainer::setActiveScene(Object::Scene& scene)
 		{
-			Drawing::Painter& painterRef = mpf_getPainter();
+			Drawing::Painter& painterRef = *mpptr_window->mpptr_painter;
 			painterRef.mf_clearWindow();
 			painterRef.mf_changeActiveScene(scene.mf_getVisibles());
 			painterRef.mf_drawAll();

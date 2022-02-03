@@ -37,8 +37,6 @@ namespace EngineName
 		private:
 			//these should only be interacted with by winapi or other world objects or access classes
 			std::unique_ptr<MainWindow> mpptr_window; //will probably be large and is therefore dynamically allocated
-			Drawing::Painter& mpf_getPainter();
-			Time::TaskContainer& mpf_getTaskContainer();
 
 			std::vector<Object::Visible*> mparr_allVisibles;
 

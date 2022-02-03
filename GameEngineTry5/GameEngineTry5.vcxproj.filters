@@ -1,345 +1,114 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="ActionListener.cpp" />
+    <ClCompile Include="BasicException.cpp" />
+    <ClCompile Include="BasicVariableException.cpp" />
+    <ClCompile Include="BrushContainer.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ButtonConstructor.cpp" />
+    <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="CircleConstructor.cpp" />
+    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Counter.cpp" />
+    <ClCompile Include="CounterConstructor.cpp" />
+    <ClCompile Include="DevDefinedTasks.cpp" />
+    <ClCompile Include="Display.cpp" />
+    <ClCompile Include="EngineNameMain.cpp" />
+    <ClCompile Include="GameEngineTry5.cpp" />
+    <ClCompile Include="Line.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="NullVisible.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjectConstructor.cpp" />
+    <ClCompile Include="ObjectContainer.cpp" />
+    <ClCompile Include="ObjectContainerAccess.cpp" />
+    <ClCompile Include="ObjectGroup.cpp" />
+    <ClCompile Include="ObjectGroupConstructor.cpp" />
+    <ClCompile Include="ObjectTasks.cpp" />
+    <ClCompile Include="OnActionBase.cpp" />
+    <ClCompile Include="OnClick.cpp" />
+    <ClCompile Include="Painter.cpp" />
+    <ClCompile Include="PaintingOrder.cpp" />
+    <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="RectangleConstructor.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneConstructor.cpp" />
+    <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="Task.cpp" />
+    <ClCompile Include="TextButton.cpp" />
+    <ClCompile Include="TextButtonConstructor.cpp" />
+    <ClCompile Include="TextFormatContainer.cpp" />
+    <ClCompile Include="TextRectangle.cpp" />
+    <ClCompile Include="TextRectangleConstructor.cpp" />
+    <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="Visible.cpp" />
+    <ClCompile Include="VisibleGroup.cpp" />
+    <ClCompile Include="WidthAndHeight.cpp" />
+    <ClCompile Include="WindowAccess.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEngineTry5.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseIncludeLibraries.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Circle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleConstructor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Constants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Line.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectConstructor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectContainer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Painter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PaintingOrder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Rectangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RectangleConstructor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Shape.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowAccess.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowBaseClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Visible.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicsIncludeLibraries.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BrushContainer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="_BaseIncludeLibraries.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BasicException.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BasicVariableException.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Task.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Queue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectTasks.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DevDefinedTasks.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextFormatContainer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Font.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextRectangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextRectangleConstructor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WidthAndHeight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ActionListener.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OnActionBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OnClick.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NullVisible.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectContainerAccess.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ButtonConstructor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextButtonConstructor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectGroup.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectGroupConstructor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneConstructor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VisibleGroup.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Counter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Display.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CounterConstructor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="ActionListener.h" />
+    <ClInclude Include="BaseIncludeLibraries.h" />
+    <ClInclude Include="BasicException.h" />
+    <ClInclude Include="BasicVariableException.h" />
+    <ClInclude Include="BrushContainer.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="ButtonConstructor.h" />
+    <ClInclude Include="Circle.h" />
+    <ClInclude Include="CircleConstructor.h" />
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="Counter.h" />
+    <ClInclude Include="CounterConstructor.h" />
+    <ClInclude Include="DevDefinedTasks.h" />
+    <ClInclude Include="Display.h" />
+    <ClInclude Include="Font.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="GameEngineTry5.h" />
+    <ClInclude Include="GraphicsIncludeLibraries.h" />
+    <ClInclude Include="Line.h" />
+    <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="NullVisible.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="ObjectConstructor.h" />
+    <ClInclude Include="ObjectContainer.h" />
+    <ClInclude Include="ObjectContainerAccess.h" />
+    <ClInclude Include="ObjectGroup.h" />
+    <ClInclude Include="ObjectGroupConstructor.h" />
+    <ClInclude Include="ObjectTasks.h" />
+    <ClInclude Include="OnActionBase.h" />
+    <ClInclude Include="OnClick.h" />
+    <ClInclude Include="Painter.h" />
+    <ClInclude Include="PaintingOrder.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="RectangleConstructor.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneConstructor.h" />
+    <ClInclude Include="Shape.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Task.h" />
+    <ClInclude Include="TextButton.h" />
+    <ClInclude Include="TextButtonConstructor.h" />
+    <ClInclude Include="TextFormatContainer.h" />
+    <ClInclude Include="TextRectangle.h" />
+    <ClInclude Include="TextRectangleConstructor.h" />
+    <ClInclude Include="Vector.h" />
+    <ClInclude Include="Visible.h" />
+    <ClInclude Include="VisibleGroup.h" />
+    <ClInclude Include="WidthAndHeight.h" />
+    <ClInclude Include="WindowAccess.h" />
+    <ClInclude Include="WindowBaseClass.h" />
+    <ClInclude Include="_BaseIncludeLibraries.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameEngineTry5.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Circle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CircleConstructor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EngineNameMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Line.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MainWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectConstructor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectContainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Painter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PaintingOrder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rectangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RectangleConstructor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Shape.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowAccess.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Visible.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BrushContainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BasicException.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BasicVariableException.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Task.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Queue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectTasks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DevDefinedTasks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextFormatContainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextRectangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextRectangleConstructor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WidthAndHeight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ActionListener.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OnActionBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OnClick.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NullVisible.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ButtonConstructor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextButtonConstructor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectGroup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectGroupConstructor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneConstructor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VisibleGroup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectContainerAccess.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Counter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CounterConstructor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ResourceCompile Include="GameEngineTry5.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="GameEngineTry5.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="GameEngineTry5.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Counter.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="Display.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="UpdateDisplay.inl">
-      <Filter>Header Files</Filter>
-    </None>
+    <Image Include="GameEngineTry5.ico" />
+    <Image Include="small.ico" />
   </ItemGroup>
 </Project>

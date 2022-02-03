@@ -9,26 +9,31 @@ namespace EngineName
     }
     namespace Object
     {
-        template<class t_CountType> class Display;
-
-        template<typename t_CountType>
-        Counter<t_CountType, Time::UpdateDisplay<t_CountType>> inlinef_buildCounter(Base::ObjectContainer& world, Display<t_CountType>* thisPtr, t_CountType initialCount);
-
         template<class t_CountType>
         class Display :
             public TextRectangle
         {
         private:
             Counter<t_CountType, Time::UpdateDisplay<t_CountType>>* mptr_counter;
-            void mp_updateDisplay(t_CountType newCount);
+            void mp_updateDisplay(t_CountType newCount)
+            {
+                //count has changed, redraw display
+                Base::ObjectContainerAccess::drawVisible(*mptr_world, *this);
+            }
+            void mp_updateDisplay(Counter<t_CountType, Time::UpdateDisplay<t_CountType>>& newCount)
+            {
+                mp_updateDisplay(newCount.mp_count);
+            }
         public:
             Display(TextRectangle& textRectangle, const t_CountType initialCount = 0)
                 :TextRectangle(textRectangle), Rectangle(textRectangle), mptr_counter(nullptr)
             {
-                mptr_counter = &inlinef_buildCounter(mptr_world, this, initialCount);
+                //build a counter and store its ptr in mptr_counter
+                auto tempTaskPtr = &Time::UpdateDisplay<t_CountType>(*this);
+                mptr_counter = Base::ObjectContainerAccess::getCounter(mptr_world).build(Counter<t_CountType, Time::UpdateDisplay<t_CountType>>(*mptr_world, initialCount, tempTaskPtr));
             }
+
+            template<typename t_CountType> friend class Time::UpdateDisplay;
         };
     }
 }
-
-#include "Display.inl"
