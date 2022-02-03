@@ -65,7 +65,7 @@ namespace EngineName
 			}
 		public:
 			UpdateDisplay(Object::Display<t_CountType>& display) :
-				mp_displayRef(display), mptr_storageRef(nullptr)
+				mp_displayRef(display), mptr_storageRef(nullptr), mp_counterRef(*display.mptr_counter)
 			{
 
 			}

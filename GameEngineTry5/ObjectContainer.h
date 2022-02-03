@@ -22,6 +22,7 @@
 #include "CounterConstructor.h"
 #include "DevDefinedTasks.h"
 #include "ActionListener.h"
+#include "DisplayConstructor.h"
 namespace EngineName
 {
 	namespace Base
@@ -78,6 +79,7 @@ namespace EngineName
 			Object::ObjectGroupConstructor		objectGroup;
 			Object::SceneConstructor			scene;
 			Object::CounterConstructor			counter;
+			Object::DisplayConstructor			display;
 
 			//access classes
 			WindowAccess window;					//is fairly simple

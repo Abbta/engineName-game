@@ -25,12 +25,12 @@ namespace EngineName
                 mp_updateDisplay(newCount.mp_count);
             }
         public:
-            Display(TextRectangle& textRectangle, const t_CountType initialCount = 0)
+            Display(const TextRectangle& textRectangle, const t_CountType initialCount = 0)
                 :TextRectangle(textRectangle), Rectangle(textRectangle), mptr_counter(nullptr)
             {
                 //build a counter and store its ptr in mptr_counter
-                auto tempTaskPtr = &Time::UpdateDisplay<t_CountType>(*this);
-                mptr_counter = Base::ObjectContainerAccess::getCounter(mptr_world).build(Counter<t_CountType, Time::UpdateDisplay<t_CountType>>(*mptr_world, initialCount, tempTaskPtr));
+                const Time::UpdateDisplay<t_CountType> tempTask = Time::UpdateDisplay<t_CountType>(*this);
+                mptr_counter = &Base::ObjectContainerAccess::getCounter(*mptr_world).build(Counter<t_CountType, Time::UpdateDisplay<t_CountType>>(*mptr_world, initialCount, &tempTask));
             }
 
             template<typename t_CountType> friend class Time::UpdateDisplay;
