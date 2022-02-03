@@ -47,6 +47,7 @@
     <ClCompile Include="VisibleGroup.cpp" />
     <ClCompile Include="WidthAndHeight.cpp" />
     <ClCompile Include="WindowAccess.cpp" />
+    <ClCompile Include="DisplayConstructor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionListener.h" />
@@ -103,6 +104,7 @@
     <ClInclude Include="WindowAccess.h" />
     <ClInclude Include="WindowBaseClass.h" />
     <ClInclude Include="_BaseIncludeLibraries.h" />
+    <ClInclude Include="DisplayConstructor.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameEngineTry5.rc" />
