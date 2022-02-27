@@ -17,11 +17,10 @@ namespace EngineName
 	}
 	namespace Object
 	{
-		template<class t_CountType, class t_TaskType> class Counter;
+		template<class t_CountType, class t_TaskType> class CounterImpl;
 	}
 	namespace Time
 	{
-		class Task;
 		/*
 		* Queue class
 		* stores a ref to all task objects that has scheduled execution
@@ -42,7 +41,7 @@ namespace EngineName
 			friend class Base::ObjectContainer;
 			friend struct Base::ObjectContainerAccess;
 			friend class Action::OnActionBase;
-			template<class t_CountType, class t_TaskType> friend class Object::Counter;
+			template<class t_CountType, class t_TaskType> friend class Object::CounterImpl;
 		};
 	}
 }

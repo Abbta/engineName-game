@@ -1,5 +1,4 @@
 #pragma once
-#include "BaseIncludeLibraries.h"
 #include "ObjectTasks.h"
 namespace EngineName
 {
@@ -13,8 +12,7 @@ namespace EngineName
 	}
 	namespace Object
 	{
-		template <class t_CountType, class t_TaskType>
-		class Counter;
+		template<class t_CountType, class t_TaskType> class CounterImpl;
 	}
 	namespace Time
 	{
@@ -77,15 +75,15 @@ namespace EngineName
 				return mparr_changeActiveScene.back();
 			}
 			
-			std::list<UpdateDisplay<int>> mparr_updateDisplayInt;
-			UpdateDisplay<int>& mpf_add(const UpdateDisplay<int>& task)
+			std::list<UpdateDisplay> mparr_updateDisplay;
+			UpdateDisplay& mpf_add(const UpdateDisplay& task)
 			{
-				mparr_updateDisplayInt.push_back(task);
-				mparr_updateDisplayInt.back().mptr_storageRef = &mparr_updateDisplayInt;
-				std::list<UpdateDisplay<int>>::iterator it = mparr_updateDisplayInt.end();
+				mparr_updateDisplay.push_back(task);
+				mparr_updateDisplay.back().mptr_storageRef = &mparr_updateDisplay;
+				std::list<UpdateDisplay>::iterator it = mparr_updateDisplay.end();
 				it--;
-				mparr_updateDisplayInt.back().mpit_storageItRef = it;
-				return mparr_updateDisplayInt.back();
+				mparr_updateDisplay.back().mpit_storageItRef = it;
+				return mparr_updateDisplay.back();
 			}
 
 			//add storages and overloads of add function to your tasks:
@@ -102,8 +100,7 @@ namespace EngineName
 
 			//*-----------------------------------------------------------------*
 			friend class Action::OnActionBase;
-			template <class t_CountType, class t_TaskType> 
-				friend class Object::Counter;
+			template<class t_CountType, class t_taskType> friend class Object::CounterImpl;
 		};
 
 	}

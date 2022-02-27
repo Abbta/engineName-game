@@ -1,39 +1,36 @@
 #include "TextRectangle.h"
-#include "Counter.h"
+#include "BasicException.h"
 #pragma once
 namespace EngineName
 {
     namespace Time
     {
-        template<typename t_CountType> class UpdateDisplay;
+        class UpdateDisplay;
     }
     namespace Object
     {
-        template<class t_CountType>
+        class Counter;
         class Display :
             public TextRectangle
         {
-        private:
-            Counter<t_CountType, Time::UpdateDisplay<t_CountType>>* mptr_counter;
-            void mp_updateDisplay(t_CountType newCount)
+        protected:
+            Counter* mptr_counter;
+
+            virtual void mp_updateDisplay(const Counter& newCount)
             {
-                //count has changed, redraw display
-                Base::ObjectContainerAccess::drawVisible(*mptr_world, *this);
-            }
-            void mp_updateDisplay(Counter<t_CountType, Time::UpdateDisplay<t_CountType>>& newCount)
-            {
-                mp_updateDisplay(newCount.mp_count);
+                throw Exceptions::BasicException("Error, mp_updateDisplay accesed from Display base class");
             }
         public:
-            Display(const TextRectangle& textRectangle, const t_CountType initialCount = 0)
-                :TextRectangle(textRectangle), Rectangle(textRectangle), mptr_counter(nullptr)
+            Display(const TextRectangle& textrectangle):
+                TextRectangle(textrectangle), Rectangle(textrectangle), mptr_counter(nullptr) {}
+
+            //get the counter associated with the display
+            Counter& counter()
             {
-                //build a counter and store its ptr in mptr_counter
-                const Time::UpdateDisplay<t_CountType> tempTask = Time::UpdateDisplay<t_CountType>(*this);
-                mptr_counter = &Base::ObjectContainerAccess::getCounter(*mptr_world).build(Counter<t_CountType, Time::UpdateDisplay<t_CountType>>(*mptr_world, initialCount, &tempTask));
+                return *mptr_counter;
             }
 
-            template<typename t_CountType> friend class Time::UpdateDisplay;
+            friend class Time::UpdateDisplay;
         };
     }
 }

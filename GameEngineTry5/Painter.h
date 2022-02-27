@@ -85,6 +85,7 @@ namespace EngineName
 			void mf_clearWindow(); //clears all visibles
 			void mf_changeBackgroundColor(const Object::Color& color);
 			void mf_changeActiveScene(Object::VisibleGroup& visibleGroup);
+			const Object::VisibleGroup* mf_getActiveScene() const;
 
 			friend class Object::TextRectangle;
 		};

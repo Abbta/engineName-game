@@ -40,5 +40,10 @@ namespace EngineName
 			if (mp_isDestructable)
 				mptr_storageRef->erase(mpit_storageItRef);
 		}
+
+		void UpdateDisplay::m_updateCounterPtr(Object::Counter& newCounter)
+		{
+			mpptr_counter = &newCounter;
+		}
 	}
 }

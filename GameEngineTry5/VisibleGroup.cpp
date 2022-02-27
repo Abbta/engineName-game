@@ -36,5 +36,17 @@ namespace EngineName
 			//error
 			throw Exceptions::BasicException("No visible with the given ID was found in group\n");
 		}
+
+		const bool VisibleGroup::contains(const Visible& visible) const
+		{
+			for (auto& element : mparr_visiblePointers)
+			{
+				if (visible == *element)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
 	}
 }

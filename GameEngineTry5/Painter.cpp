@@ -150,7 +150,7 @@ namespace EngineName
 			//return
 			return returnVector;
 		}
-
+		
 		/*
 		* Refresh public member function
 		* If atleast 1 object wants to be painted
@@ -297,5 +297,12 @@ namespace EngineName
 		{
 			mptr_activeObjects = &visibleGroup;
 		}
+
+		const Object::VisibleGroup* Painter::mf_getActiveScene() const
+		{
+			return mptr_activeObjects;
+		}
 	}
+
+
 }

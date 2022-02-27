@@ -36,9 +36,24 @@ namespace EngineName
 		}
 
 		//requests drawing for that visible
-		void ObjectContainer::drawVisible(const Object::Visible& visible) const
+		bool ObjectContainer::drawVisible(const Object::Visible& visible) const
 		{
-			mpptr_window->mpptr_painter->mf_addToObjectsThatHasCalledDraw(visible);
+			const auto activeScene = mpptr_window->mpptr_painter->mf_getActiveScene();
+			//if it is in active scene
+			if (activeScene == nullptr
+				|| activeScene->contains(visible))
+			{
+				//draw
+				mpptr_window->mpptr_painter->mf_addToObjectsThatHasCalledDraw(visible);
+				//return that it was drawn
+				return true;
+			}
+			else
+			{
+				//if not in active scene
+				//return request denied
+				return false;
+			}
 		}
 
 		//template<class T>

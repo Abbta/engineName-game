@@ -160,9 +160,11 @@
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Counter.h" />
     <ClInclude Include="CounterConstructor.h" />
+    <ClInclude Include="CounterImpl.h" />
     <ClInclude Include="DevDefinedTasks.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="DisplayConstructor.h" />
+    <ClInclude Include="DisplayImpl.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameEngineTry5.h" />

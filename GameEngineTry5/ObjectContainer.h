@@ -64,7 +64,7 @@ namespace EngineName
 				//add threads
 
 			//public functions
-			void drawVisible(const Object::Visible& visible) const;
+			bool drawVisible(const Object::Visible& visible) const;
 			//template<class T>
 			void schedule(const Time::Move& task, int ms = 0);
 			//void schedule(Time::Task* task, int ms = 0) { schedule(*task, ms); }

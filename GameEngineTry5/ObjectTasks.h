@@ -10,7 +10,7 @@ namespace EngineName
 {
 	namespace Object
 	{
-		template<class t_CountType, class t_TaskType> class Counter;
+		class Counter;
 	}
 	namespace Time
 	{
@@ -43,19 +43,18 @@ namespace EngineName
 			friend class TaskContainer;
 		};
 
-		template<typename t_CountType>
 		class UpdateDisplay : public Task
 		{
 		private:
-			std::list<UpdateDisplay<t_CountType>>* mptr_storageRef;
-			std::list<UpdateDisplay<int>>::iterator mpit_storageItRef;
+			std::list<UpdateDisplay>* mptr_storageRef;
+			std::list<UpdateDisplay>::iterator mpit_storageItRef;
 			
-			Object::Display<t_CountType>& mp_displayRef;
-			Object::Counter<t_CountType, UpdateDisplay<t_CountType>>& mp_counterRef;
+			Object::Display& mp_displayRef;
+			Object::Counter* mpptr_counter;
 
 			virtual void mpf_perform(Base::ObjectContainer& world) override
 			{
-				mp_displayRef.mp_updateDisplay(mp_counterRef);
+				mp_displayRef.mp_updateDisplay(*mpptr_counter);
 			}
 
 			virtual void Destroy() override
@@ -64,11 +63,13 @@ namespace EngineName
 					mptr_storageRef->erase(mpit_storageItRef);
 			}
 		public:
-			UpdateDisplay(Object::Display<t_CountType>& display) :
-				mp_displayRef(display), mptr_storageRef(nullptr), mp_counterRef(*display.mptr_counter)
+			UpdateDisplay(Object::Display& display) :
+				mp_displayRef(display), mptr_storageRef(nullptr), mpptr_counter(display.mptr_counter)
 			{
 
 			}
+
+			void m_updateCounterPtr(Object::Counter& newCounter);
 			friend class TaskContainer;
 		};
 	}

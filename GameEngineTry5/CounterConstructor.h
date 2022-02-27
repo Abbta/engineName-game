@@ -1,6 +1,6 @@
 #pragma once
 #include "ObjectConstructor.h"
-#include "Counter.h"
+#include "CounterImpl.h"
 namespace EngineName
 {
     namespace Object
@@ -9,15 +9,24 @@ namespace EngineName
             public ObjectConstructor
         {
         private:
-            std::list<std::unique_ptr<Counter<int, void>>> mparr_intVoidCounters;
-            std::list<std::unique_ptr<Counter<int, Time::UpdateDisplay<int>>>> mparr_intDisplayCounters;
+            std::list<std::unique_ptr<Counter>> mparr_allCounters;
         public:
             CounterConstructor(Base::ObjectContainer& world) : ObjectConstructor(world) {}
             CounterConstructor(Base::ObjectContainer* world) : ObjectConstructor(world) {}
 
-            Counter<int, void>& build(const Counter<int, void>& counter);
+            template<class t_CountType, class t_TaskType> Counter& build(const CounterImpl<t_CountType, t_TaskType>& counter) 
+            {
+                CounterImpl<t_CountType, t_TaskType>* tempImplementedPart = new CounterImpl<t_CountType, t_TaskType>(counter);
+                mparr_allCounters.push_back(std::unique_ptr<Counter>(tempImplementedPart));
+                return *mparr_allCounters.back();
+            }
 
-            Counter<int, Time::UpdateDisplay<int>>& build(const Counter<int, Time::UpdateDisplay<int>>& counter);
+            template<class t_CountType, class t_TaskType> Counter& build(Base::ObjectContainer& world, const t_CountType initialCount = 0, const t_TaskType* onCountChange = nullptr)
+            {
+                CounterImpl<t_CountType, t_TaskType>* tempImplementedPart = new CounterImpl<t_CountType, t_TaskType>(world, initialCount, onCountChange);
+                mparr_allCounters.push_back(std::unique_ptr<Counter>(tempImplementedPart));
+                return *mparr_allCounters.back();
+            }
         };
     }
 }

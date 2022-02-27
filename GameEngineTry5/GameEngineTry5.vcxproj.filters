@@ -105,6 +105,8 @@
     <ClInclude Include="WindowBaseClass.h" />
     <ClInclude Include="_BaseIncludeLibraries.h" />
     <ClInclude Include="DisplayConstructor.h" />
+    <ClInclude Include="CounterImpl.h" />
+    <ClInclude Include="DisplayImpl.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameEngineTry5.rc" />

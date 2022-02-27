@@ -16,6 +16,7 @@ namespace EngineName
             Visible& add(Visible& visible);
             Visible& getFromID(const PaintingOrder& id) { int a = 0; return getFromID(id, a); }
             Visible& getFromID(const PaintingOrder& id, int& lastIndex);
+            const bool contains(const Visible& visible) const;
             Visible* operator[](const int index) { this; 
             return mparr_visiblePointers.at(index); }
             size_t size() const { return mparr_visiblePointers.size(); }

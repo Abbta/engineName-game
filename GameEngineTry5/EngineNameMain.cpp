@@ -27,17 +27,14 @@ int engineNameMain(Base::ObjectContainer &world)
 
 	Object::Scene* gameScene = &world.scene.build(world);
 	gameScene->add(world.rectangle.build(world, Object::Vector(56, 6), 100, 100, Object::Color("FF0000")));
-	gameScene->add(world.display.build(Object::Display<int>(
+	gameScene->add(world.display.build(
 		Object::TextRectangle(
 			Object::Rectangle(world, Object::Vector(120, 9), 17, 9, Object::Color("567556"))),
-		0)));
+		0));
 	
 	Object::Scene* mainMenuScene = &world.scene.build(world);
 	auto menuRect = &world.rectangle.build(world, Object::Vector((world.width * (3 / 8.0)), (world.height * (1/6.0))), world.width * (2/8.0), world.height * (4/7.0), Object::Color("333355"));
 	mainMenuScene->add(*menuRect);
-	EngineName::Time::Move testMove(*menuRect, Object::Vector(100, 5));
-	EngineName::Object::Counter<int, EngineName::Time::Move> testCounter(world, 5, &testMove);
-	testCounter += 3;
 	const EngineName::Object::Rectangle buttonRectangle(
 		world,
 		Object::Vector(world.width * (7 / 16.0), world.height * (3 / 12.0)),
