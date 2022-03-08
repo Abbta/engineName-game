@@ -48,6 +48,7 @@
     <ClCompile Include="WidthAndHeight.cpp" />
     <ClCompile Include="WindowAccess.cpp" />
     <ClCompile Include="DisplayConstructor.cpp" />
+    <ClCompile Include="CounterTasks.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionListener.h" />
@@ -107,6 +108,7 @@
     <ClInclude Include="DisplayConstructor.h" />
     <ClInclude Include="CounterImpl.h" />
     <ClInclude Include="DisplayImpl.h" />
+    <ClInclude Include="CounterTasks.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameEngineTry5.rc" />

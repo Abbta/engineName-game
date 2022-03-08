@@ -26,10 +26,10 @@ int engineNameMain(Base::ObjectContainer &world)
 
 
 	Object::Scene* gameScene = &world.scene.build(world);
-	gameScene->add(world.rectangle.build(world, Object::Vector(56, 6), 100, 100, Object::Color("FF0000")));
+	gameScene->add(world.rectangle.build(world, Object::Vector((world.width / 2.0) - 39, 0), 78, 42, Object::Color("567556")));
 	gameScene->add(world.display.build(
 		Object::TextRectangle(
-			Object::Rectangle(world, Object::Vector(120, 9), 17, 9, Object::Color("567556"))),
+			Object::Rectangle(world, Object::Vector((world.width / 2.0) - 5, 9), 10, 19, Object::Color("567556")), L"", Drawing::Font(L"Open Sans", 18U)),
 		0));
 	
 	Object::Scene* mainMenuScene = &world.scene.build(world);
