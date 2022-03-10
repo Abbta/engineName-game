@@ -42,38 +42,5 @@ namespace EngineName
 		};																			//
 																					//
 		//*--------------------------------------------------------------------------*
-
-		class TaskContainer
-		{
-		private:
-			friend class Base::ObjectContainer;
-
-			std::list<Move> mparr_move;
-			Move& mpf_add(const Move& task) 
-			{ 
-				mparr_move.push_back(task);
-				mparr_move.back().mptr_storageRef = &mparr_move;
-				std::list<Move>::iterator it = mparr_move.end();
-				it--;
-				mparr_move.back().mpit_storageItRef = it;
-				return mparr_move.back();
-			}
-
-			//add storages and overloads of add function to your tasks:
-			//*-----------------------------------------------------------------*
-
-			std::list<myClass> myArray;
-			Task& mpf_add(myClass& task) 
-			{
-				myArray.push_back(task);
-				myArray.back().mptr_storageRef = &myArray;
-				myArray.back().mpit_storageItRef = myArray.end();
-				return mparr_move.back(); 
-			}
-
-			//*-----------------------------------------------------------------*
-			friend class Action::OnActionBase;
-		};
-
 	}
 }

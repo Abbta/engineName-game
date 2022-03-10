@@ -11,8 +11,8 @@ namespace EngineName
 		class Move : public Task
 		{
 		private:
-			std::list<Move>* mptr_storageRef;
-			std::list<Move>::iterator mpit_storageItRef;
+			std::list<std::unique_ptr<Task>>* mptr_storageRef;
+			std::list<std::unique_ptr<Task>>::iterator mpit_storageItRef;
 			virtual void mpf_perform(Base::ObjectContainer& world) override;
 			virtual void Destroy() override;
 
