@@ -38,20 +38,5 @@ namespace EngineName
 		{
 			mpptr_window->mpptr_painter->mf_addToObjectsThatHasCalledDraw(visible);
 		}
-
-		//template<class T>
-		void ObjectContainer::schedule(const Move& task, const int ms)
-		{
-			//assumes task is derived from class task
-			//construct and store a new task
-			Move &temp = mpc_theQueue.mpc_taskContainer.mpf_add(task);
-			
-			//add time to it
-			temp.addTimeLeftInQueue(std::chrono::milliseconds(ms));
-
-			//add a ref to it in the queue
-			mpc_theQueue.mpf_addToQueue(temp);
-			
-		}
 	}
 }
