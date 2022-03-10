@@ -19,14 +19,16 @@ namespace EngineName
 
 		class Task
 		{
-		private:
+		protected:
+			std::list<std::unique_ptr<Task>>* mptr_storageRef;
+			std::list<std::unique_ptr<Task>>::iterator mpit_storageItRef;
 			std::chrono::system_clock::duration mp_msLeftInQueue;
 
 			//the actual task
 			virtual void mpf_perform(Base::ObjectContainer& world) = 0;
 			virtual void Destroy() = 0;
 		public:
-			Task(): mp_msLeftInQueue(0){}
+			Task(): mp_msLeftInQueue(0), mptr_storageRef(nullptr) {}
 
 			//reschedules task execution, use negative integers for removing time, returns if mp_msLeftInQueue is positive
 			bool addTimeLeftInQueue(const std::chrono::milliseconds milliseconds);

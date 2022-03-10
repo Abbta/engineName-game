@@ -1,6 +1,11 @@
+#include "Task.h"
 #pragma once
 namespace EngineName
 {
+	namespace Action
+	{
+		class OnActionBase;
+	}
 	namespace Time
 	{
 		class TaskContainer

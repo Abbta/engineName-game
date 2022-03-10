@@ -6,7 +6,7 @@ namespace EngineName
 	namespace Time
 	{
 
-		Move::Move(Object::Visible& visible, const Object::Vector& direction) : mpc_visible(visible), mpv_direction(direction), mptr_storageRef(nullptr)
+		Move::Move(Object::Visible& visible, const Object::Vector& direction) : mpc_visible(visible), mpv_direction(direction)
 		{
 		}
 

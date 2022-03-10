@@ -3,10 +3,6 @@
 #pragma once
 namespace EngineName
 {
-	namespace Action
-	{
-		class OnActionBase;
-	}
 	namespace Base
 	{
 		class ObjectContainer;
@@ -20,9 +16,7 @@ namespace EngineName
 																					//
 		class myClass : public Task													//
 		{																			//
-		private:																	//
-			std::list<myClass>* mptr_storageRef;									//
-			std::list<myClass>::iterator mpit_storageItRef;							//
+		private:																	//					//
 			void mpf_perform(Base::ObjectContainer& world) override					//
 			{																		//
 				//Write custom perform code here (or in devDefinedTasks.cpp):		//
