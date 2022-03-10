@@ -20,9 +20,7 @@ int engineNameMain(EngineName::Base::ObjectContainer &world)
 	//register all objects
 
 	world.backgroundColor = Color("AAAAFF");
-	auto temp = &world.rectangle.build(world, Vector((world.width * (3 / 8.0)), (world.height * (1/6.0))), world.width * (2/8.0), world.height * (4/7.0), Color("333355"));
-
-	world.schedule(Move(*temp, Vector(30, 100)));
+	world.rectangle.build(world, Vector((world.width * (3 / 8.0)), (world.height * (1/6.0))), world.width * (2/8.0), world.height * (4/7.0), Color("333355"));
 
 	return world.size();
 }
