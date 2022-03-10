@@ -15,10 +15,5 @@ namespace EngineName
 			mpc_visible.translate(mpv_direction);
 			mpc_visible.draw();
 		}
-
-		void Move::Destroy()
-		{
-			mptr_storageRef->erase(mpit_storageItRef);
-		}
 	}
 }

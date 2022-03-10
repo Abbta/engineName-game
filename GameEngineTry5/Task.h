@@ -26,7 +26,7 @@ namespace EngineName
 
 			//the actual task
 			virtual void mpf_perform(Base::ObjectContainer& world) = 0;
-			virtual void Destroy() = 0;
+			void Destroy();
 		public:
 			Task(): mp_msLeftInQueue(0), mptr_storageRef(nullptr) {}
 

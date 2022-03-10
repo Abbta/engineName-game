@@ -16,7 +16,7 @@ namespace EngineName
 																					//
 		class myClass : public Task													//
 		{																			//
-		private:																	//					//
+		private:																	//					
 			void mpf_perform(Base::ObjectContainer& world) override					//
 			{																		//
 				//Write custom perform code here (or in devDefinedTasks.cpp):		//
@@ -25,13 +25,7 @@ namespace EngineName
 				throw Exceptions::BasicException("Custom class perform called");	//
 																					//
 				//*-------------------------*										//
-			}																		//
-																					//
-			virtual void Destroy() override											//
-			{																		//
-				mptr_storageRef->erase(mpit_storageItRef);							//
-			}																		//
-																					//
+			}																		//																																	//
 			friend class TaskContainer;												//
 		};																			//
 																					//
