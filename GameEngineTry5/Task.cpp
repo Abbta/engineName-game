@@ -8,5 +8,10 @@ namespace EngineName
 			mp_msLeftInQueue += milliseconds;
 			return mp_msLeftInQueue.count() > 0;
 		}
+
+		void Task::Destroy()
+		{
+			mptr_storageRef->erase(mpit_storageItRef);
+		}
 	}
 }

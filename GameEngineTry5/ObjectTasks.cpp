@@ -6,8 +6,8 @@ namespace EngineName
 {
 	namespace Time
 	{
-		//Move
-		Move::Move(Object::Visible& visible, const Object::Vector& direction) : mpc_visible(visible), mpv_direction(direction), mptr_storageRef(nullptr)
+
+		Move::Move(Object::Visible& visible, const Object::Vector& direction) : mpc_visible(visible), mpv_direction(direction)
 		{
 		}
 
@@ -15,30 +15,6 @@ namespace EngineName
 		{
 			mpc_visible.translate(mpv_direction);
 			mpc_visible.draw();
-		}
-
-		void Move::Destroy()
-		{
-			if(mp_isDestructable)
-				mptr_storageRef->erase(mpit_storageItRef);
-		}
-
-		//ChangeActiveScene
-		ChangeActiveScene::ChangeActiveScene(Object::Scene& newScene)
-			:mpc_newScene(newScene), mptr_storageRef(nullptr)
-		{
-
-		}
-
-		void ChangeActiveScene::mpf_perform(Base::ObjectContainer& world)
-		{
-			world.setActiveScene(mpc_newScene);
-		}
-
-		void ChangeActiveScene::Destroy()
-		{
-			if (mp_isDestructable)
-				mptr_storageRef->erase(mpit_storageItRef);
 		}
 	}
 }

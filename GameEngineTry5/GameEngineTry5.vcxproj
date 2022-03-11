@@ -186,6 +186,7 @@
     <ClInclude Include="Shape.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Task.h" />
+    <ClInclude Include="TaskContainer.h" />
     <ClInclude Include="TextButton.h" />
     <ClInclude Include="TextButtonConstructor.h" />
     <ClInclude Include="TextFormatContainer.h" />

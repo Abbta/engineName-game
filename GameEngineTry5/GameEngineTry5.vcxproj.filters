@@ -168,6 +168,9 @@
     <ClInclude Include="VisibleGroup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TaskContainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineTry5.cpp">
