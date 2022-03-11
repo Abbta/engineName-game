@@ -162,6 +162,7 @@
     <ClInclude Include="CounterConstructor.h" />
     <ClInclude Include="CounterImpl.h" />
     <ClInclude Include="CounterTasks.h" />
+    <ClInclude Include="CounterTasksImpl.h" />
     <ClInclude Include="DevDefinedTasks.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="DisplayConstructor.h" />
@@ -193,6 +194,7 @@
     <ClInclude Include="Shape.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Task.h" />
+    <ClInclude Include="TaskContainer.h" />
     <ClInclude Include="TextButton.h" />
     <ClInclude Include="TextButtonConstructor.h" />
     <ClInclude Include="TextFormatContainer.h" />

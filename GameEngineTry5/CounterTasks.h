@@ -1,10 +1,36 @@
 #pragma once
 #include "Task.h"
 #include "Display.h"
+#include "CounterImpl.h"
 namespace EngineName
 {
 	namespace Time
 	{
+		class AddToCounter : public Task
+		{
+		protected:
+			std::list<AddToCounter>* mptr_storageRef;
+			std::list<AddToCounter>::iterator mpit_storageItRef;
+
+			Object::Counter* mpptr_counter;
+
+			virtual void mpf_perform(Base::ObjectContainer& world) override;
+
+			virtual void Destroy() override
+			{
+				if (mp_isDestructable)
+					mptr_storageRef->erase(mpit_storageItRef);
+			}
+		public:
+			AddToCounter(Object::Counter& counter) :
+				mpptr_counter(&counter)
+			{
+
+			}
+
+			friend class TaskContainer;
+		};
+
 
 		class UpdateDisplay : public Task
 		{

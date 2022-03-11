@@ -24,16 +24,18 @@ namespace EngineName
 
 		class Task
 		{
-		private:
+		protected:
+			std::list<std::unique_ptr<Task>>* mptr_storageRef;
+			std::list<std::unique_ptr<Task>>::iterator mpit_storageItRef;
 			std::chrono::system_clock::duration mp_msLeftInQueue;
 
 			//the actual task
 			virtual void mpf_perform(Base::ObjectContainer& world) = 0;
-			virtual void Destroy() = 0;
+			void Destroy();
 		protected:
 			bool mp_isDestructable;
 		public:
-			Task(): mp_msLeftInQueue(0), mp_isDestructable(true){}
+			Task(): mp_msLeftInQueue(0), mp_isDestructable(true), mptr_storageRef(nullptr){}
 
 			void makeIndestructable() { mp_isDestructable = false; }
 
