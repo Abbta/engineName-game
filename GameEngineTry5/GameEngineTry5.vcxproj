@@ -158,6 +158,11 @@
     <ClInclude Include="CircleConstructor.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Counter.h" />
+    <ClInclude Include="CounterConstructor.h" />
+    <ClInclude Include="CounterImpl.h" />
+    <ClInclude Include="CounterTasks.h" />
+    <ClInclude Include="CounterTasksImpl.h" />
     <ClInclude Include="DevDefinedTasks.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="framework.h" />
