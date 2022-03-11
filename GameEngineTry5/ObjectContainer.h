@@ -86,6 +86,8 @@ namespace EngineName
 				mpc_theQueue.mpf_addToQueue(temp);
 			}
 
+			void setActiveScene(Object::Scene& scene);
+
 			//constructor classes
 			Object::RectangleConstructor		rectangle;     //is fairly simple and is not currently considered to need dynamic allocation
 			Object::CircleConstructor			circle;		   //--||--
