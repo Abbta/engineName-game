@@ -67,18 +67,20 @@ namespace EngineName
 			void drawVisible(const Object::Visible& visible) const;
 			
 			template<class T>
-			void schedule(const T& task, const int ms = 0)
+			T& schedule(const T& task, const int ms = 0)
 			{
 				//assumes task is derived from class task
 				//construct and store a new task
-				T& temp = mpc_theQueue.mpc_taskContainer.mpf_add(task);
+				T& taskRef = mpc_theQueue.mpc_taskContainer.mpf_add(task);
 
 				//add time to it
-				temp.addTimeLeftInQueue(std::chrono::milliseconds(ms));
+				taskRef.addTimeLeftInQueue(std::chrono::milliseconds(ms));
 
 				//add a ref to it in the queue
-				mpc_theQueue.mpf_addToQueue(temp);
+				mpc_theQueue.mpf_addToQueue(taskRef);
+				return taskRef;
 			}
+
 
 			//constructor classes
 			Object::RectangleConstructor		rectangle;     //is fairly simple and is not currently considered to need dynamic allocation
