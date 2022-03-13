@@ -1,5 +1,6 @@
 //#include as sparsely as possible here
 #pragma once
+#include "BaseIncludeLibraries.h"
 namespace EngineName
 {
 	namespace Drawing
@@ -56,6 +57,25 @@ namespace EngineName
 			static Height&							 getHeight(ObjectContainer& world);
 			static Object::CounterConstructor&		 getCounter(ObjectContainer& world);
 			static void								 drawVisible(ObjectContainer& world, const Object::Visible& visible);
+
+			//functions
+			template<class T>
+			static T& schedule(ObjectContainer& world, const T& task, const int ms = 0)
+			{
+				//assumes task is derived from class task
+				//construct and store a new task
+				T& taskRef = getTaskContainer(world).mpf_add(task);
+
+				//add time to it
+				taskRef.addTimeLeftInQueue(std::chrono::milliseconds(ms));
+
+				//add a ref to it in the queue
+				getQueue(world).mpf_addToQueue(taskRef);
+				return taskRef;
+			}
+
+		private:
+			const void* mpf_scheduleBypassingTemplate(ObjectContainer& world, const void*, )
 		};
 	}
 }

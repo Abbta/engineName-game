@@ -26,7 +26,7 @@ namespace EngineName
             {
                 if (onCountChange)
                 {
-                    mptr_onCountChange = &Base::ObjectContainerAccess::getTaskContainer(world).mpf_add(*onCountChange);
+                    mptr_onCountChange = &Base::ObjectContainerAccess::schedule(world, *onCountChange);
                     mptr_onCountChange->makeIndestructable();
                 }
             }

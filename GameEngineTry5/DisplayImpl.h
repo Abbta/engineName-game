@@ -1,5 +1,7 @@
 #pragma once
+#include "Display.h"
 #include "CounterConstructor.h"
+#include "CounterTasks.h"
 namespace EngineName
 {
 	namespace Object
