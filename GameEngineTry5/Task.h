@@ -37,6 +37,7 @@ namespace EngineName
 			std::chrono::system_clock::duration timeLeft() const { return mp_msLeftInQueue; }
 
 			friend class Queue;
+			friend class TaskContainer;
 		};
 	}
 }
