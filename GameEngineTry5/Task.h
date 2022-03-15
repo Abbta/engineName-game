@@ -48,6 +48,7 @@ namespace EngineName
 			friend class Queue;
 			friend class EngineName::Action::OnActionBase;
 			friend class EngineName::Action::OnClick;
+			friend class TaskContainer;
 		};
 	}
 }

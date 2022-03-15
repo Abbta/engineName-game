@@ -1,5 +1,6 @@
 //#include as sparsely as possible here
 #pragma once
+#include "BaseIncludeLibraries.h"
 namespace EngineName
 {
 	namespace Drawing
@@ -9,6 +10,7 @@ namespace EngineName
 	namespace Time
 	{
 		class Queue;
+		class Task;
 		class TaskContainer;
 	}
 	namespace Action
@@ -31,7 +33,7 @@ namespace EngineName
 			Issues related to this most often occur with the use of template classes.
 		* Also reduces the amount of needed friends for ObjectContainer 
 		*/
-		static struct ObjectContainerAccess
+		struct ObjectContainerAccess
 		{
 			//world is allowed to be store here as a ref or ptr but
 				//for this version it was decided that functions 
@@ -41,6 +43,7 @@ namespace EngineName
 
 			//Getteres
 			static Drawing::Painter&				 getPainter(ObjectContainer& world);
+			static Time::TaskContainer&				 getTaskContainer(ObjectContainer& world);
 			static Time::Queue&						 getQueue(ObjectContainer& world);
 			static Time::TaskContainer&				 getTaskContainer(ObjectContainer& world);
 			static Action::ActionListener&			 getActionListener(ObjectContainer& world);
@@ -49,6 +52,28 @@ namespace EngineName
 			//man fuck backgroundColor, all my homies hate classes defined in other classes
 			static Width&							 getWidth(ObjectContainer& world);
 			static Height&							 getHeight(ObjectContainer& world);
+
+			//Functions
+			template<class T>
+			static T& schedule(ObjectContainer& world, const T& task, const int ms = 0)
+			{
+				//try catch in order to properly delete task in case of error
+				T* taskMemoryPtr = new T(task);
+				try
+				{
+					mpf_scheduleImpl(world, taskMemoryPtr, ms);
+					return *taskMemoryPtr;
+				}
+				//TODO: add specific catch
+				catch (...)
+				{
+					delete taskMemoryPtr;
+					throw Exceptions::BasicException("scheduling of task aborted\n");
+				}
+			}
+
+		private:
+			static Time::Task* mpf_scheduleImpl(ObjectContainer& world, Time::Task* dynamicallyAllocatedTask, const int ms = 0);
 		};
 	}
 }
