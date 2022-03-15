@@ -10,6 +10,7 @@ namespace EngineName
 	namespace Time
 	{
 		class Queue;
+		class Task;
 		class TaskContainer;
 	}
 	namespace Action
@@ -47,35 +48,36 @@ namespace EngineName
 
 			//Getteres
 			static Drawing::Painter&				 getPainter(ObjectContainer& world);
-			static Time::Queue&						 getQueue(ObjectContainer& world);
 			static Time::TaskContainer&				 getTaskContainer(ObjectContainer& world);
+			static Time::Queue&						 getQueue(ObjectContainer& world);
 			static Action::ActionListener&			 getActionListener(ObjectContainer& world);
 			static WindowAccess&					 getWindowAccessor(ObjectContainer& world);
 			//static ObjectContainer::BackgroundColor& getBackgroundColor(ObjectContainer& world);
 			//man fuck backgroundColor, all my homies hate classes defined in other classes
 			static Width&							 getWidth(ObjectContainer& world);
 			static Height&							 getHeight(ObjectContainer& world);
-			static Object::CounterConstructor&		 getCounter(ObjectContainer& world);
-			static void								 drawVisible(ObjectContainer& world, const Object::Visible& visible);
 
-			//functions
+			//Functions
 			template<class T>
 			static T& schedule(ObjectContainer& world, const T& task, const int ms = 0)
 			{
-				//assumes task is derived from class task
-				//construct and store a new task
-				T& taskRef = getTaskContainer(world).mpf_add(task);
-
-				//add time to it
-				taskRef.addTimeLeftInQueue(std::chrono::milliseconds(ms));
-
-				//add a ref to it in the queue
-				getQueue(world).mpf_addToQueue(taskRef);
-				return taskRef;
+				//try catch in order to properly delete task in case of error
+				T* taskMemoryPtr = new T(task);
+				try
+				{
+					mpf_scheduleImpl(world, taskMemoryPtr, ms);
+					return *taskMemoryPtr;
+				}
+				//TODO: add specific catch
+				catch (...)
+				{
+					delete taskMemoryPtr;
+					throw Exceptions::BasicException("scheduling of task aborted\n");
+				}
 			}
 
 		private:
-			const void* mpf_scheduleBypassingTemplate(ObjectContainer& world, const void*, )
+			static Time::Task* mpf_scheduleImpl(ObjectContainer& world, Time::Task* dynamicallyAllocatedTask, const int ms = 0);
 		};
 	}
 }

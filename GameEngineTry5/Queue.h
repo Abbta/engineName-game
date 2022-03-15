@@ -40,9 +40,9 @@ namespace EngineName
 
 			friend class Base::MainWindow;
 			friend class Base::ObjectContainer;
-			friend struct Base::ObjectContainerAccess;
 			friend class Action::OnActionBase;
 			template<class t_CountType, class t_TaskType> friend class Object::CounterImpl;
+			friend struct Base::ObjectContainerAccess;
 		};
 	}
 }

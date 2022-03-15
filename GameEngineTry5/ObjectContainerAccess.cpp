@@ -9,14 +9,14 @@ namespace EngineName
 			return *(world.mpptr_window->mpptr_painter);
 		}
 
-		Time::Queue& ObjectContainerAccess::getQueue(ObjectContainer& world)
-		{
-			return world.mpc_theQueue;
-		}
-
 		Time::TaskContainer& ObjectContainerAccess::getTaskContainer(ObjectContainer& world)
 		{
 			return world.mpc_theQueue.mpc_taskContainer;
+		}
+
+		Time::Queue& ObjectContainerAccess::getQueue(ObjectContainer& world)
+		{
+			return world.mpc_theQueue;
 		}
 
 		Action::ActionListener& ObjectContainerAccess::getActionListener(ObjectContainer& world)
@@ -37,6 +37,17 @@ namespace EngineName
 		Height& ObjectContainerAccess::getHeight(ObjectContainer& world)
 		{
 			return world.height;
+		}
+
+		Time::Task* ObjectContainerAccess::mpf_scheduleImpl(ObjectContainer& world, Time::Task* dynamicallyAllocatedTask, const int ms)
+		{
+			auto taskRef = getTaskContainer(world).mpf_addAlreadyAllocated(dynamicallyAllocatedTask);
+
+			taskRef->addTimeLeftInQueue(std::chrono::milliseconds(ms));
+
+			getQueue(world).mpf_addToQueue(*taskRef);
+
+			return taskRef;
 		}
 
 		Object::CounterConstructor& ObjectContainerAccess::getCounter(ObjectContainer& world)

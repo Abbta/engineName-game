@@ -1,4 +1,5 @@
 #include "ObjectContainer.h"
+#include "ObjectContainerAccess.h"
 
 //for debugging
 #include "Circle.h"
