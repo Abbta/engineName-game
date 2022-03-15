@@ -107,7 +107,7 @@ namespace EngineName
 			//friends working closely together with world
 			friend class MainWindow;
 			//friends who are accessor classes
-			friend class ObjectContainerAccess;
+			friend struct ObjectContainerAccess;
 
 			//TEMPORARY:
 			Object::Vector mtemporary_origin;
