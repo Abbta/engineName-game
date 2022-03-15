@@ -45,7 +45,6 @@ namespace EngineName
 			static Drawing::Painter&				 getPainter(ObjectContainer& world);
 			static Time::TaskContainer&				 getTaskContainer(ObjectContainer& world);
 			static Time::Queue&						 getQueue(ObjectContainer& world);
-			static Time::TaskContainer&				 getTaskContainer(ObjectContainer& world);
 			static Action::ActionListener&			 getActionListener(ObjectContainer& world);
 			static WindowAccess&					 getWindowAccessor(ObjectContainer& world);
 			//static ObjectContainer::BackgroundColor& getBackgroundColor(ObjectContainer& world);

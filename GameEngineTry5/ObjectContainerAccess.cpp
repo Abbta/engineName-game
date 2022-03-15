@@ -19,11 +19,6 @@ namespace EngineName
 			return world.mpc_theQueue;
 		}
 
-		Time::TaskContainer& ObjectContainerAccess::getTaskContainer(ObjectContainer& world)
-		{
-			return world.mpc_theQueue.mpc_taskContainer;
-		}
-
 		Action::ActionListener& ObjectContainerAccess::getActionListener(ObjectContainer& world)
 		{
 			return world.mp_actionListener;
