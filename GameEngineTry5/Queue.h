@@ -35,7 +35,6 @@ namespace EngineName
 
 			friend class Base::MainWindow;
 			friend class Base::ObjectContainer;
-			friend class Base::ObjectContainerAccess;
 			friend class Action::OnActionBase;
 			friend struct Base::ObjectContainerAccess;
 		};
