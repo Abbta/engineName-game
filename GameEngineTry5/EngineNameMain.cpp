@@ -1,4 +1,5 @@
 #include "ObjectContainer.h"
+#include "ObjectContainerAccess.h"
 
 //for debugging
 #include "Circle.h"
@@ -20,7 +21,9 @@ int engineNameMain(EngineName::Base::ObjectContainer &world)
 	//register all objects
 
 	world.backgroundColor = Color("AAAAFF");
-	world.rectangle.build(world, Vector((world.width * (3 / 8.0)), (world.height * (1/6.0))), world.width * (2/8.0), world.height * (4/7.0), Color("333355"));
+	auto a = &world.rectangle.build(world, Vector((world.width * (3 / 8.0)), (world.height * (1/6.0))), world.width * (2/8.0), world.height * (4/7.0), Color("333355"));
+
+	EngineName::Base::ObjectContainerAccess::schedule(world, Move(*a, Vector(30, 300)));
 
 	return world.size();
 }

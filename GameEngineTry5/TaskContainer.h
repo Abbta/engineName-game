@@ -2,6 +2,10 @@
 #pragma once
 namespace EngineName
 {
+	namespace Base
+	{
+		struct ObjectContainerAccess;
+	}
 	namespace Action
 	{
 		class OnActionBase;
@@ -12,6 +16,8 @@ namespace EngineName
 		{
 		private:
 			friend class Base::ObjectContainer;
+			friend struct Base::ObjectContainerAccess;
+			friend class Action::OnActionBase;
 
 			std::list<std::unique_ptr<Task>> mparr_allTasks;
 			template<class T>
@@ -38,7 +44,6 @@ namespace EngineName
 				dynamicallyAllocatedTask->mpit_storageItRef = it;
 				return dynamicallyAllocatedTask;
 			}
-			friend class Action::OnActionBase;
 		};
 	}
 }
