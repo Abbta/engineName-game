@@ -6,15 +6,24 @@ namespace EngineName
 {
 	namespace Time
 	{
+		template<class t_CountType>
 		class AddToCounter : public Task
 		{
 		protected:
 			Object::Counter* mpptr_counter;
+			t_CountType mp_amount;
 
-			virtual void mpf_perform(Base::ObjectContainer& world) override;
+			virtual void mpf_perform(Base::ObjectContainer& world) override
+			{
+				auto counterImpl = dynamic_cast<Object::CounterImpl<t_CountType, UpdateDisplay>*>(mpptr_counter);
+				if (counterImpl == nullptr)
+					throw Exceptions::BasicException("Type of AddToCounter doesn't match Counter");
+
+				counterImpl += mp_amount;
+			}
 		public:
-			AddToCounter(Object::Counter& counter) :
-				mpptr_counter(&counter)
+			AddToCounter(Object::Counter& counter, const t_CountType amount)) :
+				mpptr_counter(&counter), mp_amount(amount)
 			{
 
 			}

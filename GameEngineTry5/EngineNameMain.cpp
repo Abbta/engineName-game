@@ -32,6 +32,11 @@ int engineNameMain(Base::ObjectContainer &world)
 		Object::TextRectangle(
 			Object::Rectangle(world, Object::Vector((world.width / 2.0) - 5, 9), 10, 19, Object::Color("567556")), L"", Drawing::Font(L"Open Sans", 18U)),
 		0));
+	/*gameScene->add(world.button.build(Object::Button(
+		Object::Rectangle(world, Object::Vector((world.width / 2.0) - 7, 35), 14, 8, Object::Color("992343")),
+		Time::AddToCounter()
+	)
+	))*/
 	
 	Object::Scene* mainMenuScene = &world.scene.build(world);
 	auto menuRect = &world.rectangle.build(world, Object::Vector((world.width * (3 / 8.0)), (world.height * (1/6.0))), world.width * (2/8.0), world.height * (4/7.0), Object::Color("333355"));
