@@ -19,7 +19,7 @@ namespace EngineName
 				if (counterImpl == nullptr)
 					throw Exceptions::BasicException("Type of AddToCounter doesn't match Counter");
 
-				counterImpl += mp_amount;
+				*counterImpl += mp_amount;
 			}
 		public:
 			AddToCounter(Object::Counter& counter, const t_CountType amount) :
