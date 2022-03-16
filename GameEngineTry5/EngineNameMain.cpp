@@ -28,15 +28,15 @@ int engineNameMain(Base::ObjectContainer &world)
 
 	Object::Scene* gameScene = &world.scene.build(world);
 	gameScene->add(world.rectangle.build(world, Object::Vector((world.width / 2.0) - 39, 0), 78, 42, Object::Color("567556")));
-	gameScene->add(world.display.build(
+	auto topDisplay = &world.display.build(
 		Object::TextRectangle(
 			Object::Rectangle(world, Object::Vector((world.width / 2.0) - 5, 9), 10, 19, Object::Color("567556")), L"", Drawing::Font(L"Open Sans", 18U)),
-		0));
-	/*gameScene->add(world.button.build(Object::Button(
+		0);
+	gameScene->add(*topDisplay);
+	gameScene->add(world.button.build(Object::Button(
 		Object::Rectangle(world, Object::Vector((world.width / 2.0) - 7, 35), 14, 8, Object::Color("992343")),
-		Time::AddToCounter()
-	)
-	))*/
+		Time::AddToCounter<int>(topDisplay->counter(), 1)
+	)));
 	
 	Object::Scene* mainMenuScene = &world.scene.build(world);
 	auto menuRect = &world.rectangle.build(world, Object::Vector((world.width * (3 / 8.0)), (world.height * (1/6.0))), world.width * (2/8.0), world.height * (4/7.0), Object::Color("333355"));

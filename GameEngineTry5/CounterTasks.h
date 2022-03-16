@@ -22,7 +22,7 @@ namespace EngineName
 				counterImpl += mp_amount;
 			}
 		public:
-			AddToCounter(Object::Counter& counter, const t_CountType amount)) :
+			AddToCounter(Object::Counter& counter, const t_CountType amount) :
 				mpptr_counter(&counter), mp_amount(amount)
 			{
 
