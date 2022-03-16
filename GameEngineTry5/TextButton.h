@@ -14,6 +14,13 @@ namespace EngineName
 				:Rectangle(button), Button(button), TextRectangle(static_cast<Rectangle>(button), text, font, textColor)
 			{
 			};
+
+			template<class t_TaskType>
+			TextButton(const TextRectangle& textRectangle, const t_TaskType& onClickTask)
+				:Rectangle(textRectangle), TextRectangle(textRectangle), Button(textRectangle, onClickTask)
+			{
+
+			}
 		};
 	}
 }

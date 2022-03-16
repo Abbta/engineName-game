@@ -49,6 +49,7 @@
     <ClCompile Include="WindowAccess.cpp" />
     <ClCompile Include="DisplayConstructor.cpp" />
     <ClCompile Include="CounterTasks.cpp" />
+    <ClCompile Include="ActivatableTButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionListener.h" />
@@ -103,6 +104,7 @@
     <ClInclude Include="WindowAccess.h" />
     <ClInclude Include="WindowBaseClass.h" />
     <ClInclude Include="_BaseIncludeLibraries.h" />
+    <ClInclude Include="ActivatableTButton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionListener.h" />

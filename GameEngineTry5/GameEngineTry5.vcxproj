@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ActionListener.h" />
+    <ClInclude Include="ActivatableTButton.h" />
     <ClInclude Include="BaseIncludeLibraries.h" />
     <ClInclude Include="BasicException.h" />
     <ClInclude Include="BasicVariableException.h" />
@@ -209,6 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActionListener.cpp" />
+    <ClCompile Include="ActivatableTButton.cpp" />
     <ClCompile Include="BasicException.cpp" />
     <ClCompile Include="BasicVariableException.cpp" />
     <ClCompile Include="BrushContainer.cpp" />
