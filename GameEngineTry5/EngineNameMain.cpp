@@ -34,7 +34,7 @@ int engineNameMain(Base::ObjectContainer &world)
 		0);
 	gameScene->add(*topDisplay);
 	gameScene->add(world.button.build(Object::Button(
-		Object::Rectangle(world, Object::Vector((world.width / 2.0) - 7, 35), 14, 8, Object::Color("992343")),
+		Object::Rectangle(world, Object::Vector((world.width / 2.0) - 7, 45), 14, 8, Object::Color("992343")),
 		Time::AddToCounter<int>(topDisplay->counter(), 1)
 	)));
 	
