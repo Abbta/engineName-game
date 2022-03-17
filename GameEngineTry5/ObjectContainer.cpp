@@ -19,7 +19,9 @@ namespace EngineName
 		ObjectContainer::ObjectContainer() 
 			:mpptr_window{ std::make_unique<MainWindow>(*this) }, window(&mpptr_window),
 			mtemporary_origin(0,0), mpc_theQueue(), nullVisible(this),
-			rectangle(this), circle(this), textRectangle(this), button(this), textButton(this), counter(this), display(this),
+			rectangle(this), circle(this), textRectangle(this), 
+			button(this), textButton(this), activatableTextButton(this),
+			counter(this), display(this),
 			objectGroup(this), scene(this),
 			backgroundColor(*mpptr_window->mpptr_painter), width(*mpptr_window), height(*mpptr_window)
 		{

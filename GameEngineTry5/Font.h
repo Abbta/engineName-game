@@ -11,7 +11,7 @@ namespace EngineName
 			std::wstring mp_fontName;
 			unsigned short mp_fontSize;
 			const std::wstring mpcxr_lang = L"en-us";
-			const CComPtr<const IDWriteFontCollection> mpcxr_collection = nullptr;
+			const CComPtr<IDWriteFontCollection> mpcxr_collection = nullptr;
 			const unsigned short mpcxr_weight = DWRITE_FONT_WEIGHT_REGULAR;
 			const unsigned short mpcxr_style = DWRITE_FONT_STYLE_NORMAL;
 			const unsigned short mpcxr_stretch = DWRITE_FONT_STRETCH_NORMAL;

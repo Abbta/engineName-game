@@ -17,12 +17,12 @@ namespace EngineName
 			
 				if(FAILED(writeFactory->CreateTextFormat(
 					font.mp_fontName.c_str(),
-					font.mp_collection,
-					DWRITE_FONT_WEIGHT(font.mp_weight),
-					DWRITE_FONT_STYLE(font.mp_style),
-					DWRITE_FONT_STRETCH(font.mp_stretch),
+					font.mpcxr_collection,
+					DWRITE_FONT_WEIGHT(font.mpcxr_weight),
+					DWRITE_FONT_STYLE(font.mpcxr_style),
+					DWRITE_FONT_STRETCH(font.mpcxr_stretch),
 					font.mp_fontSize,
-					font.mp_lang.c_str(),
+					font.mpcxr_lang.c_str(),
 					&(newFormatPair->second)
 				)))
 					throw Exceptions::BasicException("Failed creating textFormat");

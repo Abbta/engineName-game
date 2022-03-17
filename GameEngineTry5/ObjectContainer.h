@@ -23,6 +23,7 @@
 #include "DevDefinedTasks.h"
 #include "ActionListener.h"
 #include "DisplayConstructor.h"
+#include "ActivatableTButtonConstructor.h"
 namespace EngineName
 {
 	namespace Base
@@ -84,15 +85,16 @@ namespace EngineName
 			void setActiveScene(Object::Scene& scene);
 
 			//constructor classes
-			Object::RectangleConstructor		rectangle;     //is fairly simple and is not currently considered to need dynamic allocation
-			Object::CircleConstructor			circle;		   //--||--
-			Object::TextRectangleConstructor	textRectangle; //--||--
-			Object::ButtonConstructor			button;
-			Object::TextButtonConstructor		textButton;
-			Object::ObjectGroupConstructor		objectGroup;
-			Object::SceneConstructor			scene;
-			Object::CounterConstructor			counter;
-			Object::DisplayConstructor			display;
+			Object::RectangleConstructor		  rectangle;     //is fairly simple and is not currently considered to need dynamic allocation
+			Object::CircleConstructor			  circle;		   //--||--
+			Object::TextRectangleConstructor	  textRectangle; //--||--
+			Object::ButtonConstructor			  button;
+			Object::TextButtonConstructor		  textButton;
+			Object::ActivatableTButtonConstructor activatableTextButton;
+			Object::ObjectGroupConstructor		  objectGroup;
+			Object::SceneConstructor			  scene;
+			Object::CounterConstructor			  counter;
+			Object::DisplayConstructor			  display;
 
 			//access classes
 			WindowAccess window;					//is fairly simple

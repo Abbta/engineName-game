@@ -1,12 +1,11 @@
 #pragma once
 #include "ObjectConstructor.h"
 #include "BaseIncludeLibraries.h"
+#include "ActivatableTButton.h"
 namespace EngineName
 {
 	namespace Object
 	{
-		class ActivatableTButton;
-
 		class ActivatableTButtonConstructor:
 			public ObjectConstructor
 		{

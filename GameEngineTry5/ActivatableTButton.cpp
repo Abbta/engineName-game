@@ -22,16 +22,19 @@ namespace EngineName
 			mp_text = textRectangle.mp_text;
 			mp_font = textRectangle.mp_font;
 			mp_textColor = textRectangle.mp_textColor;
+			return *this;
 		}
 
 		ActivatableTButton& ActivatableTButton::setActive()
 		{
 			mpf_changeTRBaseTo(*mpptr_activeTRect.get());
+			return *this;
 		}
 
 		ActivatableTButton& ActivatableTButton::setInactive()
 		{
 			mpf_changeTRBaseTo(*mpptr_inactiveTRect.get());
+			return *this;
 		}
 
 		ActivatableTButton& ActivatableTButton::toggleActive()

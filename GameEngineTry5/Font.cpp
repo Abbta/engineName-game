@@ -7,6 +7,7 @@ namespace EngineName
 		{
 			mp_fontName = b.mp_fontName;
 			mp_fontSize = b.mp_fontSize;
+			return *this;
 		}
 	}
 }
