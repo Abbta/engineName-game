@@ -4,6 +4,7 @@ namespace EngineName
 {
     namespace Object
     {
+        class ActivatableTButtonConstructor;
         class ActivatableTButton :
             public TextButton
         {
@@ -26,6 +27,7 @@ namespace EngineName
             ActivatableTButton& setActive();
             ActivatableTButton& setInactive();
             ActivatableTButton& toggleActive();
+            friend class ActivatableTButtonConstructor;
         };
 
     }

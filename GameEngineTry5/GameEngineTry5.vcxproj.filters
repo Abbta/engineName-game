@@ -51,6 +51,7 @@
     <ClCompile Include="CounterTasks.cpp" />
     <ClCompile Include="ActivatableTButton.cpp" />
     <ClCompile Include="Font.cpp" />
+    <ClCompile Include="ActivatableTButtonConstructor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionListener.h" />
@@ -106,6 +107,7 @@
     <ClInclude Include="WindowBaseClass.h" />
     <ClInclude Include="_BaseIncludeLibraries.h" />
     <ClInclude Include="ActivatableTButton.h" />
+    <ClInclude Include="ActivatableTButtonConstructor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionListener.h" />
