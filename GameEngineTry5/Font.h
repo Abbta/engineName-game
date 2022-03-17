@@ -10,11 +10,11 @@ namespace EngineName
 		private:
 			std::wstring mp_fontName;
 			unsigned short mp_fontSize;
-			const std::wstring mp_lang = L"en-us";
-			const CComPtr<IDWriteFontCollection> mp_collection = nullptr;
-			const unsigned short mp_weight = DWRITE_FONT_WEIGHT_REGULAR;
-			const unsigned short mp_style = DWRITE_FONT_STYLE_NORMAL;
-			const unsigned short mp_stretch = DWRITE_FONT_STRETCH_NORMAL;
+			const std::wstring mpcxr_lang = L"en-us";
+			const CComPtr<const IDWriteFontCollection> mpcxr_collection = nullptr;
+			const unsigned short mpcxr_weight = DWRITE_FONT_WEIGHT_REGULAR;
+			const unsigned short mpcxr_style = DWRITE_FONT_STYLE_NORMAL;
+			const unsigned short mpcxr_stretch = DWRITE_FONT_STRETCH_NORMAL;
 		public:
 			Font(const std::wstring& font = L"Arial", const unsigned short size = 11) {
 				mp_fontName = font;
@@ -31,6 +31,8 @@ namespace EngineName
 			{
 				return static_cast<UINT64>(*this) < static_cast<UINT64>(b);
 			}
+
+			Font& operator=(const Font& b);
 		};
 
 	}

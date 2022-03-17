@@ -19,6 +19,7 @@ namespace EngineName
                 const Drawing::Font& font = Drawing::Font(), const Color& textColor = Color("000000"))
                 :Rectangle(rect), mp_text(text), mp_font(font), mp_textColor(textColor) {};
         
+            friend class ActivatableTButton;
         };
     }
 }

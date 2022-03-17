@@ -7,10 +7,12 @@ namespace EngineName
         class ActivatableTButton :
             public TextButton
         {
-        private:
+        protected:
             std::unique_ptr<TextRectangle> mpptr_activeTRect;
             std::unique_ptr<TextRectangle> mpptr_inactiveTRect;
             bool mp_isActive;
+
+            ActivatableTButton& mpf_changeTRBaseTo(const TextRectangle& textRectangle);
         public:
             template<class t_TaskType>
             ActivatableTButton(const TextRectangle& activeTRect, const TextRectangle& inactiveTRect, const t_TaskType& onClickTask, const bool isActive = false)
