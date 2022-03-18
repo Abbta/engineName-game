@@ -21,7 +21,7 @@ namespace EngineName
         class Button :
             virtual public Rectangle
         {
-        private:
+        protected:
             Action::OnClick &mp_actionRef;
             void mpf_changeOnClickArea(Visible& newArea);
         public:

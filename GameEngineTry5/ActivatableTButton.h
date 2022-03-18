@@ -18,7 +18,7 @@ namespace EngineName
             template<class t_TaskType>
             ActivatableTButton(const TextRectangle& activeTRect, const TextRectangle& inactiveTRect, const t_TaskType& onClickTask, const bool isActive = false)
                 : mpptr_activeTRect(std::make_unique<TextRectangle>(activeTRect)), mpptr_inactiveTRect(std::make_unique<TextRectangle>(inactiveTRect)), mp_isActive(isActive),
-                TextButton(inactiveTRect, onClickTask)
+                TextButton(inactiveTRect, onClickTask), Rectangle(inactiveTRect)
             {
                 if (isActive)
                     setActive();

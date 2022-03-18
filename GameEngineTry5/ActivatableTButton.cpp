@@ -28,12 +28,16 @@ namespace EngineName
 		ActivatableTButton& ActivatableTButton::setActive()
 		{
 			mpf_changeTRBaseTo(*mpptr_activeTRect.get());
+			//make it check for correct area in clicklistener
+			mpf_changeOnClickArea(*mpptr_activeTRect);
 			return *this;
 		}
 
 		ActivatableTButton& ActivatableTButton::setInactive()
 		{
 			mpf_changeTRBaseTo(*mpptr_inactiveTRect.get());
+			//make it check for correct area in clicklistener
+			mpf_changeOnClickArea(*mpptr_inactiveTRect);
 			return *this;
 		}
 
