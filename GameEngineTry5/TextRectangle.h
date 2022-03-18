@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning( disable : 4250) //the correct mpf_drawSelf is inherited via dominance
 #include "Rectangle.h"
 #include "Font.h"
 namespace EngineName
