@@ -50,7 +50,7 @@ int engineNameMain(Base::ObjectContainer &world)
 	const EngineName::Time::ChangeActiveScene buttonAction(*gameScene);
 	EngineName::Object::Button tempButton(buttonRectangle, buttonAction);
 	const EngineName::Drawing::Font buttonFont(L"Open Sans", 22U);
-	EngineName::Object::TextButton tempTextButton(tempButton, L" New Game", buttonFont);
+	EngineName::Object::TextButton tempTextButton(tempButton, L"Hello World", buttonFont);
 	auto button = &world.textButton.build(tempTextButton);
 	
 	mainMenuScene->add(*button);
