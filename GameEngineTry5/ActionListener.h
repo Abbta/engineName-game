@@ -1,10 +1,11 @@
 #pragma once
-#include "OnClick.h"
+//#include "OnClick.h"
 #include "BaseIncludeLibraries.h"
 namespace EngineName
 {
 	namespace Action
 	{
+		class OnClick;
 		/*
 		* ActionListener class
 		* Keeps track of actions we're listening for, clicks and presses
@@ -17,6 +18,8 @@ namespace EngineName
 			std::list<std::unique_ptr<OnClick>> mparr_clickListeners;
 		public:
 			void click(const unsigned int x, const unsigned int y);
+
+			OnClick& addClickListener(const OnClick& listener);
 		};
 	}
 }

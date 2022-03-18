@@ -1,3 +1,4 @@
+#pragma once
 #include "BaseIncludeLibraries.h"
 #include "TaskContainer.h"
 #pragma once
@@ -6,6 +7,8 @@ namespace EngineName
 	namespace Action
 	{
 		class OnActionBase;
+		//temp:
+		class ActionListener;
 	}
 	namespace Base
 	{
@@ -13,10 +16,12 @@ namespace EngineName
 		struct ObjectContainerAccess;
 		class MainWindow;
 	}
+	namespace Object
+	{
+		template<class t_CountType, class t_TaskType> class CounterImpl;
+	}
 	namespace Time
 	{
-		class Task;
-
 		/*
 		* Queue class
 		* stores a ref to all task objects that has scheduled execution
@@ -36,6 +41,7 @@ namespace EngineName
 			friend class Base::MainWindow;
 			friend class Base::ObjectContainer;
 			friend class Action::OnActionBase;
+			template<class t_CountType, class t_TaskType> friend class Object::CounterImpl;
 			friend struct Base::ObjectContainerAccess;
 		};
 	}

@@ -1,6 +1,5 @@
 #include "Vector.h"
 #include "Color.h"
-#include "ObjectContainer.h"
 #pragma once
 #include "Visible.h"
 namespace EngineName

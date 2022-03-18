@@ -1,5 +1,5 @@
-#include "BasicException.h"
 #pragma once
+#include "BasicException.h"
 namespace EngineName
 {
     namespace Exceptions

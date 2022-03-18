@@ -17,6 +17,11 @@ namespace EngineName
 	{
 		class ActionListener;
 	}
+	namespace Object
+	{
+		class CounterConstructor;
+		class Visible;
+	}
 	namespace Base
 	{
 		class ObjectContainer;
@@ -51,8 +56,10 @@ namespace EngineName
 			//man fuck backgroundColor, all my homies hate classes defined in other classes
 			static Width&							 getWidth(ObjectContainer& world);
 			static Height&							 getHeight(ObjectContainer& world);
+			static Object::CounterConstructor&		 getCounter(ObjectContainer& world);
 
 			//Functions
+			static void								 drawVisible(ObjectContainer& world, const Object::Visible& visible);
 			template<class T>
 			static T& schedule(ObjectContainer& world, const T& task, const int ms = 0)
 			{

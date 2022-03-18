@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -152,11 +152,20 @@
     <ClInclude Include="BasicException.h" />
     <ClInclude Include="BasicVariableException.h" />
     <ClInclude Include="BrushContainer.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="ButtonConstructor.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleConstructor.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Counter.h" />
+    <ClInclude Include="CounterConstructor.h" />
+    <ClInclude Include="CounterImpl.h" />
+    <ClInclude Include="CounterTasks.h" />
     <ClInclude Include="DevDefinedTasks.h" />
+    <ClInclude Include="Display.h" />
+    <ClInclude Include="DisplayConstructor.h" />
+    <ClInclude Include="DisplayImpl.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameEngineTry5.h" />
@@ -168,6 +177,8 @@
     <ClInclude Include="ObjectConstructor.h" />
     <ClInclude Include="ObjectContainer.h" />
     <ClInclude Include="ObjectContainerAccess.h" />
+    <ClInclude Include="ObjectGroup.h" />
+    <ClInclude Include="ObjectGroupConstructor.h" />
     <ClInclude Include="ObjectTasks.h" />
     <ClInclude Include="OnActionBase.h" />
     <ClInclude Include="OnClick.h" />
@@ -177,15 +188,20 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RectangleConstructor.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneConstructor.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="TaskContainer.h" />
+    <ClInclude Include="TextButton.h" />
+    <ClInclude Include="TextButtonConstructor.h" />
     <ClInclude Include="TextFormatContainer.h" />
     <ClInclude Include="TextRectangle.h" />
     <ClInclude Include="TextRectangleConstructor.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Visible.h" />
+    <ClInclude Include="VisibleGroup.h" />
     <ClInclude Include="WidthAndHeight.h" />
     <ClInclude Include="WindowAccess.h" />
     <ClInclude Include="WindowBaseClass.h" />
@@ -196,10 +212,17 @@
     <ClCompile Include="BasicException.cpp" />
     <ClCompile Include="BasicVariableException.cpp" />
     <ClCompile Include="BrushContainer.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ButtonConstructor.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleConstructor.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Counter.cpp" />
+    <ClCompile Include="CounterConstructor.cpp" />
+    <ClCompile Include="CounterTasks.cpp" />
     <ClCompile Include="DevDefinedTasks.cpp" />
+    <ClCompile Include="Display.cpp" />
+    <ClCompile Include="DisplayConstructor.cpp" />
     <ClCompile Include="EngineNameMain.cpp" />
     <ClCompile Include="GameEngineTry5.cpp" />
     <ClCompile Include="Line.cpp" />
@@ -209,6 +232,8 @@
     <ClCompile Include="ObjectConstructor.cpp" />
     <ClCompile Include="ObjectContainer.cpp" />
     <ClCompile Include="ObjectContainerAccess.cpp" />
+    <ClCompile Include="ObjectGroup.cpp" />
+    <ClCompile Include="ObjectGroupConstructor.cpp" />
     <ClCompile Include="ObjectTasks.cpp" />
     <ClCompile Include="OnActionBase.cpp" />
     <ClCompile Include="OnClick.cpp" />
@@ -217,13 +242,18 @@
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="RectangleConstructor.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneConstructor.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Task.cpp" />
+    <ClCompile Include="TextButton.cpp" />
+    <ClCompile Include="TextButtonConstructor.cpp" />
     <ClCompile Include="TextFormatContainer.cpp" />
     <ClCompile Include="TextRectangle.cpp" />
     <ClCompile Include="TextRectangleConstructor.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Visible.cpp" />
+    <ClCompile Include="VisibleGroup.cpp" />
     <ClCompile Include="WidthAndHeight.cpp" />
     <ClCompile Include="WindowAccess.cpp" />
   </ItemGroup>

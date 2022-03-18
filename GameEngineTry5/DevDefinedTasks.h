@@ -1,11 +1,14 @@
-#include "BaseIncludeLibraries.h"
-#include "ObjectTasks.h"
 #pragma once
+#include "ObjectTasks.h"
 namespace EngineName
 {
 	namespace Base
 	{
 		class ObjectContainer;
+	}
+	namespace Object
+	{
+		template<class t_CountType, class t_TaskType> class CounterImpl;
 	}
 	namespace Time
 	{

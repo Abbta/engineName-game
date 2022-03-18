@@ -1,6 +1,7 @@
 #include "ObjectTasks.h"
 #include "Rectangle.h"
 #include "Circle.h"
+#include "ObjectContainer.h"
 namespace EngineName
 {
 	namespace Time
@@ -14,6 +15,17 @@ namespace EngineName
 		{
 			mpc_visible.translate(mpv_direction);
 			mpc_visible.draw();
+		}
+
+		ChangeActiveScene::ChangeActiveScene(Object::Scene& newScene)
+			:mpc_newScene(newScene)
+		{
+
+		}
+
+		void ChangeActiveScene::mpf_perform(Base::ObjectContainer& world)
+		{
+			world.setActiveScene(mpc_newScene);
 		}
 	}
 }

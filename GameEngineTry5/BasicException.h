@@ -1,5 +1,5 @@
-#include "_BaseIncludeLibraries.h"
 #pragma once
+#include "_BaseIncludeLibraries.h"
 namespace EngineName
 {
 	namespace Exceptions

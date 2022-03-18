@@ -28,7 +28,7 @@ namespace EngineName
 				newTaskPtr->mptr_storageRef = &mparr_allTasks;
 				std::list<std::unique_ptr<Task>>::iterator it = mparr_allTasks.end();
 				it--;
-				temp->mpit_storageItRef = it;
+				newTaskPtr->mpit_storageItRef = it;
 				return *newTaskPtr;
 			}
 

@@ -1,3 +1,4 @@
+#pragma once
 #include "MainWindow.h"
 #include "WindowAccess.h"
 #include "RectangleConstructor.h"
@@ -7,6 +8,7 @@
 #include "MainWindow.h"
 #include "ObjectTasks.h"
 #include "TextRectangleConstructor.h"
+#include "TextButtonConstructor.h"
 #include "Color.h"
 #include "Painter.h"
 #include "WidthAndHeight.h"
@@ -14,17 +16,15 @@
 #include "ActionListener.h"
 #include "NullVisible.h"
 #include "ObjectContainerAccess.h"
-#pragma once
+#include "ButtonConstructor.h"
+#include "ObjectGroupConstructor.h"
+#include "SceneConstructor.h"
+#include "CounterConstructor.h"
+#include "DevDefinedTasks.h"
+#include "ActionListener.h"
+#include "DisplayConstructor.h"
 namespace EngineName
 {
-	namespace Object
-	{
-		class Visible;
-	}
-	namespace Time
-	{
-		//class Move;
-	}
 	namespace Base
 	{
 		/*
@@ -64,7 +64,7 @@ namespace EngineName
 				//add threads
 
 			//public functions
-			void drawVisible(const Object::Visible& visible) const;
+			bool drawVisible(const Object::Visible& visible) const;
 			
 			template<class T>
 			T& schedule(const T& task, const int ms = 0)
@@ -81,11 +81,18 @@ namespace EngineName
 				return taskRef;
 			}
 
+			void setActiveScene(Object::Scene& scene);
 
 			//constructor classes
 			Object::RectangleConstructor		rectangle;     //is fairly simple and is not currently considered to need dynamic allocation
 			Object::CircleConstructor			circle;		   //--||--
 			Object::TextRectangleConstructor	textRectangle; //--||--
+			Object::ButtonConstructor			button;
+			Object::TextButtonConstructor		textButton;
+			Object::ObjectGroupConstructor		objectGroup;
+			Object::SceneConstructor			scene;
+			Object::CounterConstructor			counter;
+			Object::DisplayConstructor			display;
 
 			//access classes
 			WindowAccess window;					//is fairly simple

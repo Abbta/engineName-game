@@ -13,6 +13,11 @@ namespace EngineName
 	{
 		class ObjectContainer;
 	}
+	namespace Action
+	{
+		class OnActionBase;
+		class OnClick;
+	}
 	namespace Time
 	{
 		class Queue;
@@ -27,8 +32,12 @@ namespace EngineName
 			//the actual task
 			virtual void mpf_perform(Base::ObjectContainer& world) = 0;
 			void Destroy();
+		protected:
+			bool mp_isDestructable;
 		public:
-			Task(): mp_msLeftInQueue(0), mptr_storageRef(nullptr) {}
+			Task(): mp_msLeftInQueue(0), mp_isDestructable(true), mptr_storageRef(nullptr){}
+
+			void makeIndestructable() { mp_isDestructable = false; }
 
 			//reschedules task execution, use negative integers for removing time, returns if mp_msLeftInQueue is positive
 			bool addTimeLeftInQueue(const std::chrono::milliseconds milliseconds);
@@ -37,6 +46,8 @@ namespace EngineName
 			std::chrono::system_clock::duration timeLeft() const { return mp_msLeftInQueue; }
 
 			friend class Queue;
+			friend class EngineName::Action::OnActionBase;
+			friend class EngineName::Action::OnClick;
 			friend class TaskContainer;
 		};
 	}
