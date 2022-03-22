@@ -39,6 +39,11 @@ namespace EngineName
 			return world.height;
 		}
 
+		const Object::VisibleGroup* ObjectContainerAccess::getActiveScene(ObjectContainer& world)
+		{
+			return getPainter(world).mf_getActiveScene();
+		}
+
 		Time::Task* ObjectContainerAccess::mpf_scheduleImpl(ObjectContainer& world, Time::Task* dynamicallyAllocatedTask, const int ms)
 		{
 			auto taskRef = getTaskContainer(world).mpf_addAlreadyAllocated(dynamicallyAllocatedTask);

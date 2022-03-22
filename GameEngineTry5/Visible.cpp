@@ -26,6 +26,12 @@ namespace EngineName
 		//returns if two visibles' boxes overlap
 		bool Visible::boxOverlaps(const Visible& visible) const
 		{
+			//check if both visibles are in the active scene
+			auto activeScene = Base::ObjectContainerAccess::getActiveScene(*mptr_world);
+			if(activeScene)
+				if (!(activeScene->contains(visible) && activeScene->contains(visible)))
+					return false;
+
 			//if either of the visibles corners has coordinates that both is larger than boxPosition but smaller than boxPosition + width/height
 			return ((visible.boxPosition.x > boxPosition.x
 				&& visible.boxPosition.y > boxPosition.y

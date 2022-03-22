@@ -21,6 +21,7 @@ namespace EngineName
 	{
 		class CounterConstructor;
 		class Visible;
+		class VisibleGroup;
 	}
 	namespace Base
 	{
@@ -57,6 +58,7 @@ namespace EngineName
 			static Width&							 getWidth(ObjectContainer& world);
 			static Height&							 getHeight(ObjectContainer& world);
 			static Object::CounterConstructor&		 getCounter(ObjectContainer& world);
+			static const Object::VisibleGroup*   	 getActiveScene(ObjectContainer& world);
 
 			//Functions
 			static void								 drawVisible(ObjectContainer& world, const Object::Visible& visible);
