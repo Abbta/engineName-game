@@ -27,5 +27,16 @@ namespace EngineName
 		{
 			world.setActiveScene(mpc_newScene);
 		}
+
+		ToggleATButton::ToggleATButton(Object::ActivatableTButton& activatableTButton)
+			:mpc_aTButton(activatableTButton)
+		{
+
+		}
+
+		void ToggleATButton::mpf_perform(Base::ObjectContainer& world)
+		{
+			mpc_aTButton.toggleActive();
+		}
 	}
 }

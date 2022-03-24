@@ -31,5 +31,16 @@ namespace EngineName
 			ChangeActiveScene(Object::Scene& newScene);
 			friend class TaskContainer;
 		};
+
+		class ToggleATButton : public Task
+		{
+		private:
+			virtual void mpf_perform(Base::ObjectContainer& world) override;
+
+			Object::ActivatableTButton& mpc_aTButton;
+		public:
+			ToggleATButton(Object::ActivatableTButton& activatableTButton);
+			friend class TaskContainer;
+		};
 	}
 }
