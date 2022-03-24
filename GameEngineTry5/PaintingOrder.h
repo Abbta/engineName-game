@@ -9,6 +9,7 @@ namespace EngineName
 	namespace Object
 	{
 		class Visible;
+		class ActivatableTButton;
 
 		/*
 		* paintingorder class
@@ -32,6 +33,7 @@ namespace EngineName
 			PaintingOrder& operator+=(const unsigned int addToPaintingOrder) { return *this = (*this + addToPaintingOrder); }
 			PaintingOrder& operator++() { *this += 1;  }
 
+			friend class ActivatableTButton;
 		};
 	}
 }

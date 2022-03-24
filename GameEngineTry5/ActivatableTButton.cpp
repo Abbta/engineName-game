@@ -11,8 +11,7 @@ namespace EngineName
 			boxHeight = textRectangle.boxHeight;
 			boxCenter = textRectangle.boxCenter;
 			color = textRectangle.color;
-			layerID = textRectangle.layerID;
-				//constructor respnsible for making sure there's a placeholder visible on both layerID spots
+			//layer ID is static for whole object
 
 			//change Rectangle components
 			borderWidth = textRectangle.borderWidth;

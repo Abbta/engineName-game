@@ -7,13 +7,10 @@ namespace EngineName
 		ActivatableTButton& ActivatableTButtonConstructor::build(const ActivatableTButton& activatableTButton)
 		{
 			this->mf_makeRoomForNewVisible();
+			//all visibles within share the same layerID
 			this->mparr_allATButtons.push_back(std::make_unique<ActivatableTButton>(activatableTButton));
-			//register inactive part
-			this->mf_registerNewVisible(*mparr_allATButtons.back()->mpptr_inactiveTRect);
-			//also register active part, this means this visible will take up two spots in allVisibles and have two different layerIDs
-			//essentially ActivatableTButton can be considered two visibles that are closely connected
-			this->mf_makeRoomForNewVisible();
-			this->mf_registerNewVisible(*mparr_allATButtons.back()->mpptr_activeTRect);
+			this->mparr_allATButtons.back()->setActive();
+			this->mf_registerNewVisible(*mparr_allATButtons.back());
 
 			return *this->mparr_allATButtons.back();
 		}
