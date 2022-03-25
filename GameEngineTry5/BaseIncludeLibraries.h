@@ -2,3 +2,4 @@
 #pragma once
 #include "framework.h"
 #include "BasicVariableException.h"
+#include "Typedefs.h"

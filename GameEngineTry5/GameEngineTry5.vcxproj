@@ -201,6 +201,7 @@
     <ClInclude Include="TextFormatContainer.h" />
     <ClInclude Include="TextRectangle.h" />
     <ClInclude Include="TextRectangleConstructor.h" />
+    <ClInclude Include="Typedefs.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Visible.h" />
     <ClInclude Include="VisibleGroup.h" />

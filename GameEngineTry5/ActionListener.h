@@ -15,10 +15,13 @@ namespace EngineName
 		class ActionListener
 		{
 		private:
+			//stores the actual clickListeners
 			std::list<std::unique_ptr<OnClick>> mparr_clickListeners;
 		public:
-			void click(const unsigned int x, const unsigned int y);
+			//handles clicks
+			void click(const td_width x, const td_height y);
 
+			//adds new clicklisteners
 			OnClick& addClickListener(const OnClick& listener);
 		};
 	}
