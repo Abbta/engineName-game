@@ -5,7 +5,7 @@ namespace EngineName
 	{
 		/*
 		* Getbrush member function
-		* Takes ptr to rendertarget and color
+		* Takes ptr to rendertarget and color as param
 		* If there already exists a brush with the given color, it is returned
 		* Otherwise a new brush with that color is constructed and then returned
 		*/
@@ -32,6 +32,7 @@ namespace EngineName
 				brushPair = newBrushPair;
 			}
 
+			//return either stored brush or newly constructed brush
 			return brushPair->second;
 		}
 	}

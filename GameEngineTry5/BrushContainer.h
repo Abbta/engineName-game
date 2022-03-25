@@ -16,6 +16,7 @@ namespace EngineName
 		private:
 			std::map<std::string, CComPtr<ID2D1SolidColorBrush>> mpmap_solidBrushes;
 		public:
+			//gets the specified brush or creates it if it doesn't exist
 			CComPtr<ID2D1SolidColorBrush>& getBrush(CComPtr<ID2D1HwndRenderTarget>& renderTarget, const Object::Color& solidColor);
 		};
 	}
