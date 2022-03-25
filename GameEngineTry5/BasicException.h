@@ -9,7 +9,7 @@ namespace EngineName
 		* Serves as base for custom exceptions
 		* Can at construction be assigned a string which is printed on catch
 		* Stores a std::string
-		* String is accesed via operator const char*
+		* String is accesed via operator std::string
 		*/
 		class BasicException
 		{

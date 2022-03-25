@@ -214,7 +214,6 @@
     <ClCompile Include="ActionListener.cpp" />
     <ClCompile Include="ActivatableTButton.cpp" />
     <ClCompile Include="ActivatableTButtonConstructor.cpp" />
-    <ClCompile Include="BasicException.cpp" />
     <ClCompile Include="BasicVariableException.cpp" />
     <ClCompile Include="BrushContainer.cpp" />
     <ClCompile Include="Button.cpp" />

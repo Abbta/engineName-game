@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="ActionListener.cpp" />
-    <ClCompile Include="BasicException.cpp" />
     <ClCompile Include="BasicVariableException.cpp" />
     <ClCompile Include="BrushContainer.cpp" />
     <ClCompile Include="Button.cpp" />
