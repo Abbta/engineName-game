@@ -6,6 +6,9 @@ namespace EngineName
 	{
 		bool OnClick::onClick(const unsigned int x, const unsigned int y)
 		{
+			if (!mp_toggle)
+				return false;
+
 			auto activeScene = Base::ObjectContainerAccess::getActiveScene(mp_worldRef);
 			if (activeScene)
 				if (!activeScene->contains(*mpptr_area))
