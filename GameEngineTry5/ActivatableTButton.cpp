@@ -27,6 +27,7 @@ namespace EngineName
 		ActivatableTButton& ActivatableTButton::setActive()
 		{
 			mpf_changeTRBaseTo(*mpptr_activeTRect.get());
+			mp_isActive = true;
 			//make it check for correct area in clicklistener
 			mpf_changeOnClickArea(*mpptr_activeTRect);
 			return *this;
@@ -35,6 +36,7 @@ namespace EngineName
 		ActivatableTButton& ActivatableTButton::setInactive()
 		{
 			mpf_changeTRBaseTo(*mpptr_inactiveTRect.get());
+			mp_isActive = false;
 			//make it check for correct area in clicklistener
 			mpf_changeOnClickArea(*mpptr_inactiveTRect);
 			return *this;

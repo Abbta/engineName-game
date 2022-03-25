@@ -37,6 +37,7 @@ namespace EngineName
 		void ToggleATButton::mpf_perform(Base::ObjectContainer& world)
 		{
 			mpc_aTButton.toggleActive();
+			Base::ObjectContainerAccess::drawVisible(world, mpc_aTButton);
 		}
 	}
 }

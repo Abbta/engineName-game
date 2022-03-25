@@ -33,11 +33,7 @@ int engineNameMain(Base::ObjectContainer &world)
 			Object::Rectangle(world, Object::Vector((world.width / 2.0) - 5, 9), 10, 19, Object::Color("567556")), L"", Drawing::Font(L"Open Sans", 18U)),
 		0);
 	gameScene->add(*topDisplay);
-	gameScene->add(world.button.build(Object::Button(
-		Object::Rectangle(world, Object::Vector((world.width / 2.0) - 7, 45), 14, 8, Object::Color("992343")),
-		Time::AddToCounter<int>(topDisplay->counter(), 1)
-	)));
-	gameScene->add(world.activatableTextButton.build(
+	auto aTButton = &world.activatableTextButton.build(
 		Object::ActivatableTButton(
 			Object::TextRectangle(
 				Object::Rectangle(world, Object::Vector(350, 50), 125, 28, Object::Color("55D314")),
@@ -52,7 +48,12 @@ int engineNameMain(Base::ObjectContainer &world)
 			Time::AddToCounter<int>(topDisplay->counter(), 1),
 			true
 		)
-	));
+	);
+	gameScene->add(*aTButton);
+	gameScene->add(world.button.build(Object::Button(
+		Object::Rectangle(world, Object::Vector((world.width / 2.0) - 7, 45), 14, 8, Object::Color("992343")),
+		Time::ToggleATButton(*aTButton)
+	)));
 
 	
 	Object::Scene* mainMenuScene = &world.scene.build(world);
