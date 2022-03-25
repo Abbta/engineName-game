@@ -4,6 +4,7 @@ namespace EngineName
 {
 	namespace Object
 	{
+		//overload of build() that builds ATButtons
 		ActivatableTButton& ActivatableTButtonConstructor::build(const ActivatableTButton& activatableTButton)
 		{
 			this->mf_makeRoomForNewVisible();

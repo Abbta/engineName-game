@@ -6,6 +6,9 @@ namespace EngineName
 {
 	namespace Object
 	{
+		/* ActivatableTextButtonConstructor class
+		*	constructs and stores ATButtons
+		*/
 		class ActivatableTButtonConstructor:
 			public ObjectConstructor
 		{
