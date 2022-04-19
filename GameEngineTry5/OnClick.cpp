@@ -24,7 +24,7 @@ namespace EngineName
 			return false;
 		}
 
-		void OnClick::mpf_changeArea(Object::Visible& newArea)
+		void OnClick::mpf_changeArea(const Object::Visible& newArea)
 		{
 			mpptr_area = &newArea;
 		}

@@ -27,9 +27,9 @@ namespace EngineName
                 TextButton(inactiveTRect, onClickTask), Rectangle(inactiveTRect)
             {
                 //toggle the OnClick
-                mp_actionRef.mp_toggle = isActive;
+                mpc_actionRef.mp_toggle = isActive;
                 //the toggle in OnClick is used to determine what mode ATButton is in
-                if (mp_actionRef.mp_toggle)
+                if (mpc_actionRef.mp_toggle)
                     setActive();
             }
 

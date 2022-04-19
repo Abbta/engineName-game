@@ -18,8 +18,8 @@ namespace EngineName
         {
         private:
             bool mp_toggle;
-            Object::Visible* mpptr_area;
-            void mpf_changeArea(Object::Visible& newArea);
+            Object::Visible const* mpptr_area;
+            void mpf_changeArea(const Object::Visible& newArea);
         public:
             template<class TaskType>
             OnClick(Base::ObjectContainer& world, const TaskType& task, Object::Visible& area)

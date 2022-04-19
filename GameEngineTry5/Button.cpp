@@ -3,9 +3,13 @@ namespace EngineName
 {
 	namespace Object
 	{
-		void Button::mpf_changeOnClickArea(Visible& newArea)
+		/* Button::changeOnClickArea
+		*	takes temporary visible as param
+		*	changes area that actionRef checks on user clicks
+		*/
+		void Button::mpf_changeOnClickArea(const Visible& newArea)
 		{
-			mp_actionRef.mpf_changeArea(newArea);
+			mpc_actionRef.mpf_changeArea(newArea);
 		}
 	}
 }

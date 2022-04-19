@@ -34,7 +34,7 @@ namespace EngineName
 		{
 			mpf_changeTRBaseTo(*mpptr_activeTRect.get());
 			//mp_toggle in actionRef is used to determine what mode class is in
-			mp_actionRef.mp_toggle = true;
+			mpc_actionRef.mp_toggle = true;
 			//make it check for correct area in clicklistener
 			mpf_changeOnClickArea(*mpptr_activeTRect);
 			return *this;
@@ -45,7 +45,7 @@ namespace EngineName
 		{
 			mpf_changeTRBaseTo(*mpptr_inactiveTRect.get());
 			//mp_toggle in actionRef is used to determine what mode class is in
-			mp_actionRef.mp_toggle = false;
+			mpc_actionRef.mp_toggle = false;
 			//make it check for correct area in clicklistener
 			mpf_changeOnClickArea(*mpptr_inactiveTRect);
 			return *this;
@@ -54,7 +54,7 @@ namespace EngineName
 		//sets mode to whatever it is not at the moment
 		ActivatableTButton& ActivatableTButton::toggleActive()
 		{
-			if (mp_actionRef.mp_toggle)
+			if (mpc_actionRef.mp_toggle)
 				setInactive();
 			else
 				setActive();
