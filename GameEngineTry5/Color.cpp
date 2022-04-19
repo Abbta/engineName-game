@@ -13,14 +13,17 @@ namespace EngineName
 			if (colorString[0] == '#')
 				//if the user uses # to mark hex
 			{
+				//remove first char
 				colorString = colorString.substr(1);
 			}
 			if (colorString[1] == 'x')
 				//if the user uses 0x to mark hex
 			{
+				//remove first two chars
 				colorString = colorString.substr(2);
 			}
 
+			//check that it has RRGGBB or RRGGBBAA format
 			if (colorString.length() < 6 || colorString.length() > 8 || colorString.length() % 2 == 1)
 			{
 				throw Exceptions::BasicException("invalid hex string when constructing color");
