@@ -222,7 +222,6 @@
     <ClCompile Include="CircleConstructor.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Counter.cpp" />
-    <ClCompile Include="CounterConstructor.cpp" />
     <ClCompile Include="CounterTasks.cpp" />
     <ClCompile Include="DevDefinedTasks.cpp" />
     <ClCompile Include="Display.cpp" />
