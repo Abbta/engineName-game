@@ -4,27 +4,25 @@
 #pragma once
 namespace EngineName
 {
-    namespace Base
-    {
-        class ObjectContainer;
-    }
-    namespace Time
-    {
-        class UpdateDisplay;
-    }
     namespace Object
     {
-       class Display;
-
+        /*
+        * Counter class
+        * Base class of counterImpl which is templated and contains the implmented part of counter
+        * This type of structure is used to be able to store all types of counters in the same list
+        * Is essentialy a pure virtual base class
+        */
         class Counter :
             public Object
         {
         protected:
+            //will throw if called in this class
             virtual void mpf_increment(const void* amount);
         public:
             Counter(Base::ObjectContainer& world):
                 Object(world) {}
 
+            //count is incremented via this public operator
             template<class t_CountType> Counter& operator+=(const t_CountType& amount)
             {
                 const t_CountType* amountPtr = &amount;
@@ -33,7 +31,6 @@ namespace EngineName
             }
 
         };
-
     }
 }
 
