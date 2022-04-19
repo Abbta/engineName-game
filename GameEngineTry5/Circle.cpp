@@ -7,16 +7,18 @@ namespace EngineName
 	{
 		//Constructor, also calculates box
 		Circle::Circle(Base::ObjectContainer& world,
-			Vector center, double radius, Color color)
+			const Vector& center, const td_radius radius, const Color& color)
 			:Visible(world)
 		{
-			if (radius < 0)
+			//error check radius
+			if (radius < 0.0)
 				throw Exceptions::BasicException("radius of circle can't be less than 0");
 
+			//calculate box
 			boxCenter = center;
-			boxPosition = center - Vector(static_cast<int>(radius), static_cast<int>(radius)); //from center of circle go top left
-			boxWidth = static_cast<unsigned int>(2 * radius);
-			boxHeight = static_cast<unsigned int>(2 * radius);
+			boxPosition = center - Vector(static_cast<td_xDirection>(radius), static_cast<td_yDirection>(radius)); //from center of circle go top left
+			boxWidth = static_cast<td_width>(2 * radius);
+			boxHeight = static_cast<td_height>(2 * radius);
 			this->color = color;
 			this->radius = radius;
 		}
