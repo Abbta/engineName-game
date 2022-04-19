@@ -20,12 +20,11 @@ namespace EngineName
         private:
             std::list<std::unique_ptr<Circle>> mparr_allCircles; //stores all dev constructed circles
         public:
-            CircleConstructor(Base::ObjectContainer& world) : ObjectConstructor(world) {}
             CircleConstructor(Base::ObjectContainer* world) : ObjectConstructor(world) {}
 
             Circle& build(const Circle& circle);
             Circle& build(Base::ObjectContainer& world,
-                const Vector position = &Vector(0, 0), const int radius = 0, const Color color = Color("000000"));
+                const Vector& position = &Vector(0, 0), const td_radius radius = 0.0, const Color& color = Color("000000"));
 
             friend class Drawing::Painter;
         };
