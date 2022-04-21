@@ -10,6 +10,10 @@ namespace EngineName
 	{
 		class OnActionBase;
 	}
+	namespace Object
+	{
+		template<class t_CountType, class t_TaskType> class CounterImpl;
+	}
 	namespace Time
 	{
 		class TaskContainer
@@ -18,6 +22,7 @@ namespace EngineName
 			friend class Base::ObjectContainer;
 			friend struct Base::ObjectContainerAccess;
 			friend class Action::OnActionBase;
+			template<class t_CountType, class t_TaskType> friend class CounterImpl;
 
 			std::list<std::unique_ptr<Task>> mparr_allTasks;
 			template<class T>
