@@ -10,7 +10,6 @@
     <ClCompile Include="CircleConstructor.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Counter.cpp" />
-    <ClCompile Include="Display.cpp" />
     <ClCompile Include="EngineNameMain.cpp" />
     <ClCompile Include="GameEngineTry5.cpp" />
     <ClCompile Include="Line.cpp" />

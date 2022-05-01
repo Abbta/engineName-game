@@ -223,7 +223,6 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Counter.cpp" />
     <ClCompile Include="CounterTasks.cpp" />
-    <ClCompile Include="Display.cpp" />
     <ClCompile Include="DisplayConstructor.cpp" />
     <ClCompile Include="EngineNameMain.cpp" />
     <ClCompile Include="Font.cpp" />
