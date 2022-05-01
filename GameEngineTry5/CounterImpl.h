@@ -1,4 +1,5 @@
 #pragma once
+#include "TaskContainer.h"
 #include "Queue.h"
 #include "Counter.h"
 namespace EngineName
@@ -38,7 +39,7 @@ namespace EngineName
 
                 auto ptr_countTypeAmount = static_cast<const t_CountType*>(amount);
                 //atleast check that it is a valid ptr
-                if (ptr_countTypeAmount = nullptr)
+                if (ptr_countTypeAmount == nullptr)
                 {
                     throw Exceptions::BasicException("Invald amount in increment counter");
                 }
@@ -52,7 +53,7 @@ namespace EngineName
                 //nullptr in onCountChange means that nothing should happen at count change
                 if (onCountChange)
                 {
-                    mptr_onCountChange = &Base::ObjectContainerAccess::getTaskContainer(world).mpf_add<t_TaskType>(onCountChange);
+                    mptr_onCountChange = &Base::ObjectContainerAccess::getTaskContainer(world).mpf_add<t_TaskType>(*onCountChange);
                     mptr_onCountChange->makeIndestructable();
                 }
             }

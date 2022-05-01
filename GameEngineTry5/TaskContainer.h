@@ -22,7 +22,7 @@ namespace EngineName
 			friend class Base::ObjectContainer;
 			friend struct Base::ObjectContainerAccess;
 			friend class Action::OnActionBase;
-			template<class t_CountType, class t_TaskType> friend class CounterImpl;
+			template<class t_CountType, class t_TaskType> friend class Object::CounterImpl;
 
 			std::list<std::unique_ptr<Task>> mparr_allTasks;
 			template<class T>
