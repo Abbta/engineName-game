@@ -6,10 +6,6 @@ namespace EngineName
 	{
 		class ObjectContainer;
 	}
-	namespace Object
-	{
-		template<class t_CountType, class t_TaskType> class CounterImpl;
-	}
 	namespace Time
 	{
 
@@ -28,7 +24,8 @@ namespace EngineName
 				throw Exceptions::BasicException("Custom class perform called");	//
 																					//
 				//*-------------------------*										//
-			}																		//																																	//
+			}																		//			
+			//Taskcontainer needs access to perform									//
 			friend class TaskContainer;												//
 		};																			//
 																					//
