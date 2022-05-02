@@ -43,7 +43,6 @@
     <ClCompile Include="VisibleGroup.cpp" />
     <ClCompile Include="WidthAndHeight.cpp" />
     <ClCompile Include="WindowAccess.cpp" />
-    <ClCompile Include="DisplayConstructor.cpp" />
     <ClCompile Include="CounterTasks.cpp" />
     <ClCompile Include="ActivatableTButton.cpp" />
     <ClCompile Include="Font.cpp" />
