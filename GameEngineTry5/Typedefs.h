@@ -6,4 +6,5 @@ namespace EngineName
 	typedef double td_radius;
 	typedef int td_xDirection;
 	typedef int td_yDirection;
+	typedef size_t td_ID;
 }
