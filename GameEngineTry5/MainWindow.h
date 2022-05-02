@@ -11,26 +11,27 @@ namespace EngineName
 	}
 	namespace Base
 	{
-		class WindowAccess; //forward declaration for friend statement
+		class WindowAccess;
 		class ObjectContainer;
 		struct ObjectContainerAccess;
 
 		/*
 		* mainwindow class
-		* derives from windowbaseclass
 		* is responsible for mainwindow interaction with winapi
 		* contains functions and variables necessary for creation of window
 		* also contains handleMessage which is the main loop of the program
-		* this class should not be directly accesed by dev
+		* contains painter which is responsible for all graphic output
 		*/
 		class MainWindow :
 			public WindowBaseClass<MainWindow>
 		{
 		private:
-			int mp_windowFlags; //only used in creation of window
-			std::wstring mp_windowTitle; //only used in creation of window
+			//variables used only in creation of window
+			int mp_windowFlags;
+			std::wstring mp_windowTitle;
 			int mp_creationWidth;
 			int mp_creationHeight;
+
 			std::unique_ptr<Drawing::Painter> mpptr_painter;
 			ObjectContainer& mp_world;
 		public:
@@ -44,7 +45,6 @@ namespace EngineName
 			PCWSTR  ClassName() const { return L"Sample Window Class"; }
 			LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-			//private functions are only to be accesed by eng
 			friend class WindowAccess;
 			friend struct ObjectContainerAccess;
 			friend class ObjectContainer;

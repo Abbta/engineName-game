@@ -3,7 +3,6 @@
 #include "ObjectContainer.h"
 #include <Windowsx.h>
 /*
-* Contains all member functions of mainwindow
 * TODO WHEN NEEDED:
 *	add seperate files to all large functions such as handlemessage
 */
@@ -16,6 +15,8 @@ namespace EngineName
 		* is a member of mainwindow class
 		* is called as often as possible by winapi
 		* the parameters contain input from the OS
+		*	uMsg is a broadcasted windows message (for example left mouse button has been pressed)
+		*	wParam and lParam may contain additional information about the message (for example the coordinates of the cursor)
 		* will call a function for painting
 		* will call relevant objects onInput() functions if the user provides input
 		*/
@@ -38,6 +39,7 @@ namespace EngineName
 					mp_world.width.fromInputWidth(GET_Y_LPARAM(lParam)));
 				return 0;
 			case WM_DESTROY:
+				//close down main window
 				PostQuitMessage(0);
 				return 0;
 			default:
@@ -48,6 +50,7 @@ namespace EngineName
 
 				//draw objects which need repainting
 				mpptr_painter->mf_refresh();
+				//neccessary return
 				return DefWindowProc(m_hwnd, uMsg, wParam, lParam);
 			}
 		}
@@ -57,11 +60,11 @@ namespace EngineName
 		*	There is a task base object
 		*	From these there are engine derived tasks (such as change coordinates)
 		*	The dev can also derive their own task objects which of course can have multiple other tasks in them
-		*	These can via a task objet member function be put in The Queue
+		*	These can via a task object member function be put in The Queue
 		*	A function which will either be called after each handle message or constantly in a separate thread will:
-		*		tell all tasks how much timme they need to remain in The Queue
+		*		tell all tasks how much longer they need to remain in The Queue
 		*		Put things that have waited for too long in a to-do list
-		*   If the to-do list has tasks on it, these will be called from their respective task object member function
+		*   If the to-do list has tasks on it, these will be executed via their respective task object member function
 		*/
 
 		/*
@@ -69,7 +72,7 @@ namespace EngineName
 			After each handlemessage loop it calls a draw function if a conditional is set
 			Conditonal can be set by the following:
 				Every visible has a .draw()
-					callas Draw object which does the drawing
+					calls a Draw object which does the drawing
 				World has a Draw object
 					has .drawAll()
 					has a vector with all objects visible on screen
