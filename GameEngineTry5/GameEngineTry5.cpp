@@ -21,7 +21,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 {
 	try
 	{
-		int a{ 5 + 3 };
 		std::unique_ptr<EngineName::Base::ObjectContainer> objectContainer{ std::make_unique<EngineName::Base::ObjectContainer>() };
 		//creates world dynamically
 		if (engineNameMain(*objectContainer) > 0)
@@ -46,19 +45,18 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 			//displays the window
 			ShowWindow(ptrMainWindow->Window(), nCmdShow);
 
-
 			//draws all visibles
 			objectContainer->mpptr_window->mpptr_painter->mf_drawAll();
 
-		//---------------
+
+			//message loop, used by winapi to contain all runtime flow
+			//every loop mainwindow.handlemessage will be called
 			MSG msg = { };
 			while (GetMessage(&msg, NULL, 0, 0))
 			{
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
-			//message loop, used by winapi to contain all runtime flow
-			//every loop mainwindow.handlemessage will be called
 		}
 	}
 	catch (EngineName::Exceptions::BasicException& exception)
