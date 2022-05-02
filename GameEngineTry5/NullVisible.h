@@ -8,6 +8,11 @@ namespace EngineName
     }
     namespace Object
     {
+        /*
+        * Nullvisible class
+        * is only a placeholder that signals that there is no visible here
+        * always has ID 0
+        */
         class NullVisible :
             public Visible
         {
