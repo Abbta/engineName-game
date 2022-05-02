@@ -9,7 +9,6 @@ namespace EngineName{
         private:
             std::list<std::unique_ptr<TextRectangle>> mparr_allTextRectangles;
         public:
-            TextRectangleConstructor(Base::ObjectContainer& world) : ObjectConstructor(world) {}
             TextRectangleConstructor(Base::ObjectContainer* world) : ObjectConstructor(world) {}
 
             TextRectangle& build(const TextRectangle& textRectangle);

@@ -23,7 +23,6 @@ namespace EngineName
         private:
             std::list<std::unique_ptr<Rectangle>> mparr_allRectangles; //stores all dev constructed rectangles
         public:
-            RectangleConstructor(Base::ObjectContainer &world): ObjectConstructor(world) {}
             RectangleConstructor(Base::ObjectContainer* world): ObjectConstructor(world) {}
 
             Rectangle& build(const Rectangle &rectangle);

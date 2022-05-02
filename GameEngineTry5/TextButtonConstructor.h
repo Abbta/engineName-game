@@ -11,7 +11,6 @@ namespace EngineName
         private:
             std::list<std::unique_ptr<TextButton>> mparr_allTextButtons;
         public:
-            TextButtonConstructor(Base::ObjectContainer& world) : ObjectConstructor(world) {}
             TextButtonConstructor(Base::ObjectContainer* world) : ObjectConstructor(world) {}
 
             TextButton& build(const TextButton& textButton);

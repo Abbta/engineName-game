@@ -18,10 +18,11 @@ namespace EngineName
 		private:
 			Base::ObjectContainer& mp_world;
 		protected:
-			void mf_registerNewVisible(Visible& visible);
+			//signals that a new unique visible is to be constructed
 			void mf_makeRoomForNewVisible();
+			//adds visible to list of all visibles
+			void mf_registerNewVisible(Visible& visible);
 		public:
-			ObjectConstructor(Base::ObjectContainer &world): mp_world(world) {}
 			ObjectConstructor(Base::ObjectContainer* world) : mp_world(*world) {}
 		};
 	}

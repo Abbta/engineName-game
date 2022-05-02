@@ -15,7 +15,6 @@
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="NullVisible.cpp" />
-    <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectConstructor.cpp" />
     <ClCompile Include="ObjectContainer.cpp" />
     <ClCompile Include="ObjectContainerAccess.cpp" />

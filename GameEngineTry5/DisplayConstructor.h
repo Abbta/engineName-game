@@ -24,8 +24,7 @@ namespace EngineName
             //Note that the displays are parents to displayImpl templates
             std::list<std::unique_ptr<Display>> mparr_allDisplays;
         public:
-            DisplayConstructor(Base::ObjectContainer& world) : ObjectConstructor(world) {};
-            DisplayConstructor(Base::ObjectContainer* world) : ObjectConstructor(*world) {};
+            DisplayConstructor(Base::ObjectContainer* world) : ObjectConstructor(world) {};
 
             //note that build is templated
             template<class t_CountType> Display& build(const DisplayImpl<t_CountType>& display)

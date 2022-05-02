@@ -21,7 +21,7 @@ namespace EngineName
             std::list<std::unique_ptr<Button>> mparr_allButtons;
         public:
             //button constructor is constructed in world which sends this as param
-            ButtonConstructor(Base::ObjectContainer* world) : ObjectConstructor(*world) {};
+            ButtonConstructor(Base::ObjectContainer* world) : ObjectConstructor(world) {};
 
             Button& build(const Button& button);
         };
