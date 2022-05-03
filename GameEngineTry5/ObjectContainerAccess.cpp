@@ -44,12 +44,16 @@ namespace EngineName
 			return getPainter(world).mf_getActiveScene();
 		}
 
-		Time::Task* ObjectContainerAccess::mpf_scheduleImpl(ObjectContainer& world, Time::Task* dynamicallyAllocatedTask, const int ms)
+
+		Time::Task* ObjectContainerAccess::mpf_scheduleImpl(ObjectContainer& world, Time::Task* dynamicallyAllocatedTask, const td_scheduleTime ms)
 		{
+			//make taskcontainer take control of memory of dynamically allocated task
 			auto taskRef = getTaskContainer(world).mpf_addAlreadyAllocated(dynamicallyAllocatedTask);
 
+			//add time to task
 			taskRef->addTimeLeftInQueue(std::chrono::milliseconds(ms));
 
+			//add task to queue
 			getQueue(world).mpf_addToQueue(*taskRef);
 
 			return taskRef;

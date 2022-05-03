@@ -1,6 +1,7 @@
 //#include as sparsely as possible here
 #pragma once
 #include "BaseIncludeLibraries.h"
+#include "Typedefs.h"
 namespace EngineName
 {
 	namespace Drawing
@@ -36,7 +37,7 @@ namespace EngineName
 		* Used for accessing objects within ObjectContainer
 		* Stores no classes itself in order to not require any #includes
 			for a safer #include of this file compared to that of ObjectContainer.
-			Issues related to this most often occur with the use of template classes.
+				Issues related to this most often occur with the use of template classes.
 		* Also reduces the amount of needed friends for ObjectContainer 
 		*/
 		struct ObjectContainerAccess
@@ -58,18 +59,20 @@ namespace EngineName
 			static Width&							 getWidth(ObjectContainer& world);
 			static Height&							 getHeight(ObjectContainer& world);
 			static Object::CounterConstructor&		 getCounter(ObjectContainer& world);
-			static const Object::VisibleGroup*   	 getActiveScene(ObjectContainer& world);
+			static const Object::VisibleGroup*   	 getActiveScene(ObjectContainer& world); //Note: does not actually get active scene, rather the visibles of active scene
 
 			//Functions
 			static void								 drawVisible(ObjectContainer& world, const Object::Visible& visible);
+			//schedule is divided into a template and an implemented part to avoid #include of objectcontainer
 			template<class T>
-			static T& schedule(ObjectContainer& world, const T& task, const int ms = 0)
+			static T& schedule(ObjectContainer& world, const T& task, const td_scheduleTime ms = 0)
 			{
 				//try catch in order to properly delete task in case of error
 				T* taskMemoryPtr = new T(task);
 				try
 				{
 					mpf_scheduleImpl(world, taskMemoryPtr, ms);
+						//puts task in a unique_ptr
 					return *taskMemoryPtr;
 				}
 				//TODO: add specific catch
@@ -81,7 +84,8 @@ namespace EngineName
 			}
 
 		private:
-			static Time::Task* mpf_scheduleImpl(ObjectContainer& world, Time::Task* dynamicallyAllocatedTask, const int ms = 0);
+			//takes control of dynamically allocated task and schedules it
+			static Time::Task* mpf_scheduleImpl(ObjectContainer& world, Time::Task* dynamicallyAllocatedTask, const td_scheduleTime ms = 0);
 		};
 	}
 }
