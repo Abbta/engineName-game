@@ -37,13 +37,13 @@ namespace EngineName
 		class ObjectContainer
 		{
 		private:
-			//these should only be interacted with by winapi or other world objects or access classes
-			std::unique_ptr<MainWindow> mpptr_window; //will probably be large and is therefore dynamically allocated
-
+			std::unique_ptr<MainWindow> mpptr_window;
 			std::vector<Object::Visible*> mparr_allVisibles;
-
 			Time::Queue mpc_theQueue;
 			Action::ActionListener mp_actionListener;
+			//background color class
+				//a class local to objectcontainer
+					//that represents the background color of all windows
 			class BackgroundColor
 			{
 			private:
@@ -56,19 +56,15 @@ namespace EngineName
 			};
 		public:
 			ObjectContainer();
-			int size(); //returns the amount of user added objects
+			int size() const; //returns the amount of user added objects
 
-			//TODO:
-				//store all Visibles on screen in an array
-				//make base class for objects
-				//add visible objects, squares circle
-				//add threads
-
-			//public functions
+			//public functions-----
+			//draws a visible
 			bool drawVisible(const Object::Visible& visible) const;
 			
+			//schedules a task
 			template<class T>
-			T& schedule(const T& task, const int ms = 0)
+			T& schedule(const T& task, const td_scheduleTime ms = 0)
 			{
 				//assumes task is derived from class task
 				//construct and store a new task
@@ -82,12 +78,14 @@ namespace EngineName
 				return taskRef;
 			}
 
+			//sets a scene to be the one displayed
 			void setActiveScene(Object::Scene& scene);
 
-			//constructor classes
-			Object::RectangleConstructor		  rectangle;     //is fairly simple and is not currently considered to need dynamic allocation
-			Object::CircleConstructor			  circle;		   //--||--
-			Object::TextRectangleConstructor	  textRectangle; //--||--
+
+			//constructor classes, also contains all objects-----
+			Object::RectangleConstructor		  rectangle;
+			Object::CircleConstructor			  circle;
+			Object::TextRectangleConstructor	  textRectangle;
 			Object::ButtonConstructor			  button;
 			Object::TextButtonConstructor		  textButton;
 			Object::ActivatableTButtonConstructor activatableTextButton;
@@ -96,15 +94,20 @@ namespace EngineName
 			Object::CounterConstructor			  counter;
 			Object::DisplayConstructor			  display;
 
-			//access classes
-			WindowAccess window;					//is fairly simple
+
+			//access classes-----
+			WindowAccess window;
 			BackgroundColor backgroundColor;
 			Width width;
 			Height height;
 
-			//static members
+
+			//static members------
+			//a nullvisible that is stored, instead of having a nullvisible constructor since only one is needed
 			Object::NullVisible nullVisible;
 
+
+			//friends-----
 			//winapi functions that can access private world objects
 			friend int WINAPI::wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow);
 
@@ -118,7 +121,8 @@ namespace EngineName
 			//friends who are accessor classes
 			friend struct ObjectContainerAccess;
 
-			//TEMPORARY:
+
+			//TEMPORARY:--------
 			Object::Vector mtemporary_origin;
 		};
 	}
