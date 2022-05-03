@@ -13,6 +13,7 @@ namespace EngineName
 
 		void Move::mpf_perform(Base::ObjectContainer& world)
 		{
+			//.translate() will change all coordinates by the vector
 			mpc_visible.translate(mpv_direction);
 			mpc_visible.draw();
 		}
@@ -25,6 +26,7 @@ namespace EngineName
 
 		void ChangeActiveScene::mpf_perform(Base::ObjectContainer& world)
 		{
+			//world is responsible for changing scene
 			world.setActiveScene(mpc_newScene);
 		}
 
@@ -36,6 +38,7 @@ namespace EngineName
 
 		void ToggleATButton::mpf_perform(Base::ObjectContainer& world)
 		{
+			//.toggleActive sets the button to active if it is inactive and vice versa
 			mpc_aTButton.toggleActive();
 			Base::ObjectContainerAccess::drawVisible(world, mpc_aTButton);
 		}

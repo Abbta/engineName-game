@@ -9,6 +9,10 @@ namespace EngineName
 {
 	namespace Time
 	{
+		/*
+		* Move task
+		* translates all points of a visible in accordance to a vector
+		*/
 		class Move : public Task
 		{
 		private:
@@ -21,6 +25,11 @@ namespace EngineName
 			friend class TaskContainer;
 		};
 
+		/*
+		* Change active scene task
+		* makes a scene being considered active by painter
+		*	meaning only its memebers will be displayed on screen
+		*/
 		class ChangeActiveScene : public Task
 		{
 		private:
@@ -32,6 +41,12 @@ namespace EngineName
 			friend class TaskContainer;
 		};
 
+		/*
+		* Toggle activatable text button task
+		* toggles a aTButton from either being 
+		*	active to inactive or vice versa
+		*		inactive meaning unclickable
+		*/
 		class ToggleATButton : public Task
 		{
 		private:
