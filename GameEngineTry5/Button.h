@@ -40,7 +40,7 @@ namespace EngineName
                 mpc_actionRef(
                     //add a clicklistener in world with params and keep a ref to it
                     Base::ObjectContainerAccess::getActionListener(*mptr_world).addClickListener(
-                        Action::OnClick(mptr_world, onClickTask, this)))
+                        Action::OnClick(*mptr_world, onClickTask, this)))
             {}
 
             //Changes task performed when OnClick triggers
