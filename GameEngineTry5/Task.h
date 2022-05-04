@@ -32,6 +32,7 @@ namespace EngineName
 			//the actual task
 			virtual void mpf_perform(Base::ObjectContainer& world) = 0;
 			void Destroy();
+			void mpf_destroyIndestructible();
 		protected:
 			bool mp_isDestructable;
 		public:

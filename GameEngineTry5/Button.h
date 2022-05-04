@@ -41,18 +41,13 @@ namespace EngineName
                     //add a clicklistener in world with params and keep a ref to it
                     Base::ObjectContainerAccess::getActionListener(*mptr_world).addClickListener(
                         Action::OnClick(mptr_world, onClickTask, this)))
-            {
-                //as button reuses task, it should not be destroyed after perform
-                mpc_actionRef.mpptr_task->makeIndestructable();
-            }
+            {}
 
             //Changes task performed when OnClick triggers
             template<class t_TaskType>
             void changeOnClickTask(const t_TaskType& newTask)
             {
                 mpc_actionRef.mpf_changeTask(newTask);
-                //as button reuses task, it should not be destroyed
-                mpc_actionRef.mpptr_task->makeIndestructable();
             }
 
             //TODO: handle destruction, also destructing OnClick

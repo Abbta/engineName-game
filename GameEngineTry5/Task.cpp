@@ -14,5 +14,11 @@ namespace EngineName
 			if(mp_isDestructable)
 				mptr_storageRef->erase(mpit_storageItRef);
 		}
+
+		void Task::mpf_destroyIndestructible()
+		{
+			mp_isDestructable = true;
+			Destroy();
+		}
 	}
 }
