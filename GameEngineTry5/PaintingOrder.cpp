@@ -6,8 +6,14 @@ namespace EngineName
 {
 	namespace Object
 	{
-		PaintingOrder::PaintingOrder(Base::ObjectContainer& world) : mptr_allVisible(&world.mparr_allVisibles) { mp_paintingOrder = static_cast<unsigned int>(mptr_allVisible->size() - 1); }
+		//assumes last element in all visibles is where the owner of this painting order is to be placed
+			//assigns painting order accordingly
+		PaintingOrder::PaintingOrder(Base::ObjectContainer& world) : mptr_allVisible(&world.mparr_allVisibles) { mp_paintingOrder = mptr_allVisible->size() - 1; }
 
+		//commented solution uses swapping ID with someone else instead of changing everyones ID
+			//however it has not been decided if this is a practical solution
+			//for now it is commented and Paintingorder does not support changing ID
+		/*
 		PaintingOrder& PaintingOrder::operator=(const unsigned int newPaintingOrder)
 		{
 			//because of unsigned we don't need to worry about below array range
@@ -30,5 +36,6 @@ namespace EngineName
 			}
 			return *this;
 		}
+		*/
 	}
 }

@@ -21,17 +21,21 @@ namespace EngineName
 		class PaintingOrder
 		{
 		private:
-			unsigned int mp_paintingOrder; //is unsigned as it should correspond to an index of an array
+			td_ID mp_paintingOrder;
 			std::vector<Visible*>* mptr_allVisible; 
 				//a ref to all other objects with this class, as to be able to change them when dev assigns new paintingorder
 				//also works as a tracker for next paintingorder to assign to newly constructed objects
 		public:
 			PaintingOrder(Base::ObjectContainer& world);
 
-			operator const int() const { return mp_paintingOrder; }
+			operator const td_ID() const { return mp_paintingOrder; }
+			/*
+			* TODO: add a reliable system for changing a visble's paintingorder
+			* note that this needs to resort Painter::paintedObjects and allVisibles in ObjectContainer, may need to resort other
+			* also needs to repaint the object that had its ID changed
 			PaintingOrder& operator=(const unsigned int newPaintingOrder); //Swaps paintingorder value with another paintingorder
 			PaintingOrder& operator+=(const unsigned int addToPaintingOrder) { return *this = (*this + addToPaintingOrder); }
-			PaintingOrder& operator++() { *this += 1;  }
+			PaintingOrder& operator++() { *this += 1;  }*/
 
 			friend class ActivatableTButton;
 		};
