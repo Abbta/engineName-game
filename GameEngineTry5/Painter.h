@@ -21,14 +21,13 @@ namespace EngineName
 	{
 		/*
 		* painter class
-		* is friend of objectcontainer class
 		* class for handling all graphic output
 		* contains brushes and factories
 		* contains the rendertarget which handles winapi painting
 		*	but the objects paints themselves with own functions
 		* contains a vector (possibly a map) with all visible objects on screen
 		*	as they were when last painted
-		* conatians a function which takes an array of visibles and gives back an array of the visibles that needs to be redrawn
+		* contains a function which takes an array of visibles and gives back an array of the visibles that needs to be redrawn
 		*
 		* Drawing from object:
 		*	During the latest loop, one or more visibles has calld their own .paint() which stores a ref to them in a vector member inside Painter.
@@ -52,13 +51,13 @@ namespace EngineName
 			Object::Color mp_backgroundColor;
 
 			std::vector<std::unique_ptr<Object::Visible>> mparr_paintedObjects; //All visibles as they were when last painted
-			std::vector<std::unique_ptr<Object::Visible>> mparr_objectsThatHasCalledDraw; //Visibles that wants to be drawn as they were
+			std::vector<std::unique_ptr<Object::Visible>> mparr_objectsThatHasCalledDraw; //Visibles that wants to be drawn, as they were
 			std::vector<Object::Visible*> mpf_getAffectedObjects(
 				const std::vector<std::unique_ptr<Object::Visible>>& paintObjects,
 				const std::vector<std::unique_ptr<Object::Visible>>& allObjects
-			) const; //returns all visibles that overlaps visivles in paintObjects
+			) const; //returns all visibles that overlaps visibles in paintObjects
 			void mpf_addToDrawnObjects(const Object::Visible& visible); //add an object to paintedObjects
-			bool mpf_modifyOverlaps(Object::Visible& object, std::vector<Object::Visible*>& returnVector, std::vector<Object::Visible>& allVector) const; //used for determining which visibles to draw
+			bool mpf_modifyOverlaps(Object::Visible& object, std::vector<Object::Visible*>& returnVector, std::vector<Object::Visible*>& allVector) const; //used for determining which visibles to draw
 
 			Object::VisibleGroup* mptr_activeObjects; //ptr to visibleGroup that is to be shown on screen, null means all visibles are active
 			Base::ObjectContainer& mp_world; //ref to world
@@ -69,23 +68,16 @@ namespace EngineName
 				mpptr_writeFactory(nullptr), mpptr_fonts(std::make_unique<TextFormatContainer>(TextFormatContainer())),
 				mp_backgroundColor(Object::c_defaultBackgroundColor), mptr_activeObjects(nullptr)
 			{}
-			/*
-			Painter(Painter& p): 
-				mp_world(p.mp_world), mpptr_renderTarget(p.mpptr_renderTarget), mpptr_factory(p.mpptr_factory),
-				mpptr_backgroundBrush(p.mpptr_backgroundBrush), mpptr_brushes(std::make_unique<Drawing::BrushContainer>(*(p.mpptr_brushes))) {}
 
-			Painter(Painter* p):
-				mp_world(p->mp_world), mpptr_renderTarget(p->mpptr_renderTarget), mpptr_factory(p->mpptr_factory),
-				mpptr_backgroundBrush(p->mpptr_backgroundBrush), mpptr_brushes(std::make_unique<Drawing::BrushContainer>(*(p->mpptr_brushes))) {}*/
 
 			void mf_refresh(); //Paints everything that has reqested painting
-			void mf_createGraphicsResources() { mpf_createGraphicsResources(); } //public accessor to creatGr
+			void mf_createGraphicsResources() { mpf_createGraphicsResources(); } //public accessor to creat graphics resources
 			void mf_drawAll(); //Makes all visibles request painting (used first time window is opened for example)
-			void mf_addToObjectsThatHasCalledDraw(const Object::Visible& visible); //used for requesting paint
+			void mf_addToObjectsThatHasCalledDraw(const Object::Visible& visible); //used for requesting paint for a visible
 			void mf_clearWindow(); //clears all visibles
-			void mf_changeBackgroundColor(const Object::Color& color);
-			void mf_changeActiveScene(Object::VisibleGroup& visibleGroup);
-			const Object::VisibleGroup* mf_getActiveScene() const;
+			void mf_changeBackgroundColor(const Object::Color& color); //changes background color
+			void mf_changeActiveScene(Object::VisibleGroup& visibleGroup); //change what visibles painter considers to be active
+			const Object::VisibleGroup* mf_getActiveScene() const; //gets what objects painter considers to be active
 
 			friend class Object::TextRectangle;
 		};
