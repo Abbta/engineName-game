@@ -184,9 +184,6 @@
     <ClCompile Include="MainWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ObjectConstructor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -230,9 +227,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ObjectTasks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DevDefinedTasks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TextFormatContainer.cpp">
