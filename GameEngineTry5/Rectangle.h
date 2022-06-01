@@ -14,23 +14,25 @@ namespace EngineName
             public Visible
         {
         protected:
+            //draws itself if within a drawing context
             virtual void mpf_drawSelf(CComPtr<ID2D1HwndRenderTarget>& renderTarget, Drawing::BrushContainer& brushes) const override;
         public:
             //public members with short names for easier dev access
             Rectangle(const Rectangle& r):
                 Visible(*r.mptr_world, r.boxPosition, r.boxWidth, r.boxHeight, r.color), borderWidth(r.borderWidth), borderColor(r.borderColor) {}
             Rectangle(Base::ObjectContainer& world, 
-                const Vector& position = Vector(0, 0), const int width = 0, const int height = 0, const Color& color = Color("000000"),
-                const unsigned int borderWidth = 0, const Color& borderColor = Color("00000000"))
+                const Vector& position = Vector(0, 0), const td_width width = 0, const td_height height = 0, const Color& color = Color("000000"),
+                const td_width borderWidth = 0, const Color& borderColor = Color("00000000"))
                 :Visible(world, position, width, height, color), borderWidth(borderWidth), borderColor(borderColor) {}
             Rectangle(Base::ObjectContainer& world,
                 const Vector& position = Vector(0, 0), const double width = 0.0, const double height = 0.0, const Color& color = Color("000000"),
-                const unsigned int borderWidth = 0, const Color& borderColor = Color("00000000"))
-                :Visible(world, position, static_cast<int>(width), static_cast<int>(height), color), borderWidth(borderWidth), borderColor(borderColor) {}
-
+                const td_width borderWidth = 0, const Color& borderColor = Color("00000000"))
+                :Visible(world, position, static_cast<td_width>(width), static_cast<td_height>(height), color), borderWidth(borderWidth), borderColor(borderColor) {}
+                
+            //requests drawing of itself
             void draw() const override;
 
-            unsigned int borderWidth;
+            td_width borderWidth;
             Color borderColor;
         };
     }
