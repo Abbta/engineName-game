@@ -8,6 +8,7 @@ namespace EngineName
 		/*
 		* TextButton class
 		* A button with a textrectangle instead of a normal rectangle
+		* This causes a diamond inheritance that is solved via virtual inheritance
 		*/
 		class TextButton
 			: public Button, public TextRectangle

@@ -6,12 +6,19 @@ namespace EngineName
 {
     namespace Object
     {
+        /*
+        * TextRectangle class
+        * a rectangle with text inside of it
+        * inherits rectangle virtually to 
+        */
         class TextRectangle :
             virtual public Rectangle
         {
         private:
+            //performs drawing of itself if within a drawing context
             virtual void mpf_drawSelf(CComPtr<ID2D1HwndRenderTarget>& renderTarget, Drawing::BrushContainer& brushes) const override;
         protected:
+            //variables associated to the text
             std::wstring     mp_text;
             Drawing::Font    mp_font;
             Color            mp_textColor;
