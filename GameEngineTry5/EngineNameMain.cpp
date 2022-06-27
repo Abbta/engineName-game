@@ -103,7 +103,6 @@ int engineNameMain(Base::ObjectContainer &world)
 
 	//set active scene
 	world.setActiveScene(*mainMenuScene);
-	Object::Complex::Bezier()
 	//------------------------------------------------------
 	return world.size();
 }

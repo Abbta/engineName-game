@@ -34,8 +34,6 @@ namespace EngineName
 
 			//perform performs the task, child defines this function
 			virtual void mpf_perform(Base::ObjectContainer& world) = 0;
-			//destroy calls when task has been performed, named for aestethic purposes
-			void Destroy();
 			//tasks that are connected to for example buttons are set to be indestructible, sometimes (for example when
 				//said button is destroyed) these need to be destroyed anyway
 			void mpf_destroyIndestructible();
@@ -52,6 +50,9 @@ namespace EngineName
 
 			//get time left
 			std::chrono::system_clock::duration timeLeft() const { return mp_msLeftInQueue; }
+
+			//destroys task 
+			void Destroy();
 
 			friend class Queue;
 			friend class EngineName::Action::OnActionBase;
