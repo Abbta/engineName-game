@@ -32,7 +32,6 @@
     <ClCompile Include="SceneConstructor.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Task.cpp" />
-    <ClCompile Include="TextButton.cpp" />
     <ClCompile Include="TextButtonConstructor.cpp" />
     <ClCompile Include="TextFormatContainer.cpp" />
     <ClCompile Include="TextRectangle.cpp" />
