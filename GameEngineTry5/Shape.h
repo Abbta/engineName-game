@@ -48,6 +48,7 @@ namespace EngineName
                 public Visible
             {
             private:
+                //TODO: method for drawing itself
                 std::vector<Bezier> mparr_outerLines;
             public:
                 Shape(Base::ObjectContainer& world, Color& color, std::vector<Bezier>& outerLines);

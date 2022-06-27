@@ -24,10 +24,6 @@ namespace EngineName
                 const Vector& position = Vector(0, 0), const td_width width = 0, const td_height height = 0, const Color& color = Color("000000"),
                 const td_width borderWidth = 0, const Color& borderColor = Color("00000000"))
                 :Visible(world, position, width, height, color), borderWidth(borderWidth), borderColor(borderColor) {}
-            Rectangle(Base::ObjectContainer& world,
-                const Vector& position = Vector(0, 0), const double width = 0.0, const double height = 0.0, const Color& color = Color("000000"),
-                const td_width borderWidth = 0, const Color& borderColor = Color("00000000"))
-                :Visible(world, position, static_cast<td_width>(width), static_cast<td_height>(height), color), borderWidth(borderWidth), borderColor(borderColor) {}
                 
             //requests drawing of itself
             void draw() const override;
