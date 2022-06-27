@@ -11,6 +11,7 @@
 #include "Button.h"
 #include "Scene.h"
 #include "Counter.h"
+#include "Shape.h"
 using namespace EngineName;
 
 /*
@@ -102,6 +103,7 @@ int engineNameMain(Base::ObjectContainer &world)
 
 	//set active scene
 	world.setActiveScene(*mainMenuScene);
+	Object::Complex::Bezier()
 	//------------------------------------------------------
 	return world.size();
 }
