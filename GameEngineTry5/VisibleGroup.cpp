@@ -9,9 +9,11 @@ namespace EngineName
 			return *mparr_visiblePointers.back();
 		}
 
+		//get a visible from group via its id, lastindex param is used for optimization
 		Visible& VisibleGroup::getFromID(const PaintingOrder& id, int& lastIndex)
 		{
 			//as the vector is sorted but with gaps, lastIndex parameter is used as optimization when iterating this function over several IDs
+			//start with iterating from this indicator of where it is to be found
 			for (int i(lastIndex); i < mparr_visiblePointers.size(); i++)
 			{
 				if (mparr_visiblePointers.at(i)->layerID == id)
@@ -37,6 +39,7 @@ namespace EngineName
 			throw Exceptions::BasicException("No visible with the given ID was found in group\n");
 		}
 
+		//get if given visible is a part of group
 		const bool VisibleGroup::contains(const Visible& visible) const
 		{
 			for (auto& element : mparr_visiblePointers)
