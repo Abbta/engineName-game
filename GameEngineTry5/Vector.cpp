@@ -34,14 +34,14 @@ namespace EngineName
 			return (this->x == vector.x) && (this->y == vector.y);
 		}
 
-		Vector::operator double() const
+		Vector::operator td_radius() const
 		{
 			return sqrt(pow(x, 2) + pow(y, 2));
 		}
 
 		bool Vector::operator<(const Vector& vector) const
 		{
-			return static_cast<double>(*this) < static_cast<double>(vector);
+			return static_cast<td_radius>(*this) < static_cast<td_radius>(vector);
 		}
 	}
 }
