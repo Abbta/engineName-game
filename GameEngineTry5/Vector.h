@@ -4,6 +4,10 @@
 #define Point Vector //the same class can be used to represent a point and a vector
 namespace EngineName
 {
+	namespace Base
+	{
+		class ObjectContainer;
+	}
 	namespace Object
 	{
 		/*
@@ -45,8 +49,9 @@ namespace EngineName
 			//compare the magnitude of two vectors
 			bool operator<(const Vector& vector) const;
 			bool operator>=(const Vector& vector) const { return !(*this < vector); }
+
 			//get if position is on the screen
-			operator bool() const;
+			bool isOnScreen(Base::ObjectContainer& world) const;
 
 		};
 	}

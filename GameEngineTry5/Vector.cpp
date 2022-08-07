@@ -1,13 +1,19 @@
 #include "Vector.h"
 #include <math.h>
+#include "ObjectContainerAccess.h"
+#include "WidthAndHeight.h"
+
+//shorthands for width of world
+#define world_width Base::ObjectContainerAccess::getWidth(world)
+#define world_height Base::ObjectContainerAccess::getHeight(world)
 namespace EngineName
 {
 	namespace Object
 	{
-		Vector::operator bool() const
+		bool Vector::isOnScreen(Base::ObjectContainer& world) const
 		{
 			//TODO: make function check if coordinates is within the screen
-			return x > 0 && y > 0 && x < 1000 && y < 1000;
+			return x > 0 && y > 0 && x < world_width && y < world_height;
 		}
 
 		Vector Vector::operator+(const Vector& vector) const
