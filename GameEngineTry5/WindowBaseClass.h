@@ -10,7 +10,7 @@ namespace EngineName
 		/*
 		* windowbaseclass class
 		* used for clearer access to winapi window function
-		* this was copied from a official guide on microsofts own page and should not be edited, it will therefore not be commented and will be assumed to work as intended by the creator of it
+		* this was copied from a official guide on microsoft's own page and should not be edited, it will therefore not be commented and will be assumed to work as intended by the creator of it
 		*/
 		template <class DERIVED_TYPE>
 		class WindowBaseClass

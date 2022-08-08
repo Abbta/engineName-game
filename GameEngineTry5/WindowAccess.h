@@ -53,6 +53,10 @@ namespace EngineName
 				std::wstring& operator=(std::wstring newTitle);
 			};
 
+			/*
+			* Creationwidth class
+			* Represents what width in pixels the mainwindow will have when created
+			*/
 			class CreationWidth
 			{
 			private:
@@ -64,6 +68,10 @@ namespace EngineName
 				const int operator=(const int newWidth);
 			};
 
+			/*
+			* Creation height class
+			* Represents what height in pixels the mainwindow will have when created
+			*/
 			class CreationHeight
 			{
 			private:
